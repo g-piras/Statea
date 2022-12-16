@@ -25,13 +25,10 @@ const Navbar = () => {
                             <li className='ml-10 text-sm uppercase hover:border-b'>Home</li>
                         </Link>
                         <Link href='/'>
-                            <li className='ml-10 text-sm uppercase hover:border-b'>Stats per provincia</li>
+                            <li className='ml-10 text-sm uppercase hover:border-b'>Statistiche</li>
                         </Link>
                         <Link href='/'>
-                            <li className='ml-10 text-sm uppercase hover:border-b'>Stats per anno</li>
-                        </Link>
-                        <Link href='/'>
-                            <li className='ml-10 text-sm uppercase hover:border-b'>Stats per nazionalità</li>
+                            <li className='ml-10 text-sm uppercase hover:border-b'>Previsioni</li>
                         </Link>
                     </ul>
                     <div onClick={handleNav} className='md:hidden'>
@@ -60,13 +57,10 @@ const Navbar = () => {
                                 <li className='py-4 text-sm '>Home</li>
                             </Link>
                             <Link href='/'>
-                                <li className='py-4 text-sm '>Stats per provincia</li>
+                                <li className='py-4 text-sm '>Statistiche</li>
                             </Link>
                             <Link href='/'>
-                                <li className='py-4 text-sm '>Stats per anno</li>
-                            </Link>
-                            <Link href='/'>
-                                <li className='py-4 text-sm '>Stats per nazionalità</li>
+                                <li className='py-4 text-sm '>Previsioni</li>
                             </Link>
                         </ul>
                         <div className='pt-40'>

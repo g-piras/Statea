@@ -18,7 +18,7 @@ const Navbar = () => {
     return (
         <div className='fixed w-full h-20 shadow-xl z-[100]'>
             <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
-                <Image src="/../public/assets/statea-logo.png" alt="/" width='80' height='80' />
+                <Image src="/../public/assets/touristats-logo.png" alt="/" width='70' height='70' />
                 <div>
                     <ul className='hidden md:flex'>
                         <Link href='/'>
@@ -42,7 +42,7 @@ const Navbar = () => {
                     'fixed left-[-100%] top-0  p-10 ease-in duration-500'}>
                     <div>
                         <div className='flex w-full items-center justify-between'>
-                            <Image src="/../public/assets/statea-logo.png" alt="/" width='70' height='70' />
+                            <Image src="/../public/assets/touristats-logo.png" alt="/" width='70' height='70' />
                             <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer'>
                                 <AiOutlineClose />
                             </div>

@@ -1,7 +1,19 @@
 import Link from "next/link";
 import React from "react";
+import BarChart from "./BarChart";
+import { faker } from "@faker-js/faker";
 
 const Main = () => {
+  const labels = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+  ];
+
   return (
     <div className="w-full h-full flex justify-center pt-20">
       <div className="text-center">
@@ -23,12 +35,40 @@ const Main = () => {
         </p>
         <div className="text-center text-gray-700">
           <h2 className="my-10">Statistiche anno corrente</h2>
-          <p className="mb-10">GRAFICO</p>
-          <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+          <div className="w-3/4 mt-16 mb-12 mx-auto">
+            <BarChart
+              data={{
+                labels: labels,
+                datasets: [
+                  {
+                    data: labels.map(() =>
+                      faker.datatype.number({ min: 20000, max: 100000 })
+                    ),
+                    backgroundColor: "#284697",
+                  },
+                ],
+              }}
+            />
+          </div>
+          <button className="mb-16 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
             <Link href="./">Vai a Statistiche</Link>
           </button>
           <h2 className="mb-10">Previsioni anno successivo</h2>
-          <p className="mb-10">GRAFICO</p>
+          <div className="w-3/4 mt-16 mb-12 mx-auto">
+            <BarChart
+              data={{
+                labels: labels,
+                datasets: [
+                  {
+                    data: labels.map(() =>
+                      faker.datatype.number({ min: 20000, max: 100000 })
+                    ),
+                    backgroundColor: "#00ACC1",
+                  },
+                ],
+              }}
+            />
+          </div>
           <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
             <Link href="./">Vai a Previsioni</Link>
           </button>

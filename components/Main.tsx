@@ -51,7 +51,7 @@ const Main = () => {
             />
           </div>
           <button className="mb-16 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            <Link href="./">Vai a Statistiche</Link>
+            <Link href="/statistiche">Vai a Statistiche</Link>
           </button>
           <h2 className="mb-10">Previsioni anno successivo</h2>
           <div className="w-3/4 mt-16 mb-12 mx-auto">
@@ -70,7 +70,7 @@ const Main = () => {
             />
           </div>
           <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            <Link href="./">Vai a Previsioni</Link>
+            <Link href="/previsioni">Vai a Previsioni</Link>
           </button>
         </div>
       </div>

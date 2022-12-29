@@ -31,7 +31,7 @@ const Main = () => {
           <span className="uppercase font-bold"> Sardegna </span>
           <br />
           Basato su dataset ufficiali Istat, forniamo statistiche e previsioni
-          sui flussi di turisti italiani e stranieri verso le regione
+          sui flussi di turisti italiani e stranieri verso la regione
         </p>
         <div className="text-center text-gray-700">
           <h2 className="my-10">Statistiche anno corrente</h2>

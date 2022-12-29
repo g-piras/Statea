@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
+
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
@@ -13,7 +14,7 @@ const Navbar = () => {
     setNav(!nav);
   };
 
-    
+
   return (
     <div className="fixed w-full h-20 shadow-xl backdrop-filter backdrop-blur-2xl">
       <div className="flex justify-between items-center w-full h-full px-8 2xl:px-12">
@@ -30,12 +31,12 @@ const Navbar = () => {
                 Home
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/statistiche">
               <li className="ml-10 text-sm border-b border-transparent hover:border-black">
                 Statistiche
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/previsioni">
               <li className="ml-10 text-sm border-b border-transparent hover:border-black">
                 Previsioni
               </li>

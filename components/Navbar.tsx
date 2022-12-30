@@ -2,18 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
-const Navbar = () => {
+const Navbar = (props: { page: string }) => {
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
     setNav(!nav);
   };
-
 
   return (
     <div className="fixed w-full h-20 shadow-xl backdrop-filter backdrop-blur-2xl">
@@ -27,17 +25,29 @@ const Navbar = () => {
         <div>
           <ul className="hidden uppercase md:flex">
             <Link href="/">
-              <li className="ml-10 text-sm border-b border-transparent hover:border-black">
+              <li
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
+                  props.page === "home" ? "border-black" : ""
+                }`}
+              >
                 Home
               </li>
             </Link>
             <Link href="/statistiche">
-              <li className="ml-10 text-sm border-b border-transparent hover:border-black">
+              <li
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
+                  props.page === "statistiche" ? "border-black" : ""
+                }`}
+              >
                 Statistiche
               </li>
             </Link>
             <Link href="/previsioni">
-              <li className="ml-10 text-sm border-b border-transparent hover:border-black">
+              <li
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
+                  props.page === "previsioni" ? "border-black" : ""
+                }`}
+              >
                 Previsioni
               </li>
             </Link>
@@ -78,9 +88,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className="border-b border-gray-300 my-4 min-[480px]:w-[80%]">
-              <p className="py-4 font-bold text-xl">
-                TouriStats sections
-              </p>
+              <p className="py-4 font-bold text-xl">TouriStats sections</p>
             </div>
           </div>
           <div className="py-4 flex-col">

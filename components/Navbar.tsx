@@ -51,6 +51,15 @@ const Navbar = (props: { page: string }) => {
                 Previsioni
               </li>
             </Link>
+            <Link href="/about">
+              <li
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
+                  props.page === "about" ? "border-black" : ""
+                }`}
+              >
+                About
+              </li>
+            </Link>
           </ul>
           <div onClick={handleNav} className="md:hidden">
             <AiOutlineMenu size={25} />
@@ -94,13 +103,48 @@ const Navbar = (props: { page: string }) => {
           <div className="py-4 flex-col">
             <ul className="uppercase">
               <Link href="/">
-                <li className="py-4 text-sm ">Home</li>
+                <li className="py-4 text-sm ">
+                  <span
+                    className={`border-b border-transparent hover:border-black ${
+                      props.page === "home" ? "border-black" : ""
+                    }`}
+                  >
+                    Home
+                  </span>
+                </li>
               </Link>
-              <Link href="/">
-                <li className="py-4 text-sm ">Statistiche</li>
+              <Link href="/statistiche">
+                <li className="py-4 text-sm ">
+                  <span
+                    className={`border-b border-transparent hover:border-black ${
+                      props.page === "statistiche" ? "border-black" : ""
+                    }`}
+                  >
+                    Statistiche
+                  </span>
+                </li>
               </Link>
-              <Link href="/">
-                <li className="py-4 text-sm ">Previsioni</li>
+              <Link href="/previsioni">
+                <li className="py-4 text-sm ">
+                  <span
+                    className={`border-b border-transparent hover:border-black ${
+                      props.page === "previsioni" ? "border-black" : ""
+                    }`}
+                  >
+                    Previsioni
+                  </span>
+                </li>
+              </Link>
+              <Link href="/about">
+                <li className="py-4 text-sm ">
+                  <span
+                    className={`border-b border-transparent hover:border-black ${
+                      props.page === "about" ? "border-black" : ""
+                    }`}
+                  >
+                    About
+                  </span>
+                </li>
               </Link>
             </ul>
             <div className="pt-40">

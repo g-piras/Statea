@@ -6,18 +6,18 @@ import Navbar from "../components/Navbar";
 
 export default function Home() {
   const labels = [
-    "Jan",
+    "Gen",
     "Feb",
     "Mar",
     "Apr",
-    "May",
-    "June",
-    "July",
-    "Aug",
-    "Sept",
-    "Oct",
+    "Mag",
+    "Giu",
+    "Lug",
+    "Ago",
+    "Set",
+    "Ott",
     "Nov",
-    "Dec",
+    "Dic",
   ];
 
   return (

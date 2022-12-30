@@ -16,7 +16,7 @@ const Main = () => {
     "Sept",
     "Oct",
     "Nov",
-    "Dec"
+    "Dec",
   ];
 
   return (
@@ -35,7 +35,7 @@ const Main = () => {
           web dedicato all'analisi del flusso turistico in{" "}
           <span className="uppercase font-bold"> Sardegna </span>
           <br />
-          Basato su dataset ufficiali Istat, forniamo statistiche e previsioni
+          Basato su dataset ufficiali ISTAT, forniamo statistiche e previsioni
           sui flussi di turisti italiani e stranieri verso la regione
         </p>
         <div className="text-center text-gray-700">
@@ -57,9 +57,11 @@ const Main = () => {
               />
             </div>
           </div>
-          <button className="mb-16 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            <Link href="/statistiche">Vai a Statistiche</Link>
-          </button>
+          <Link href="/statistiche">
+            <button className="mb-16 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              Vai a Statistiche
+            </button>
+          </Link>
           <h2 className="mb-10">Previsioni anno successivo</h2>
           <div className="w-3/4 mt-16 mb-12 mx-auto">
             <div className="chart">
@@ -78,9 +80,11 @@ const Main = () => {
               />
             </div>
           </div>
-          <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            <Link href="/previsioni">Vai a Previsioni</Link>
-          </button>
+          <Link href="/previsioni">
+            <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              Vai a Previsioni
+            </button>
+          </Link>
         </div>
       </div>
     </div>

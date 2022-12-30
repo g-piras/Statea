@@ -88,10 +88,10 @@ const Navbar = () => {
               <Link href="/">
                 <li className="py-4 text-sm ">Home</li>
               </Link>
-              <Link href="/">
+              <Link href="/statistiche">
                 <li className="py-4 text-sm ">Statistiche</li>
               </Link>
-              <Link href="/">
+              <Link href="/previsioni">
                 <li className="py-4 text-sm ">Previsioni</li>
               </Link>
             </ul>

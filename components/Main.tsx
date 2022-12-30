@@ -36,38 +36,42 @@ const Main = () => {
         <div className="text-center text-gray-700">
           <h2 className="my-10">Statistiche anno corrente</h2>
           <div className="w-3/4 mt-16 mb-12 mx-auto">
-            <BarChart
-              data={{
-                labels: labels,
-                datasets: [
-                  {
-                    data: labels.map(() =>
-                      faker.datatype.number({ min: 20000, max: 100000 })
-                    ),
-                    backgroundColor: "#284697",
-                  },
-                ],
-              }}
-            />
+            <div className="chart">
+              <BarChart
+                data={{
+                  labels: labels,
+                  datasets: [
+                    {
+                      data: labels.map(() =>
+                        faker.datatype.number({ min: 20000, max: 100000 })
+                      ),
+                      backgroundColor: "#284697",
+                    },
+                  ],
+                }}
+              />
+            </div>
           </div>
           <button className="mb-16 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
             <Link href="/statistiche">Vai a Statistiche</Link>
           </button>
           <h2 className="mb-10">Previsioni anno successivo</h2>
           <div className="w-3/4 mt-16 mb-12 mx-auto">
-            <BarChart
-              data={{
-                labels: labels,
-                datasets: [
-                  {
-                    data: labels.map(() =>
-                      faker.datatype.number({ min: 20000, max: 100000 })
-                    ),
-                    backgroundColor: "#00ACC1",
-                  },
-                ],
-              }}
-            />
+            <div className="chart">
+              <BarChart
+                data={{
+                  labels: labels,
+                  datasets: [
+                    {
+                      data: labels.map(() =>
+                        faker.datatype.number({ min: 20000, max: 100000 })
+                      ),
+                      backgroundColor: "#00ACC1",
+                    },
+                  ],
+                }}
+              />
+            </div>
           </div>
           <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
             <Link href="/previsioni">Vai a Previsioni</Link>

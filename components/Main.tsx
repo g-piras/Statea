@@ -5,13 +5,18 @@ import { faker } from "@faker-js/faker";
 
 const Main = () => {
   const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
     "May",
     "June",
     "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec"
   ];
 
   return (

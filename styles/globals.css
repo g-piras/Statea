@@ -27,19 +27,15 @@
   li {
     @apply cursor-pointer;
   }
+}
 
-  .chart {
-    height: 40vh;
-  }
+.chart {
+  height: 40vh;
+}
 
-  .half {
-    background: -webkit-linear-gradient(left, #284697, #00acc1);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* button {
-    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white;
-  } */
+.half {
+  background: -webkit-linear-gradient(left, #284697, #00acc1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

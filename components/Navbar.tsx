@@ -26,36 +26,32 @@ const Navbar = (props: { page: string }) => {
           <ul className="hidden uppercase md:flex">
             <Link href="/">
               <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
-                  props.page === "home" ? "border-black" : ""
-                }`}
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "home" ? "border-black" : ""
+                  }`}
               >
                 Home
               </li>
             </Link>
             <Link href="/statistiche">
               <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
-                  props.page === "statistiche" ? "border-black" : ""
-                }`}
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "statistiche" ? "border-black" : ""
+                  }`}
               >
                 Statistiche
               </li>
             </Link>
             <Link href="/previsioni">
               <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
-                  props.page === "previsioni" ? "border-black" : ""
-                }`}
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "previsioni" ? "border-black" : ""
+                  }`}
               >
                 Previsioni
               </li>
             </Link>
             <Link href="/about">
               <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
-                  props.page === "about" ? "border-black" : ""
-                }`}
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "about" ? "border-black" : ""
+                  }`}
               >
                 About
               </li>
@@ -105,9 +101,8 @@ const Navbar = (props: { page: string }) => {
               <Link href="/">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${
-                      props.page === "home" ? "border-black" : ""
-                    }`}
+                    className={`border-b border-transparent hover:border-black ${props.page === "home" ? "border-black" : ""
+                      }`}
                   >
                     Home
                   </span>
@@ -116,9 +111,8 @@ const Navbar = (props: { page: string }) => {
               <Link href="/statistiche">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${
-                      props.page === "statistiche" ? "border-black" : ""
-                    }`}
+                    className={`border-b border-transparent hover:border-black ${props.page === "statistiche" ? "border-black" : ""
+                      }`}
                   >
                     Statistiche
                   </span>
@@ -127,9 +121,8 @@ const Navbar = (props: { page: string }) => {
               <Link href="/previsioni">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${
-                      props.page === "previsioni" ? "border-black" : ""
-                    }`}
+                    className={`border-b border-transparent hover:border-black ${props.page === "previsioni" ? "border-black" : ""
+                      }`}
                   >
                     Previsioni
                   </span>
@@ -138,9 +131,8 @@ const Navbar = (props: { page: string }) => {
               <Link href="/about">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${
-                      props.page === "about" ? "border-black" : ""
-                    }`}
+                    className={`border-b border-transparent hover:border-black ${props.page === "about" ? "border-black" : ""
+                      }`}
                   >
                     About
                   </span>

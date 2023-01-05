@@ -5,7 +5,7 @@ import Sidebar from '../components/Sidebar';
 
 const statistiche = () => {
 
-    const [side, setSide] = useState(true)
+    const [side, setSide] = useState(false)
 
     const handleSide = () => {
         setSide(!side)

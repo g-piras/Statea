@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
-const Sidebar = (props: { filter: boolean; handleFilter: () => void }) => {
+const Sidebar = (props: { side: boolean; handleSidebar: () => void }) => {
   return (
     <>
       <div
         className={`fixed md:top-20 bg-white w-full h-full md:w-96 ease-in duration-500 ${
-          props.filter ? "top-[40%] overflow-scroll rounded-3xl md:rounded-none md:left-0" : "top-[100%] md:left-[-24rem]"
+          props.side ? "top-[40%] overflow-scroll rounded-3xl md:rounded-none md:left-0" : "top-[100%] md:left-[-24rem]"
         }`}
       >
         <aside>
@@ -14,7 +14,7 @@ const Sidebar = (props: { filter: boolean; handleFilter: () => void }) => {
             <span className="font-bold text-[#284697] text-2xl ">Filtra</span>
             <div
               className=" rounded-full shadow-lg shadow-gray-400 p-[10px] cursor-pointer"
-              onClick={props.handleFilter}
+              onClick={props.handleSidebar}
             >
               <AiOutlineClose />
             </div>

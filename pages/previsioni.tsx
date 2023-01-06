@@ -1,20 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import { toggleSidebar } from "../redux/SidebarSlice";
+import { RootState, store } from "../redux/store";
 
 const previsioni = () => {
-  const [filter, setFilter] = useState(false);
+  const sidebar = useSelector((state: RootState) => state.sidebar.value);
+  const [side, setSide] = useState(sidebar);
 
-  const handleFilter = () => {
-    setFilter(!filter);
+  useEffect(() => {
+    setSide(sidebar);
+  }, [sidebar]);
+
+  const handleSidebar = () => {
+    store.dispatch(toggleSidebar());
   };
 
   return (
     <>
       <Navbar page="previsioni" />
-      <div className="">
-        <Sidebar filter={filter} handleFilter={handleFilter} />
-        <h1 className="uppercase pt-20 text-center ">
+
+      <div>
+        <Sidebar side={side} handleSidebar={handleSidebar} />
+        <h1 className="uppercase text-center pt-32">
           <span className="text-[#284697]">
             Prev
             <span className="half" title="S">
@@ -23,10 +32,10 @@ const previsioni = () => {
           </span>
           <span className="text-[#00ACC1]">ioni</span>
         </h1>
-        <div className="flex justify-center my-5">
+        <div className="text-center my-5">
           <button
-            onClick={handleFilter}
-            className="  uppercase mb-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+            onClick={handleSidebar}
+            className="uppercase mb-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
           >
             filtra
           </button>

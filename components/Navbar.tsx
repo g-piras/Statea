@@ -1,16 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { RootState, store } from "../redux/store";
+import { toggleNavbar } from "../redux/NavbarSlice";
 
 const Navbar = (props: { page: string }) => {
-  const [nav, setNav] = useState(false);
+  const navbar = useSelector((state: RootState) => state.navbar.value);
+  const sidebar = useSelector((state: RootState) => state.sidebar.value);
+  const [nav, setNav] = useState(navbar);
+
+  useEffect(() => {
+    setNav(navbar);
+  }, [navbar]);
 
   const handleNav = () => {
-    setNav(!nav);
+    if (!sidebar) {
+      store.dispatch(toggleNavbar());
+    }
   };
 
   return (

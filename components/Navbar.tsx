@@ -15,54 +15,6 @@ const Navbar = (props: { page: string }) => {
 
   return (
     <div className="fixed w-full h-20 shadow-xl backdrop-filter backdrop-blur-2xl">
-      <div className="flex justify-between items-center w-full h-full px-8 2xl:px-12">
-        <Image
-          src="/../public/assets/touristats-logo.png"
-          alt="/"
-          width="60"
-          height="60"
-        />
-        <div>
-          <ul className="hidden uppercase md:flex">
-            <Link href="/">
-              <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "home" ? "border-black" : ""
-                  }`}
-              >
-                Home
-              </li>
-            </Link>
-            <Link href="/statistiche">
-              <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "statistiche" ? "border-black" : ""
-                  }`}
-              >
-                Statistiche
-              </li>
-            </Link>
-            <Link href="/previsioni">
-              <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "previsioni" ? "border-black" : ""
-                  }`}
-              >
-                Previsioni
-              </li>
-            </Link>
-            <Link href="/about">
-              <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "about" ? "border-black" : ""
-                  }`}
-              >
-                About
-              </li>
-            </Link>
-          </ul>
-          <div onClick={handleNav} className="md:hidden">
-            <AiOutlineMenu size={25} />
-          </div>
-        </div>
-      </div>
-
       <div
         className={
           nav
@@ -71,11 +23,9 @@ const Navbar = (props: { page: string }) => {
         }
       >
         <div
-          className={
-            nav
-              ? "fixed z-50 left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500"
-              : "fixed z-50 left-[-100%] top-0 w-[75%] p-10 ease-in duration-500"
-          }
+          className={`fixed z-50 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 ${
+            nav ? "left-0" : "left-[-100%]"
+          }`}
         >
           <div>
             <div className="flex w-full items-center justify-between">
@@ -101,8 +51,9 @@ const Navbar = (props: { page: string }) => {
               <Link href="/">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${props.page === "home" ? "border-black" : ""
-                      }`}
+                    className={`border-b border-transparent hover:border-black ${
+                      props.page === "home" ? "border-black" : ""
+                    }`}
                   >
                     Home
                   </span>
@@ -111,8 +62,9 @@ const Navbar = (props: { page: string }) => {
               <Link href="/statistiche">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${props.page === "statistiche" ? "border-black" : ""
-                      }`}
+                    className={`border-b border-transparent hover:border-black ${
+                      props.page === "statistiche" ? "border-black" : ""
+                    }`}
                   >
                     Statistiche
                   </span>
@@ -121,8 +73,9 @@ const Navbar = (props: { page: string }) => {
               <Link href="/previsioni">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${props.page === "previsioni" ? "border-black" : ""
-                      }`}
+                    className={`border-b border-transparent hover:border-black ${
+                      props.page === "previsioni" ? "border-black" : ""
+                    }`}
                   >
                     Previsioni
                   </span>
@@ -131,15 +84,16 @@ const Navbar = (props: { page: string }) => {
               <Link href="/about">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${props.page === "about" ? "border-black" : ""
-                      }`}
+                    className={`border-b border-transparent hover:border-black ${
+                      props.page === "about" ? "border-black" : ""
+                    }`}
                   >
                     About
                   </span>
                 </li>
               </Link>
             </ul>
-            <div className="pt-40">
+            <div className="pt-24">
               <p className="uppercase tracking-widest text-[#284697]">
                 Let's Connect
               </p>
@@ -158,6 +112,58 @@ const Navbar = (props: { page: string }) => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-between items-center w-full h-full px-8 2xl:px-12">
+        <Image
+          src="/../public/assets/touristats-logo.png"
+          alt="/"
+          width="60"
+          height="60"
+        />
+        <div>
+          <ul className="hidden uppercase md:flex">
+            <Link href="/">
+              <li
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
+                  props.page === "home" ? "border-black" : ""
+                }`}
+              >
+                Home
+              </li>
+            </Link>
+            <Link href="/statistiche">
+              <li
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
+                  props.page === "statistiche" ? "border-black" : ""
+                }`}
+              >
+                Statistiche
+              </li>
+            </Link>
+            <Link href="/previsioni">
+              <li
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
+                  props.page === "previsioni" ? "border-black" : ""
+                }`}
+              >
+                Previsioni
+              </li>
+            </Link>
+            <Link href="/about">
+              <li
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
+                  props.page === "about" ? "border-black" : ""
+                }`}
+              >
+                About
+              </li>
+            </Link>
+          </ul>
+          <div onClick={handleNav} className="md:hidden">
+            <AiOutlineMenu size={25} />
           </div>
         </div>
       </div>

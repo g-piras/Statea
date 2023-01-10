@@ -8,6 +8,10 @@ import { RootState, store } from "../redux/store";
 const previsioni = () => {
   const sidebar = useSelector((state: RootState) => state.sidebar.value);
   const [side, setSide] = useState(sidebar);
+  const [year, setYear] = useState("2022");
+  // const [period, setPeriod] = useState(["01/2022", "03/2022"]);
+  const [nazionality, setNazionality] = useState("IT");
+  const [province, setProvince] = useState("ITG27");
 
   useEffect(() => {
     setSide(sidebar);
@@ -17,12 +21,22 @@ const previsioni = () => {
     store.dispatch(toggleSidebar());
   };
 
+  const handleSaveFilters = (year: string, nazionality: string, province: string) => {
+    setYear(year);
+    console.log(year);
+    setNazionality(nazionality);
+    console.log(nazionality);
+    setProvince(province);
+    console.log(province);
+    handleSidebar();
+  };
+
   return (
     <>
       <Navbar page="previsioni" />
 
       <div>
-        <Sidebar side={side} handleSidebar={handleSidebar} />
+        <Sidebar side={side} handleSidebar={handleSidebar} handleSaveFilters={handleSaveFilters} />
         <h1 className="uppercase text-center pt-32">
           <span className="text-[#284697]">
             Prev

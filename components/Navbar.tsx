@@ -40,7 +40,7 @@ const Navbar = (props: { page: string }) => {
           <div>
             <div className="flex w-full items-center justify-between">
               <Image
-                src="/assets/statea-logo.png"
+                src="/assets/touristats-logo.png"
                 alt="/"
                 width="70"
                 height="70"

@@ -8,10 +8,10 @@ import { useSelector } from "react-redux";
 import { annualApi, monthlyApi } from "../api";
 
 const statistiche = () => {
-  const [touristsNumber, setTouristsNumber] = useState<string[]>([]);
-  const [years, setYears] = useState<string[]>([]);
   const sidebar = useSelector((state: RootState) => state.sidebar.value);
   const [side, setSide] = useState<boolean>(sidebar);
+  const [touristsNumber, setTouristsNumber] = useState<string[]>([]);
+  const [years, setYears] = useState<string[]>([]);
   const [nazionality, setNazionality] = useState<string>("IT");
   const [province, setProvince] = useState<string>("ITG27");
   const [year, setYear] = useState<undefined | string>(undefined);
@@ -44,20 +44,43 @@ const statistiche = () => {
     secondSelectMonth?: string,
     secondSelectYear?: string
   ) => {
-    setYear(year);
-    console.log(year);
     setNazionality(nazionality);
-    console.log(nazionality);
     setProvince(province);
-    console.log(province);
+    setYear(year);
     setFirstSelectMonth(firstSelectMonth);
-    console.log(firstSelectMonth);
     setFirstSelectYear(firstSelectYear);
-    console.log(firstSelectYear);
     setSecondSelectMonth(secondSelectMonth);
-    console.log(secondSelectMonth);
     setSecondSelectYear(secondSelectYear);
-    console.log(secondSelectYear);
+
+    if (year) {
+      monthlyApi(province, "AR", year + "-01-01", year + "-12-01").then((res) => {
+        setTouristsNumber(res.data);
+        setYears(res.labels);
+      });
+    }
+
+    if (firstSelectMonth && firstSelectYear && secondSelectMonth && secondSelectYear) {
+      const startDate = new Date(Number(firstSelectYear), Number(firstSelectMonth));
+      const endDate = new Date(Number(secondSelectYear), Number(secondSelectMonth));
+      const startStringDate = startDate
+        .toLocaleString("it-IT", { day: "2-digit", month: "2-digit", year: "numeric" })
+        .replace(/\//g, "-")
+        .split("-")
+        .reverse()
+        .join("-");
+      const endStringDate = endDate
+        .toLocaleString("it-IT", { day: "2-digit", month: "2-digit", year: "numeric" })
+        .replace(/\//g, "-")
+        .split("-")
+        .reverse()
+        .join("-");
+
+      monthlyApi(province, "AR", startStringDate, endStringDate).then((res) => {
+        setTouristsNumber(res.data);
+        setYears(res.labels);
+      });
+    }
+
     handleSidebar();
   };
 
@@ -66,11 +89,7 @@ const statistiche = () => {
       <Navbar page="statistiche" />
 
       <div>
-        <Sidebar
-          side={side}
-          handleSidebar={handleSidebar}
-          handleSaveFilters={() => handleSaveFilters}
-        />
+        <Sidebar side={side} handleSidebar={handleSidebar} handleSaveFilters={handleSaveFilters} />
         <h1 className="uppercase text-center pt-32">
           <span className="text-[#284697]">
             Stati

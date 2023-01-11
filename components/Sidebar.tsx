@@ -16,13 +16,13 @@ const Sidebar = (props: {
 }) => {
   const [nazionality, setNazionality] = useState<string>("IT");
   const [province, setProvince] = useState<string>("ITG2");
-  const [year, setYear] = useState<undefined | string>(undefined);
+  const [year, setYear] = useState<undefined | string>("2021");
+  const [firstSelectMonth, setFirstSelectMonth] = useState<undefined | string>("01");
+  const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>("2020");
+  const [secondSelectMonth, setSecondSelectMonth] = useState<undefined | string>("01");
+  const [secondSelectYear, setSecondSelectYear] = useState<undefined | string>("2021");
   const [yearDisabled, setYearDisabled] = useState(false);
   const [periodDisabled, setPeriodDisabled] = useState(true);
-  const [firstSelectMonth, setFirstSelectMonth] = useState<undefined | string>(undefined);
-  const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>(undefined);
-  const [secondSelectMonth, setSecondSelectMonth] = useState<undefined | string>(undefined);
-  const [secondSelectYear, setSecondSelectYear] = useState<undefined | string>(undefined);
 
   const handleFirstSelectMonth = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFirstSelectMonth(e.target.value);
@@ -32,7 +32,7 @@ const Sidebar = (props: {
     setFirstSelectYear(e.target.value);
   };
 
-  const handleSeconfSelectMonth = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSecondSelectMonth = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSecondSelectMonth(e.target.value);
   };
 
@@ -52,10 +52,31 @@ const Sidebar = (props: {
     setProvince(e.target.value);
   };
 
-  const handleReset = () => {
-    setYear("2022");
+  const handleOnClickSave = () => {
+    if (yearDisabled === false) {
+      props.handleSaveFilters(nazionality, province, year);
+    }
+    if (periodDisabled === false) {
+      props.handleSaveFilters(
+        nazionality,
+        province,
+        undefined,
+        firstSelectMonth,
+        firstSelectYear,
+        secondSelectMonth,
+        secondSelectYear
+      );
+    }
+  };
+
+  const handleOnClickReset = () => {
     setNazionality("IT");
     setProvince("ITG2");
+    setYear("2021");
+    setFirstSelectMonth("01");
+    setFirstSelectYear("2020");
+    setSecondSelectMonth("01");
+    setSecondSelectYear("2021");
   };
 
   const handleDisabled = (div: string) => {
@@ -175,7 +196,7 @@ const Sidebar = (props: {
             >
               <select
                 disabled={periodDisabled === true ? true : false}
-                onChange={handleSeconfSelectMonth}
+                onChange={handleSecondSelectMonth}
                 className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 value={secondSelectMonth}
               >
@@ -294,20 +315,7 @@ const Sidebar = (props: {
           <div className="flex w-full justify-end px-10 my-3">
             <div
               className=" rounded-full shadow-lg shadow-gray-400 p-[10px] cursor-pointer"
-              onClick={() => {
-                if (yearDisabled === false) {
-                  props.handleSaveFilters(nazionality, province, year);
-                } else {
-                  props.handleSaveFilters(
-                    nazionality,
-                    province,
-                    firstSelectMonth,
-                    firstSelectYear,
-                    secondSelectMonth,
-                    secondSelectYear
-                  );
-                }
-              }}
+              onClick={handleOnClickSave}
             >
               <AiOutlineCheck />
             </div>
@@ -315,7 +323,7 @@ const Sidebar = (props: {
           <div className="flex w-full justify-end px-10 my-5">
             <div
               className=" rounded-full shadow-lg shadow-gray-400 p-[10px] cursor-pointer"
-              onClick={handleReset}
+              onClick={handleOnClickReset}
             >
               <AiOutlineDelete />
             </div>

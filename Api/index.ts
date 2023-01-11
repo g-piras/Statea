@@ -15,7 +15,7 @@ export const annualApi = async (
   const res = await fetch(
     `${BASE_URL}/data/annual/origin/${originID}/destination/${destinationID}/type/${typeID}${
       startYear !== undefined && endYear !== undefined
-        ? `?startDate=${startYear}&endDate=${endYear}`
+        ? `?startYear=${startYear}&endYear=${endYear}`
         : ""
     }`
   );

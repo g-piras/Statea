@@ -30,7 +30,7 @@ const statistiche = () => {
       setTouristsNumber(res.data);
       setYears(res.labels);
     });
-  }, [year, nazionality, province]);
+  }, [nazionality, province, year]);
 
   const handleSaveFilters = (
     year: string,

@@ -1,12 +1,30 @@
-import { faker } from "@faker-js/faker";
 import Head from "next/head";
 import Link from "next/link";
 import BarChart from "../components/BarChart";
 import { Footer } from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { labels } from "../components/BarChart";
+import { labels, data } from "../components/BarChart";
+import { useCallback, useEffect, useState } from "react";
+import { getData, monthlyApiType, monthlyApi } from "../Api";
+
 
 export default function Home() {
+  const [touristsNumber, setTouristsNumber] = useState<string[]>([])
+  const [months, setMonths] = useState<string[]>([])
+
+  useEffect(() => {
+
+    monthlyApi("ITG2", "AR", "2021-01-01", "2021-12-01").then(res => {
+      setTouristsNumber(res.data);
+      setMonths(res.labels);
+    })
+
+  }, [])
+
+
+
+
+
   return (
     <>
       <Head>
@@ -38,12 +56,10 @@ export default function Home() {
           <div className="chart">
             <BarChart
               data={{
-                labels: labels,
+                labels: months,
                 datasets: [
                   {
-                    data: labels.map(() =>
-                      faker.datatype.number({ min: 20000, max: 100000 })
-                    ),
+                    data: touristsNumber,
                     backgroundColor: "#284697",
                   },
                 ],
@@ -60,9 +76,7 @@ export default function Home() {
                 labels: labels,
                 datasets: [
                   {
-                    data: labels.map(() =>
-                      faker.datatype.number({ min: 20000, max: 100000 })
-                    ),
+                    data: data,
                     backgroundColor: "#00ACC1",
                   },
                 ],

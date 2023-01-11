@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import React, { useEffect, useState } from "react";
 import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
@@ -7,6 +6,7 @@ import { labels } from "../components/BarChart";
 import { toggleSidebar } from "../redux/SidebarSlice";
 import { RootState, store } from "../redux/store";
 import { useSelector } from "react-redux";
+import { getData } from "../Api";
 
 const statistiche = () => {
   const sidebar = useSelector((state: RootState) => state.sidebar.value);
@@ -15,6 +15,9 @@ const statistiche = () => {
   // const [period, setPeriod] = useState(["01/2022", "03/2022"]);
   const [nazionality, setNazionality] = useState("IT");
   const [province, setProvince] = useState("ITG27");
+  const [touristsNumber, setTouristsNumber] = useState([])
+  const [years, setYears] = useState([])
+
 
   useEffect(() => {
     setSide(sidebar);
@@ -23,6 +26,26 @@ const statistiche = () => {
   const handleSidebar = () => {
     store.dispatch(toggleSidebar());
   };
+
+  useEffect(() => {
+    handleData()
+  }, [])
+
+  const handleData = async () => {
+    const res = await getData('data/annual/origin/WORLD/destination/ITG2/type/AR')
+    console.log(res)
+
+    const resTouristsNumber: any = [];
+    const resYears: any = [];
+
+    res.map((el: any) => {
+      resTouristsNumber.push(el.observation)
+      resYears.push(el.year)
+    });
+
+    setTouristsNumber(resTouristsNumber);
+    setYears(resYears)
+  }
 
   const handleSaveFilters = (year: string, nazionality: string, province: string) => {
     setYear(year);
@@ -37,6 +60,8 @@ const statistiche = () => {
   return (
     <>
       <Navbar page="statistiche" />
+
+
 
       <div>
         <Sidebar side={side} handleSidebar={handleSidebar} handleSaveFilters={handleSaveFilters} />
@@ -60,12 +85,10 @@ const statistiche = () => {
         <div className="chart">
           <BarChart
             data={{
-              labels: labels,
+              labels: years,
               datasets: [
                 {
-                  data: labels.map(() =>
-                    faker.datatype.number({ min: 20000, max: 100000 })
-                  ),
+                  data: touristsNumber,
                   backgroundColor: "#284697",
                 },
               ],

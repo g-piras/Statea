@@ -17,7 +17,7 @@ const Sidebar = (props: {
   const [year, setYear] = useState("2022");
   // const [period, setPeriod] = useState(["01/2022", "03/2022"]);
   const [nazionality, setNazionality] = useState("IT");
-  const [province, setProvince] = useState("ITG27");
+  const [province, setProvince] = useState("ITG2");
 
   const handleYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(e.target.value);
@@ -34,7 +34,7 @@ const Sidebar = (props: {
   const handleReset = () => {
     setYear("2022");
     setNazionality("IT");
-    setProvince("ITG27");
+    setProvince("ITG2");
   };
 
   return (

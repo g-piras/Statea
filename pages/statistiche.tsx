@@ -5,18 +5,17 @@ import Sidebar from "../components/Sidebar";
 import { toggleSidebar } from "../redux/SidebarSlice";
 import { RootState, store } from "../redux/store";
 import { useSelector } from "react-redux";
-import { getData } from "../Api";
+import { annualApi } from "../api";
 
 const statistiche = () => {
   const sidebar = useSelector((state: RootState) => state.sidebar.value);
   const [side, setSide] = useState(sidebar);
-  const [year, setYear] = useState("2022");
+  const [year, setYear] = useState("2021");
   // const [period, setPeriod] = useState(["01/2022", "03/2022"]);
   const [nazionality, setNazionality] = useState("IT");
-  const [province, setProvince] = useState("ITG27");
-  const [touristsNumber, setTouristsNumber] = useState([])
-  const [years, setYears] = useState([])
-
+  const [province, setProvince] = useState("ITG2");
+  const [touristsNumber, setTouristsNumber] = useState<string[]>([]);
+  const [years, setYears] = useState<string[]>([]);
 
   useEffect(() => {
     setSide(sidebar);
@@ -27,26 +26,17 @@ const statistiche = () => {
   };
 
   useEffect(() => {
-    handleData()
-  }, [])
-
-  const handleData = async () => {
-    const res = await getData('data/annual/origin/WORLD/destination/ITG2/type/AR')
-    console.log(res)
-
-    const resTouristsNumber: any = [];
-    const resYears: any = [];
-
-    res.map((el: any) => {
-      resTouristsNumber.push(el.observation)
-      resYears.push(el.year)
+    annualApi(nazionality, province, "AR").then((res) => {
+      setTouristsNumber(res.data);
+      setYears(res.labels);
     });
+  }, [year, nazionality, province]);
 
-    setTouristsNumber(resTouristsNumber);
-    setYears(resYears)
-  }
-
-  const handleSaveFilters = (year: string, nazionality: string, province: string) => {
+  const handleSaveFilters = (
+    year: string,
+    nazionality: string,
+    province: string
+  ) => {
     setYear(year);
     console.log(year);
     setNazionality(nazionality);
@@ -60,10 +50,12 @@ const statistiche = () => {
     <>
       <Navbar page="statistiche" />
 
-
-
       <div>
-        <Sidebar side={side} handleSidebar={handleSidebar} handleSaveFilters={handleSaveFilters} />
+        <Sidebar
+          side={side}
+          handleSidebar={handleSidebar}
+          handleSaveFilters={handleSaveFilters}
+        />
         <h1 className="uppercase text-center pt-32">
           <span className="text-[#284697]">
             Stati

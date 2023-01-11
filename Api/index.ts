@@ -1,37 +1,80 @@
-const BASE_URL = "http://18.102.24.178:9980/v1"
+const BASE_URL = "http://18.102.24.178:9980/v1";
 
-export const getData = async (query: string) => {
+export type annualDataType = {
+  labels: string[];
+  data: string[];
+};
 
-    const res = await fetch(`${BASE_URL}/${query}`);
-    const data = (await res.json())
+export const annualApi = async (
+  originID: string,
+  destinationID: string,
+  typeID: string,
+  startYear?: string,
+  endYear?: string
+) => {
+  const res = await fetch(
+    `${BASE_URL}/data/annual/origin/${originID}/destination/${destinationID}/type/${typeID}${
+      startYear !== undefined && endYear !== undefined
+        ? `?startDate=${startYear}&endDate=${endYear}`
+        : ""
+    }`
+  );
+  const data = await res.json();
+  console.log(data);
+  
 
-    return data;
-}
+  const mappedData: annualDataType = { labels: [], data: [] };
 
-export type monthlyApiType = {
-    labels: string[],
-    data: string[]
-}
+  if (Array.isArray(data))
+    data.map((el: any) => {
+      mappedData.data.push(el.observation);
+      mappedData.labels.push(el.year);
+    });
 
-export const monthlyApi = async (destinationID: string, typeID: string, startDate?: string, endDate?: string) => {
+  return mappedData;
+};
 
-    const res = await fetch(`${BASE_URL}/data/monthly/origin/WORLD/destination/${destinationID}/type/${typeID}${startDate !== undefined && endDate !== undefined ? `?startDate=${startDate}&endDate=${endDate}` : ""}`);
-    const data = (await res.json())
+export type monthlyDataType = {
+  labels: string[];
+  data: string[];
+};
 
-    const mappedData: monthlyApiType = { labels: [], data: [] }
+export const monthlyApi = async (
+  destinationID: string,
+  typeID: string,
+  startDate?: string,
+  endDate?: string
+) => {
+  const res = await fetch(
+    `${BASE_URL}/data/monthly/origin/WORLD/destination/${destinationID}/type/${typeID}${
+      startDate !== undefined && endDate !== undefined
+        ? `?startDate=${startDate}&endDate=${endDate}`
+        : ""
+    }`
+  );
+  const data = await res.json();
 
-    if (Array.isArray(data))
-        data.map((el: any) => {
-            mappedData.data.push(el.observation)
+  const mappedData: monthlyDataType = { labels: [], data: [] };
 
-            const monthDate = new Date(el.date)
-            const monthString = monthDate.toLocaleString("it-IT", {
-                month: "short"
-            }).charAt(0).toUpperCase() + monthDate.toLocaleString("it-IT", {
-                month: "short"
-            }).slice(1);
-            mappedData.labels.push(monthString)
-        });
+  if (Array.isArray(data))
+    data.map((el: any) => {
+      mappedData.data.push(el.observation);
 
-    return mappedData;
-}
+      const monthDate = new Date(el.date);
+      const monthString =
+        monthDate
+          .toLocaleString("it-IT", {
+            month: "short",
+          })
+          .charAt(0)
+          .toUpperCase() +
+        monthDate
+          .toLocaleString("it-IT", {
+            month: "short",
+          })
+          .slice(1);
+      mappedData.labels.push(monthString);
+    });
+
+  return mappedData;
+};

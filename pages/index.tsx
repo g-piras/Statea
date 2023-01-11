@@ -5,25 +5,18 @@ import { Footer } from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { labels, data } from "../components/BarChart";
 import { useEffect, useState } from "react";
-import { monthlyApi } from "../Api";
-
+import { monthlyApi } from "../api";
 
 export default function Home() {
-  const [touristsNumber, setTouristsNumber] = useState<string[]>([])
-  const [months, setMonths] = useState<string[]>([])
+  const [touristsNumber, setTouristsNumber] = useState<string[]>([]);
+  const [months, setMonths] = useState<string[]>([]);
 
   useEffect(() => {
-
-    monthlyApi("ITG2", "AR", "2021-01-01", "2021-12-01").then(res => {
+    monthlyApi("ITG2", "AR", "2021-01-01", "2021-12-01").then((res) => {
       setTouristsNumber(res.data);
       setMonths(res.labels);
-    })
-
-  }, [])
-
-
-
-
+    });
+  }, []);
 
   return (
     <>

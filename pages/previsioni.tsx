@@ -7,11 +7,14 @@ import { RootState, store } from "../redux/store";
 
 const previsioni = () => {
   const sidebar = useSelector((state: RootState) => state.sidebar.value);
-  const [side, setSide] = useState(sidebar);
-  const [year, setYear] = useState("2022");
-  // const [period, setPeriod] = useState(["01/2022", "03/2022"]);
-  const [nazionality, setNazionality] = useState("IT");
-  const [province, setProvince] = useState("ITG27");
+  const [side, setSide] = useState<boolean>(sidebar);
+  const [nazionality, setNazionality] = useState<string>("IT");
+  const [province, setProvince] = useState<string>("ITG27");
+  const [year, setYear] = useState<undefined | string>(undefined);
+  const [firstSelectMonth, setFirstSelectMonth] = useState<undefined | string>(undefined);
+  const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>(undefined);
+  const [secondSelectMonth, setSecondSelectMonth] = useState<undefined | string>(undefined);
+  const [secondSelectYear, setSecondSelectYear] = useState<undefined | string>(undefined);
 
   useEffect(() => {
     setSide(sidebar);
@@ -21,13 +24,29 @@ const previsioni = () => {
     store.dispatch(toggleSidebar());
   };
 
-  const handleSaveFilters = (year: string, nazionality: string, province: string) => {
+  const handleSaveFilters = (
+    nazionality: string,
+    province: string,
+    year?: string,
+    firstSelectMonth?: string,
+    firstSelectYear?: string,
+    secondSelectMonth?: string,
+    secondSelectYear?: string
+  ) => {
     setYear(year);
     console.log(year);
     setNazionality(nazionality);
     console.log(nazionality);
     setProvince(province);
     console.log(province);
+    setFirstSelectMonth(firstSelectMonth);
+    console.log(firstSelectMonth);
+    setFirstSelectYear(firstSelectYear);
+    console.log(firstSelectYear); 
+    setSecondSelectMonth(secondSelectMonth);
+    console.log(secondSelectMonth);
+    setSecondSelectYear(secondSelectYear);
+    console.log(secondSelectYear);
     handleSidebar();
   };
 

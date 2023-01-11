@@ -34,9 +34,8 @@ const Navbar = (props: { page: string }) => {
         }
       >
         <div
-          className={`fixed z-50 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 ${
-            nav ? "left-0" : "left-[-100%]"
-          }`}
+          className={`fixed z-50 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 ${nav ? "left-0" : "left-[-100%]"
+            }`}
         >
           <div>
             <div className="flex w-full items-center justify-between">
@@ -59,45 +58,41 @@ const Navbar = (props: { page: string }) => {
           </div>
           <div className="py-4 flex-col">
             <ul className="uppercase">
-              <Link href="/">
+              <Link onClick={() => { store.dispatch(toggleNavbar()) }} href="/">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${
-                      props.page === "home" ? "border-black" : ""
-                    }`}
+                    className={`border-b border-transparent hover:border-black ${props.page === "home" ? "border-black" : ""
+                      }`}
                   >
                     Home
                   </span>
                 </li>
               </Link>
-              <Link href="/statistiche">
+              <Link onClick={() => { store.dispatch(toggleNavbar()) }} href="/statistiche">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${
-                      props.page === "statistiche" ? "border-black" : ""
-                    }`}
+                    className={`border-b border-transparent hover:border-black ${props.page === "statistiche" ? "border-black" : ""
+                      }`}
                   >
                     Statistiche
                   </span>
                 </li>
               </Link>
-              <Link href="/previsioni">
+              <Link onClick={() => { store.dispatch(toggleNavbar()) }} href="/previsioni">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${
-                      props.page === "previsioni" ? "border-black" : ""
-                    }`}
+                    className={`border-b border-transparent hover:border-black ${props.page === "previsioni" ? "border-black" : ""
+                      }`}
                   >
                     Previsioni
                   </span>
                 </li>
               </Link>
-              <Link href="/about">
+              <Link onClick={() => { store.dispatch(toggleNavbar()) }} href="/about">
                 <li className="py-4 text-sm ">
                   <span
-                    className={`border-b border-transparent hover:border-black ${
-                      props.page === "about" ? "border-black" : ""
-                    }`}
+                    className={`border-b border-transparent hover:border-black ${props.page === "about" ? "border-black" : ""
+                      }`}
                   >
                     About
                   </span>
@@ -138,36 +133,32 @@ const Navbar = (props: { page: string }) => {
           <ul className="hidden uppercase md:flex">
             <Link href="/">
               <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
-                  props.page === "home" ? "border-black" : ""
-                }`}
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "home" ? "border-black" : ""
+                  }`}
               >
                 Home
               </li>
             </Link>
             <Link href="/statistiche">
               <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
-                  props.page === "statistiche" ? "border-black" : ""
-                }`}
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "statistiche" ? "border-black" : ""
+                  }`}
               >
                 Statistiche
               </li>
             </Link>
             <Link href="/previsioni">
               <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
-                  props.page === "previsioni" ? "border-black" : ""
-                }`}
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "previsioni" ? "border-black" : ""
+                  }`}
               >
                 Previsioni
               </li>
             </Link>
             <Link href="/about">
               <li
-                className={`ml-10 text-sm border-b border-transparent hover:border-black ${
-                  props.page === "about" ? "border-black" : ""
-                }`}
+                className={`ml-10 text-sm border-b border-transparent hover:border-black ${props.page === "about" ? "border-black" : ""
+                  }`}
               >
                 About
               </li>

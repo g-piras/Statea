@@ -40,13 +40,12 @@ const Sidebar = (props: {
   return (
     <>
       <div
-        className={`fixed md:top-20 bg-white w-full h-full md:w-96 ease-in duration-500 ${
-          props.side
-            ? "top-[40%] rounded-3xl md:rounded-none md:left-0"
-            : "top-[100%] md:left-[-24rem]"
-        }`}
+        className={`fixed md:top-20 bg-white w-full h-full md:w-96 ease-in duration-500 scroll-side ${props.side
+          ? "top-[40%] rounded-3xl md:rounded-none md:left-0"
+          : "top-[100%] md:left-[-24rem]"
+          }`}
       >
-        <aside>
+        <aside className="">
           <div className="flex w-full items-center justify-between p-10">
             <span className="font-bold text-[#284697] text-2xl ">Filtra</span>
             <div
@@ -238,7 +237,7 @@ const Sidebar = (props: {
               <AiOutlineCheck />
             </div>
           </div>
-          <div className="flex w-full justify-end px-10">
+          <div className="flex w-full justify-end px-10 my-5">
             <div
               className=" rounded-full shadow-lg shadow-gray-400 p-[10px] cursor-pointer"
               onClick={handleReset}

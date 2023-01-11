@@ -59,9 +59,11 @@ export default function Home() {
               }}
             />
           </div>
-          <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700  hover:text-white font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            <Link href="/statistiche">Vai a Statistiche</Link>
-          </button>
+          <Link href="/statistiche">
+            <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700  hover:text-white font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              Vai a Statistiche
+            </button>
+          </Link>
           <h2 className="mt-10 mb-14 px-10">Previsioni anno successivo</h2>
           <div className="chart">
             <BarChart
@@ -76,9 +78,11 @@ export default function Home() {
               }}
             />
           </div>
-          <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            <Link href="/previsioni">Vai a Previsioni</Link>
-          </button>
+          <Link href="/previsioni">
+            <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              Vai a Previsioni
+            </button>
+          </Link>
         </div>
       </div>
       <Footer />

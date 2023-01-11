@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import { labels } from "../components/BarChart";
 import { toggleSidebar } from "../redux/SidebarSlice";
 import { RootState, store } from "../redux/store";
 import { useSelector } from "react-redux";

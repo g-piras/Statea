@@ -4,8 +4,8 @@ import BarChart from "../components/BarChart";
 import { Footer } from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { labels, data } from "../components/BarChart";
-import { useCallback, useEffect, useState } from "react";
-import { getData, monthlyApiType, monthlyApi } from "../Api";
+import { useEffect, useState } from "react";
+import { monthlyApi } from "../Api";
 
 
 export default function Home() {

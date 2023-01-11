@@ -85,12 +85,70 @@ const Sidebar = (props: {
             <label className="mb-2 text-sm font-medium text-gray-900">
               Seleziona il periodo - con data picker
             </label>
-            <select
-              id="periodo"
-              className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[165px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            >
-              <option>01/2022 - 03/2023</option>
-            </select>
+            <div className="flex gap-3">
+              <select className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="01">Gen</option>
+                <option value="02">Feb</option>
+                <option value="03">Mar</option>
+                <option value="04">Apr</option>
+                <option value="05">Mag</option>
+                <option value="06">Giu</option>
+                <option value="07">Lug</option>
+                <option value="08">Ago</option>
+                <option value="09">Set</option>
+                <option value="10">Ott</option>
+                <option value="11">Nov</option>
+                <option value="12">Dic</option>
+              </select>
+              <select className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+                <option value="2009">2009</option>
+                <option value="2008">2008</option>
+              </select>
+            </div>
+            <div className="flex gap-3">
+              <select className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="01">Gen</option>
+                <option value="02">Feb</option>
+                <option value="03">Mar</option>
+                <option value="04">Apr</option>
+                <option value="05">Mag</option>
+                <option value="06">Giu</option>
+                <option value="07">Lug</option>
+                <option value="08">Ago</option>
+                <option value="09">Set</option>
+                <option value="10">Ott</option>
+                <option value="11">Nov</option>
+                <option value="12">Dic</option>
+              </select>
+              <select className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+                <option value="2009">2009</option>
+                <option value="2008">2008</option>
+              </select>
+            </div>
 
             <label className="mb-2 text-sm font-medium text-gray-900">
               Seleziona la nazionalità

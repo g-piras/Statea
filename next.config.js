@@ -5,6 +5,10 @@ const nextConfig = {
   unoptimized: true
 }
 
+images: {
+  unoptimized: true
+}
+
 module.exports = {
   eslint: {
     // Warning: This allows production builds to successfully complete even if

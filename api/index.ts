@@ -13,15 +13,12 @@ export const annualApi = async (
   endYear?: string
 ) => {
   const res = await fetch(
-    `${BASE_URL}/data/annual/origin/${originID}/destination/${destinationID}/type/${typeID}${
-      startYear !== undefined && endYear !== undefined
-        ? `?startYear=${startYear}&endYear=${endYear}`
-        : ""
+    `${BASE_URL}/data/annual/origin/${originID}/destination/${destinationID}/type/${typeID}${startYear !== undefined && endYear !== undefined
+      ? `?startYear=${startYear}&endYear=${endYear}`
+      : ""
     }`
   );
   const data = await res.json();
-  console.log(data);
-  
 
   const mappedData: annualDataType = { labels: [], data: [] };
 
@@ -46,10 +43,9 @@ export const monthlyApi = async (
   endDate?: string
 ) => {
   const res = await fetch(
-    `${BASE_URL}/data/monthly/origin/WORLD/destination/${destinationID}/type/${typeID}${
-      startDate !== undefined && endDate !== undefined
-        ? `?startDate=${startDate}&endDate=${endDate}`
-        : ""
+    `${BASE_URL}/data/monthly/origin/WORLD/destination/${destinationID}/type/${typeID}${startDate !== undefined && endDate !== undefined
+      ? `?startDate=${startDate}&endDate=${endDate}`
+      : ""
     }`
   );
   const data = await res.json();

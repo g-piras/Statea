@@ -5,19 +5,56 @@ import {
   AiOutlineDelete,
 } from "react-icons/ai";
 
+type periodType = {
+  startDate: {
+    month: string,
+    year: string
+  },
+  endDate: {
+    month: string,
+    year: string
+  }
+}
+
 const Sidebar = (props: {
   side: boolean;
   handleSidebar: () => void;
   handleSaveFilters: (
-    year: string,
     nazionality: string,
-    province: string
+    province: string,
+    year: string,
+    firstSelectMonth?: string,
+    firstSelectYear?: string,
+    secondSelectMonth?: string,
+    secondSelectYear?: string
+
   ) => void;
 }) => {
-  const [year, setYear] = useState("2021");
   // const [period, setPeriod] = useState(["01/2022", "03/2022"]);
+  const [year, setYear] = useState("2021");
   const [nazionality, setNazionality] = useState("IT");
   const [province, setProvince] = useState("ITG2");
+  const [yearDisabled, setYearDisabled] = useState(false)
+  const [periodDisabled, setPeriodDisabled] = useState(false)
+  const [period, setPeriod] = useState<periodType>({} as periodType)
+
+  const [firstSelectMonth, setFirstSelectMonth] = useState<string>('')
+  const [firstSelectYear, setFirstSelectYear] = useState<string>('')
+  const [secondSelectMonth, setSecondSelectMonth] = useState<string>('')
+  const [secondSelectYear, setSecondSelectYear] = useState<string>('')
+
+  const handleFirstSelectMonth = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFirstSelectMonth(e.target.value);
+  };
+  const handleFirstSelectYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFirstSelectMonth(e.target.value);
+  };
+  const handleSeconfSelectMonth = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFirstSelectMonth(e.target.value);
+  };
+  const handleSecondSelectYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFirstSelectMonth(e.target.value);
+  };
 
   const handleYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(e.target.value);
@@ -31,11 +68,27 @@ const Sidebar = (props: {
     setProvince(e.target.value);
   };
 
+  const handlePeriod = (e: React.ChangeEvent<HTMLSelectElement>) => {
+
+  }
+
   const handleReset = () => {
     setYear("2022");
     setNazionality("IT");
     setProvince("ITG2");
   };
+
+  const handleDisabled = (div: string) => {
+    if (div === "year") {
+      setYearDisabled(false);
+      setPeriodDisabled(true)
+    }
+    else {
+      setYearDisabled(true);
+      setPeriodDisabled(false)
+    }
+  }
+
 
   return (
     <>
@@ -56,36 +109,51 @@ const Sidebar = (props: {
             </div>
           </div>
           <div className="flex flex-col px-10 ">
-            <label className="mb-2 text-sm font-medium text-gray-900">
-              Seleziona l'anno
-            </label>
-            <select
-              id="anno"
-              className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              value={year}
-              onChange={handleYear}
-            >
-              <option value="2021">2021</option>
-              <option value="2020">2020</option>
-              <option value="2019">2019</option>
-              <option value="2018">2018</option>
-              <option value="2017">2017</option>
-              <option value="2016">2016</option>
-              <option value="2015">2015</option>
-              <option value="2014">2014</option>
-              <option value="2013">2013</option>
-              <option value="2012">2012</option>
-              <option value="2011">2011</option>
-              <option value="2010">2010</option>
-              <option value="2009">2009</option>
-              <option value="2008">2008</option>
-            </select>
+            <div
+              onClick={() => {
+                handleDisabled("year")
+              }}>
+              <label className="mb-2 text-sm font-medium text-gray-900">
+                Seleziona l'anno
+              </label>
+              <select
+                id="anno"
+                className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[100px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                value={year}
+                onChange={handleYear}
 
+                disabled={yearDisabled === true ? true : false}
+              >
+
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+                <option value="2009">2009</option>
+                <option value="2008">2008</option>
+
+              </select>
+            </div>
             <label className="mb-2 text-sm font-medium text-gray-900">
               Seleziona il periodo - con data picker
             </label>
-            <div className="flex gap-3">
-              <select className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <div className="flex gap-3"
+              onClick={() => {
+                handleDisabled("period")
+              }}>
+              <select
+                disabled={periodDisabled === true ? true : false}
+                onChange={handleFirstSelectMonth}
+
+                className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="01">Gen</option>
                 <option value="02">Feb</option>
                 <option value="03">Mar</option>
@@ -99,7 +167,10 @@ const Sidebar = (props: {
                 <option value="11">Nov</option>
                 <option value="12">Dic</option>
               </select>
-              <select className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <select
+                disabled={periodDisabled === true ? true : false}
+                onChange={handleFirstSelectYear}
+                className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="2021">2021</option>
                 <option value="2020">2020</option>
                 <option value="2019">2019</option>
@@ -116,8 +187,15 @@ const Sidebar = (props: {
                 <option value="2008">2008</option>
               </select>
             </div>
-            <div className="flex gap-3">
-              <select className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <div className="flex gap-3"
+              onClick={() => {
+                handleDisabled("period")
+              }}>
+              <select
+                disabled={periodDisabled === true ? true : false}
+                onChange={handleSeconfSelectMonth}
+
+                className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="01">Gen</option>
                 <option value="02">Feb</option>
                 <option value="03">Mar</option>
@@ -131,7 +209,10 @@ const Sidebar = (props: {
                 <option value="11">Nov</option>
                 <option value="12">Dic</option>
               </select>
-              <select className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <select
+                disabled={periodDisabled === true ? true : false}
+                onChange={handleSecondSelectYear}
+                className="text-start mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-22 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="2021">2021</option>
                 <option value="2020">2020</option>
                 <option value="2019">2019</option>
@@ -231,7 +312,11 @@ const Sidebar = (props: {
             <div
               className=" rounded-full shadow-lg shadow-gray-400 p-[10px] cursor-pointer"
               onClick={() => {
-                props.handleSaveFilters(year, nazionality, province);
+                props.handleSaveFilters(year, nazionality, province, firstSelectMonth,
+                  firstSelectYear,
+                  secondSelectMonth,
+                  secondSelectYear
+                )
               }}
             >
               <AiOutlineCheck />

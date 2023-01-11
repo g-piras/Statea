@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { toggleSidebar } from "../redux/SidebarSlice";
 import { RootState, store } from "../redux/store";
 import { useSelector } from "react-redux";
-import { annualApi } from "../api";
+import { annualApi, monthlyApi } from "../api";
 
 const statistiche = () => {
   const sidebar = useSelector((state: RootState) => state.sidebar.value);
@@ -30,12 +30,21 @@ const statistiche = () => {
       setTouristsNumber(res.data);
       setYears(res.labels);
     });
-  }, [nazionality, province, year]);
+  }, []);
+
+
+
 
   const handleSaveFilters = (
-    year: string,
     nazionality: string,
-    province: string
+    province: string,
+    year: string,
+    firstSelectMonth?: string,
+    firstSelectYear?: string,
+    secondSelectMonth?: string,
+    secondSelectYear?: string
+
+
   ) => {
     setYear(year);
     console.log(year);
@@ -44,7 +53,10 @@ const statistiche = () => {
     setProvince(province);
     console.log(province);
     handleSidebar();
+
   };
+
+
 
   return (
     <>
@@ -54,7 +66,7 @@ const statistiche = () => {
         <Sidebar
           side={side}
           handleSidebar={handleSidebar}
-          handleSaveFilters={handleSaveFilters}
+          handleSaveFilters={() => handleSaveFilters}
         />
         <h1 className="uppercase text-center pt-32">
           <span className="text-[#284697]">

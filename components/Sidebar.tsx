@@ -40,7 +40,7 @@ const Sidebar = (props: {
   return (
     <>
       <div
-        className={`fixed md:top-20 bg-white w-full h-full md:w-96 ease-in duration-500 scroll-side ${props.side
+        className={`fixed md:top-20 bg-white w-full md:h-full md:w-96 ease-in duration-500 overflow-y-scroll h-[60vh] ${props.side
           ? "top-[40%] rounded-3xl md:rounded-none md:left-0"
           : "top-[100%] md:left-[-24rem]"
           }`}

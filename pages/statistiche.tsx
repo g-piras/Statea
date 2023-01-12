@@ -2,14 +2,10 @@ import React, { use, useEffect, useState } from "react";
 import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import { toggleSidebar } from "../redux/SidebarSlice";
-import { RootState, store } from "../redux/store";
-import { useSelector } from "react-redux";
 import { annualApi, monthlyApi } from "../api";
 
 const statistiche = () => {
-  const sidebar = useSelector((state: RootState) => state.sidebar.value);
-  const [side, setSide] = useState<boolean>(sidebar);
+  const [side, setSide] = useState<boolean>(false);
   const [touristsNumber, setTouristsNumber] = useState<string[]>([]);
   const [years, setYears] = useState<string[]>([]);
   const [nazionality, setNazionality] = useState<string>("WORLD");
@@ -22,9 +18,6 @@ const statistiche = () => {
   const [yearStartRange, setYearStartRange] = useState<undefined | string>(undefined);
   const [yearEndRange, setYearEndRange] = useState<undefined | string>(undefined);
 
-  useEffect(() => {
-    setSide(sidebar);
-  }, [sidebar]);
 
   useEffect(() => {
     annualApi(nazionality, province, "AR").then((res) => {
@@ -34,7 +27,7 @@ const statistiche = () => {
   }, []);
 
   const handleSidebar = () => {
-    store.dispatch(toggleSidebar());
+    setSide(!side);
   };
 
   const handleSaveFilters = (

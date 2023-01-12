@@ -16,6 +16,7 @@ export default function Home() {
       setTouristsNumber(res.data);
       setMonths(res.labels);
     });
+
   }, []);
 
   return (
@@ -45,7 +46,7 @@ export default function Home() {
           sui flussi di turisti italiani e stranieri verso la regione
         </p>
         <div className="text-gray-700">
-          <h2 className="mt-10 mb-14 px-10">Statistiche anno corrente</h2>
+          <h2 className="mt-10 mb-14 px-10">Statistiche anno 2021</h2>
           <div className="chart">
             <BarChart
               data={{

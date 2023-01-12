@@ -3,46 +3,12 @@ import { useSelector } from "react-redux";
 import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import { toggleSidebar } from "../redux/SidebarSlice";
-import { RootState, store } from "../redux/store";
 import { labels, data } from "../components/BarChart";
 
 const previsioni = () => {
-  const sidebar = useSelector((state: RootState) => state.sidebar.value);
-  const [side, setSide] = useState<boolean>(sidebar);
-  const [nazionality, setNazionality] = useState<string>("IT");
-  const [province, setProvince] = useState<string>("ITG27");
-  const [year, setYear] = useState<undefined | string>(undefined);
-  const [firstSelectMonth, setFirstSelectMonth] = useState<undefined | string>(undefined);
-  const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>(undefined);
-  const [secondSelectMonth, setSecondSelectMonth] = useState<undefined | string>(undefined);
-  const [secondSelectYear, setSecondSelectYear] = useState<undefined | string>(undefined);
-
-  useEffect(() => {
-    setSide(sidebar);
-  }, [sidebar]);
+  const [side, setSide] = useState<boolean>(false);
 
   const handleSidebar = () => {
-    store.dispatch(toggleSidebar());
-  };
-
-  const handleSaveFilters = (
-    nazionality: string,
-    province: string,
-    year?: string,
-    firstSelectMonth?: string,
-    firstSelectYear?: string,
-    secondSelectMonth?: string,
-    secondSelectYear?: string
-  ) => {
-    setYear(year);
-    setNazionality(nazionality);
-    setProvince(province);
-    setFirstSelectMonth(firstSelectMonth);
-    setFirstSelectYear(firstSelectYear);
-    setSecondSelectMonth(secondSelectMonth);
-    setSecondSelectYear(secondSelectYear);
-    handleSidebar();
   };
 
   return (
@@ -50,7 +16,7 @@ const previsioni = () => {
       <Navbar page="previsioni" />
 
       <div>
-        <Sidebar side={side} page="previsioni" handleSidebar={handleSidebar} handleSaveFilters={handleSaveFilters} />
+        <Sidebar side={side} page="previsioni" handleSidebar={handleSidebar} handleSaveFilters={() => { }} />
         <h1 className="uppercase text-center pt-32">
           <span className="text-[#284697]">
             Prev
@@ -62,8 +28,9 @@ const previsioni = () => {
         </h1>
         <div className="text-center my-5">
           <button
+            disabled
             onClick={handleSidebar}
-            className="uppercase mb-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+            className="uppercase mb-10 bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded disabled:opacity-40"
           >
             filtra
           </button>

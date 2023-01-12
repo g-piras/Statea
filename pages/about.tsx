@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Footer } from "../components/Footer";
 import Navbar from "../components/Navbar";
 
@@ -79,7 +79,7 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="lg:flex lg:justify-center hidden lg:hover:animate-rotate-360 ">
+              <div className="lg:flex lg:justify-center hidden lg:hover:animate-rotate">
                 <img className="object-cover w-150 h-150  " src="/assets/statea2.png" alt="Logo" />
               </div>
 

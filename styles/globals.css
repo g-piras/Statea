@@ -39,8 +39,3 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-.scroll-side {
-  overflow-y: auto;
-  height: 60vh;
-}

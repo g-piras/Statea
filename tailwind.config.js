@@ -21,13 +21,14 @@ module.exports = {
         // => @media (min-width: 1280px) { ... }
       },
       keyframes: {
-        rotate: {
+        rotateDx: {
           '0%': { transform: 'rotate(0.0deg)' },
           '100%': { transform: 'rotate(1080deg)' },
         },
+
       },
       animation: {
-        'rotate-360': 'rotate 0.5s linear;'
+        'rotate': 'rotate 0.7s cubic-bezier(0.4, 0, 0.2, 1);'
       }
     }
   },

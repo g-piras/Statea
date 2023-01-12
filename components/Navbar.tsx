@@ -5,23 +5,12 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import { useSelector } from "react-redux";
-import { RootState, store } from "../redux/store";
-import { toggleNavbar } from "../redux/NavbarSlice";
 
 const Navbar = (props: { page: string }) => {
-  const navbar = useSelector((state: RootState) => state.navbar.value);
-  const sidebar = useSelector((state: RootState) => state.sidebar.value);
-  const [nav, setNav] = useState(navbar);
-
-  useEffect(() => {
-    setNav(navbar);
-  }, [navbar]);
+  const [nav, setNav] = useState(false);
 
   const handleNav = () => {
-    if (!sidebar) {
-      store.dispatch(toggleNavbar());
-    }
+    setNav(!nav)
   };
 
   return (
@@ -58,7 +47,7 @@ const Navbar = (props: { page: string }) => {
           </div>
           <div className="py-4 flex-col">
             <ul className="uppercase">
-              <Link onClick={() => { store.dispatch(toggleNavbar()) }} href="/">
+              <Link href="/">
                 <li className="py-4 text-sm ">
                   <span
                     className={`border-b border-transparent hover:border-black ${props.page === "home" ? "border-black" : ""
@@ -68,7 +57,7 @@ const Navbar = (props: { page: string }) => {
                   </span>
                 </li>
               </Link>
-              <Link onClick={() => { store.dispatch(toggleNavbar()) }} href="/statistiche">
+              <Link href="/statistiche">
                 <li className="py-4 text-sm ">
                   <span
                     className={`border-b border-transparent hover:border-black ${props.page === "statistiche" ? "border-black" : ""
@@ -78,7 +67,7 @@ const Navbar = (props: { page: string }) => {
                   </span>
                 </li>
               </Link>
-              <Link onClick={() => { store.dispatch(toggleNavbar()) }} href="/previsioni">
+              <Link href="/previsioni">
                 <li className="py-4 text-sm ">
                   <span
                     className={`border-b border-transparent hover:border-black ${props.page === "previsioni" ? "border-black" : ""
@@ -88,7 +77,7 @@ const Navbar = (props: { page: string }) => {
                   </span>
                 </li>
               </Link>
-              <Link onClick={() => { store.dispatch(toggleNavbar()) }} href="/about">
+              <Link href="/about">
                 <li className="py-4 text-sm ">
                   <span
                     className={`border-b border-transparent hover:border-black ${props.page === "about" ? "border-black" : ""

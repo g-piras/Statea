@@ -20,7 +20,16 @@ module.exports = {
         'desktop': '1280px',
         // => @media (min-width: 1280px) { ... }
       },
-    },
+      keyframes: {
+        rotate: {
+          '0%': { transform: 'rotate(0.0deg)' },
+          '100%': { transform: 'rotate(1080deg)' },
+        },
+      },
+      animation: {
+        'rotate-360': 'rotate 0.5s linear;'
+      }
+    }
   },
   plugins: [],
 }

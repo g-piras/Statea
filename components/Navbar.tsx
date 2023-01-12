@@ -25,7 +25,7 @@ const Navbar = (props: { page: string }) => {
   };
 
   return (
-    <div className="fixed w-full h-20 shadow-xl backdrop-filter backdrop-blur-2xl">
+    <div className="fixed z-50 w-full h-20 shadow-xl backdrop-filter backdrop-blur-2xl">
       <div
         className={
           nav
@@ -34,7 +34,7 @@ const Navbar = (props: { page: string }) => {
         }
       >
         <div
-          className={`fixed z-50 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 ${nav ? "left-0" : "left-[-100%]"
+          className={`fixed  top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 ${nav ? "left-0" : "left-[-100%]"
             }`}
         >
           <div>

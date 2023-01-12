@@ -7,7 +7,7 @@ const about = () => {
     <>
       <Navbar page="about" />
       <div className="w-full h-full text-center pt-20">
-        <section className="w-full h-full text-center lg:px-24 text-gray-800">
+        <section className="w-full h-full lg:px-24 text-gray-800">
           <h1 className="uppercase my-10 px-10">
             <span className="text-[#284697]">Ab</span>
             <span className="text-[#00ACC1]">
@@ -17,13 +17,33 @@ const about = () => {
               ut
             </span>
           </h1>
-          <p className="tracking-wide text-gray-600 mx-auto max-w-[70%] pt-10">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo assumenda iusto sequi officiis earum odit quas officia! Fugit minus odit iusto eveniet error excepturi, rem molestiae impedit quisquam fugiat dolor!
-            <br />
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor similique obcaecati impedit minus. Deserunt reprehenderit similique voluptatum. Quisquam adipisci provident sed sequi eius debitis, eveniet fuga qui at nostrum consequatur.
+          {/* <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg">
+            Siamo un' <span className="font-bold uppercase">azienda</span> specializza nella creazione di siti web basati su dati Istat per il settore del turismo.
+            Utilizzando i dati statistici ufficiali forniti dall'Istituto Nazionale di Statistica, creiamo siti web <span className="font-bold uppercase">informativi</span> e <span className="font-bold uppercase"> intuitivi</span> che forniscono una visione completa e aggiornata del turismo in Sardegna.
           </p>
-          <h2 className="uppercase text-gray-800 my-20 px-10">
-            the Team
+          <h2 className="uppercase text-gray-800 mt-[120px] mb-10 px-10">
+            il nostro prodotto
+          </h2>
+          <p className="tracking-wide text-gray-600 mx-auto max-w-[50%] pt-10 text-lg ">
+            <span className="text-[#284697] text-xl font-bold">Touri</span>
+            <span className="text-[#00ACC1] text-xl font-bold">Stats</span> si pone l'obiettivo di aiutare le aziende del settore turistico a comprendere e
+            sfruttare al meglio i dati e le previsioni presenti all'interno del nostro sito per migliorare il loro business.
+          </p> */}
+          <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg">
+            Benvenuti in <span className="font-bold uppercase">statea</span> dove combiniamo la nostra passione per la Sardegna con la nostra esperienza nello sviluppo di siti web basati su dati Istat per il settore del turismo.
+            Siamo orgogliosi di offrire una piattaforma che consenta di monitorare e analizzare i dati dei visitatori in modo <span className="font-bold uppercase">semplice</span> e <span className="font-bold uppercase"> intuitivo</span>.
+          </p>
+          <h3 className="uppercase text-gray-800 mt-[100px] mb-2 px-10 text-2xl">
+            con il nostro prodotto
+          </h3>
+          <p className="tracking-wide text-gray-600 mx-auto max-w-[50%] pt-10 text-lg ">
+            ci poniamo l'obiettivo di <span className="font-bold uppercase">aiutare</span> le aziende del settore turistico a <span className="font-bold uppercase">comprendere</span> e
+            sfruttare al meglio i dati e le previsioni presenti all'interno di <span className="text-[#284697] text-xl font-bold">Touri</span>
+            <span className="text-[#00ACC1] text-xl font-bold">Stats</span> per migliorare il loro <span className="font-bold uppercase">business</span>.
+          </p>
+
+          <h2 className="uppercase text-gray-800 mt-[120px] mb-10 px-10">
+            noi siamo
           </h2>
         </section>
 

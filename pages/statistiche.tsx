@@ -12,13 +12,15 @@ const statistiche = () => {
   const [side, setSide] = useState<boolean>(sidebar);
   const [touristsNumber, setTouristsNumber] = useState<string[]>([]);
   const [years, setYears] = useState<string[]>([]);
-  const [nazionality, setNazionality] = useState<string>("IT");
-  const [province, setProvince] = useState<string>("ITG27");
+  const [nazionality, setNazionality] = useState<string>("WORLD");
+  const [province, setProvince] = useState<string>("ITG2");
   const [year, setYear] = useState<undefined | string>(undefined);
   const [firstSelectMonth, setFirstSelectMonth] = useState<undefined | string>(undefined);
   const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>(undefined);
   const [secondSelectMonth, setSecondSelectMonth] = useState<undefined | string>(undefined);
   const [secondSelectYear, setSecondSelectYear] = useState<undefined | string>(undefined);
+  const [yearStartRange, setYearStartRange] = useState<undefined | string>(undefined);
+  const [yearEndRange, setYearEndRange] = useState<undefined | string>(undefined);
 
   useEffect(() => {
     setSide(sidebar);
@@ -42,7 +44,9 @@ const statistiche = () => {
     firstSelectMonth?: string,
     firstSelectYear?: string,
     secondSelectMonth?: string,
-    secondSelectYear?: string
+    secondSelectYear?: string,
+    yearStartRange?: string,
+    yearEndRange?: string
   ) => {
     setNazionality(nazionality);
     setProvince(province);
@@ -53,29 +57,30 @@ const statistiche = () => {
     setSecondSelectYear(secondSelectYear);
 
     if (year) {
-      monthlyApi(province, "AR", year + "-01-01", year + "-12-01").then((res) => {
+      monthlyApi(nazionality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
         setTouristsNumber(res.data);
         setYears(res.labels);
       });
     }
 
     if (firstSelectMonth && firstSelectYear && secondSelectMonth && secondSelectYear) {
-      const startDate = new Date(Number(firstSelectYear), Number(firstSelectMonth));
-      const endDate = new Date(Number(secondSelectYear), Number(secondSelectMonth));
-      const startStringDate = startDate
-        .toLocaleString("it-IT", { day: "2-digit", month: "2-digit", year: "numeric" })
-        .replace(/\//g, "-")
-        .split("-")
-        .reverse()
-        .join("-");
-      const endStringDate = endDate
-        .toLocaleString("it-IT", { day: "2-digit", month: "2-digit", year: "numeric" })
-        .replace(/\//g, "-")
-        .split("-")
-        .reverse()
-        .join("-");
+      let startDate = firstSelectYear + "-" + firstSelectMonth + "-01";
+      let endDate = secondSelectYear + "-" + secondSelectMonth + "-01";
 
-      monthlyApi(province, "AR", startStringDate, endStringDate).then((res) => {
+      if (new Date(startDate) > new Date(endDate)) {
+        const temp = startDate;
+        startDate = endDate;
+        endDate = temp;
+      }
+
+      monthlyApi(nazionality, province, "AR", startDate, endDate).then((res) => {
+        setTouristsNumber(res.data);
+        setYears(res.labels);
+      });
+    }
+
+    if (yearStartRange && yearEndRange) {
+      annualApi(nazionality, province, "AR", yearStartRange, yearEndRange).then((res) => {
         setTouristsNumber(res.data);
         setYears(res.labels);
       });
@@ -88,7 +93,7 @@ const statistiche = () => {
     <>
       <Navbar page="statistiche" />
 
-      <div>
+      <div className="h-full">
         <Sidebar side={side} handleSidebar={handleSidebar} handleSaveFilters={handleSaveFilters} />
         <h1 className="uppercase text-center pt-32">
           <span className="text-[#284697]">

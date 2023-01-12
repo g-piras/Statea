@@ -13,9 +13,10 @@ export const annualApi = async (
   endYear?: string
 ) => {
   const res = await fetch(
-    `${BASE_URL}/data/annual/origin/${originID}/destination/${destinationID}/type/${typeID}${startYear !== undefined && endYear !== undefined
-      ? `?startYear=${startYear}&endYear=${endYear}`
-      : ""
+    `${BASE_URL}/data/annual/origin/${originID}/destination/${destinationID}/type/${typeID}${
+      startYear !== undefined && endYear !== undefined
+        ? `?startYear=${startYear}&endYear=${endYear}`
+        : ""
     }`
   );
   const data = await res.json();
@@ -37,15 +38,17 @@ export type monthlyDataType = {
 };
 
 export const monthlyApi = async (
+  originID: string,
   destinationID: string,
   typeID: string,
   startDate?: string,
   endDate?: string
 ) => {
   const res = await fetch(
-    `${BASE_URL}/data/monthly/origin/WORLD/destination/${destinationID}/type/${typeID}${startDate !== undefined && endDate !== undefined
-      ? `?startDate=${startDate}&endDate=${endDate}`
-      : ""
+    `${BASE_URL}/data/monthly/origin/${originID}/destination/${destinationID}/type/${typeID}${
+      startDate !== undefined && endDate !== undefined
+        ? `?startDate=${startDate}&endDate=${endDate}`
+        : ""
     }`
   );
   const data = await res.json();
@@ -55,21 +58,30 @@ export const monthlyApi = async (
   if (Array.isArray(data))
     data.map((el: any) => {
       mappedData.data.push(el.observation);
-
-      const monthDate = new Date(el.date);
-      const monthString =
-        monthDate
-          .toLocaleString("it-IT", {
-            month: "short",
-          })
-          .charAt(0)
-          .toUpperCase() +
-        monthDate
-          .toLocaleString("it-IT", {
-            month: "short",
-          })
-          .slice(1);
-      mappedData.labels.push(monthString);
+      
+      if (data.length <= 12) {
+        const monthDate = new Date(el.date);
+        const monthString =
+          monthDate
+            .toLocaleString("it-IT", {
+              month: "short",
+            })
+            .charAt(0)
+            .toUpperCase() +
+          monthDate
+            .toLocaleString("it-IT", {
+              month: "short",
+            })
+            .slice(1);
+        mappedData.labels.push(monthString);
+      } else {
+        const monthDate = new Date(el.date);
+        const monthString = monthDate.toLocaleString("it-IT", {
+          month: "numeric",
+          year: "2-digit",
+        });
+        mappedData.labels.push(monthString);
+      }
     });
 
   return mappedData;

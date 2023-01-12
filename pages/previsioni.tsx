@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { toggleSidebar } from "../redux/SidebarSlice";
 import { RootState, store } from "../redux/store";
+import { labels, data } from "../components/BarChart";
 
 const previsioni = () => {
   const sidebar = useSelector((state: RootState) => state.sidebar.value);
@@ -34,19 +36,12 @@ const previsioni = () => {
     secondSelectYear?: string
   ) => {
     setYear(year);
-    console.log(year);
     setNazionality(nazionality);
-    console.log(nazionality);
     setProvince(province);
-    console.log(province);
     setFirstSelectMonth(firstSelectMonth);
-    console.log(firstSelectMonth);
     setFirstSelectYear(firstSelectYear);
-    console.log(firstSelectYear); 
     setSecondSelectMonth(secondSelectMonth);
-    console.log(secondSelectMonth);
     setSecondSelectYear(secondSelectYear);
-    console.log(secondSelectYear);
     handleSidebar();
   };
 
@@ -73,6 +68,19 @@ const previsioni = () => {
             filtra
           </button>
         </div>
+      </div>
+      <div className="chart">
+        <BarChart
+          data={{
+            labels: labels,
+            datasets: [
+              {
+                data: data,
+                backgroundColor: "#00ACC1",
+              },
+            ],
+          }}
+        />
       </div>
     </>
   );

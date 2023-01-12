@@ -17,18 +17,6 @@ const about = () => {
               ut
             </span>
           </h1>
-          {/* <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg">
-            Siamo un' <span className="font-bold uppercase">azienda</span> specializza nella creazione di siti web basati su dati Istat per il settore del turismo.
-            Utilizzando i dati statistici ufficiali forniti dall'Istituto Nazionale di Statistica, creiamo siti web <span className="font-bold uppercase">informativi</span> e <span className="font-bold uppercase"> intuitivi</span> che forniscono una visione completa e aggiornata del turismo in Sardegna.
-          </p>
-          <h2 className="uppercase text-gray-800 mt-[120px] mb-10 px-10">
-            il nostro prodotto
-          </h2>
-          <p className="tracking-wide text-gray-600 mx-auto max-w-[50%] pt-10 text-lg ">
-            <span className="text-[#284697] text-xl font-bold">Touri</span>
-            <span className="text-[#00ACC1] text-xl font-bold">Stats</span> si pone l'obiettivo di aiutare le aziende del settore turistico a comprendere e
-            sfruttare al meglio i dati e le previsioni presenti all'interno del nostro sito per migliorare il loro business.
-          </p> */}
           <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg">
             Benvenuti in <span className="font-bold uppercase">statea</span> dove combiniamo la nostra passione per la Sardegna con la nostra esperienza nello sviluppo di siti web basati su dati Istat per il settore del turismo.
             Siamo orgogliosi di offrire una piattaforma che consenta di monitorare e analizzare i dati dei visitatori in modo <span className="font-bold uppercase">semplice</span> e <span className="font-bold uppercase"> intuitivo</span>.
@@ -50,16 +38,6 @@ const about = () => {
         <section className="w-full h-full mb-[160px]">
           <div className=" lg:pt-36 relative">
             <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-10 row-gap-8 mx-auto sm:row-gap-10 lg:max-w-screen-lg lg:grid-cols-3">
-              {/* div only for mobile */}
-              <div className="relative lg:top-[-100px] transition transform delay-150 lg:hover:scale-150 lg:hidden md:hidden sm:block ">
-                <div className="flex flex-col items-center">
-                  <img className="object-cover w-28 h-28 rounded-full shadow " src="/assets/Joele.jpg" alt="Person" />
-                  <div className="flex flex-col justify-center">
-                    <p className="text-lg font-bold ">Joele Melchiorre</p>
-                    <p className="text-sm text-gray-800 text-center">Front-End Developer <br />Team Leader</p>
-                  </div>
-                </div>
-              </div>
 
               <div className="relative lg:left-[39px] transition transform delay-150 lg:hover:scale-150 ">
                 <div className="flex flex-col items-center">
@@ -71,7 +49,7 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="relative lg:top-[-100px] transition transform delay-150 lg:hover:scale-150 hidden lg:block md:block">
+              <div className="relative lg:top-[-100px] transition transform delay-150 order-first md:order-none lg:hover:scale-150 ">
                 <div className="flex flex-col items-center">
                   <img className="object-cover w-28 h-28 rounded-full shadow " src="/assets/Joele.jpg" alt="Person" />
                   <div className="flex flex-col justify-center">

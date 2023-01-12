@@ -47,14 +47,18 @@ const Sidebar = (props: {
 
   const handleYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(e.target.value);
+    console.log(e.target.value);
   };
 
   const handleNazionality = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setNazionality(e.target.value);
+    console.log(e.target.value);
   };
 
   const handleProvince = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setProvince(e.target.value);
+    console.log(e.target.value);
+
   };
 
   const handleYearStartRange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -129,11 +133,10 @@ const Sidebar = (props: {
   return (
     <>
       <div
-        className={`fixed md:top-20 bg-white w-full h-[60vh] md:h-[90vh] md:w-96 ease-in duration-500 overflow-y-scroll pb-5 ${
-          props.side
-            ? "top-[40%] rounded-t-3xl md:rounded-none md:left-0"
-            : "top-[100%] md:left-[-24rem]"
-        }`}
+        className={`fixed md:top-20 bg-white w-full h-[60vh] md:h-[90vh] md:w-96 ease-in duration-500 overflow-y-scroll pb-5 ${props.side
+          ? "top-[40%] rounded-t-3xl md:rounded-none md:left-0"
+          : "top-[100%] md:left-[-24rem]"
+          }`}
       >
         <aside className="">
           <div className="flex w-full items-center justify-between p-10">
@@ -324,7 +327,7 @@ const Sidebar = (props: {
               <option value="WORLD">Mondo</option>
               <option value="WRL_X_ITA">Paesi esteri</option>
               <option value="IT">Italia</option>
-              {yearDisabled === true || periodDisabled === true ? (
+              {yearDisabled && periodDisabled ? (
                 <>
                   <option value="AR">Argentina</option>
                   <option value="AT">Austria</option>
@@ -389,8 +392,9 @@ const Sidebar = (props: {
               <option value="ITG27">Cagliari</option>
               <option value="ITG28">Oristano</option>
               {(yearDisabled === false && year === "2016") ||
-              (periodDisabled === false &&
-                (firstSelectYear === "2016" || secondSelectYear === "2016")) ? (
+                (periodDisabled === false &&
+                  (firstSelectYear === "2016" || secondSelectYear === "2016"))
+                || (yearRangeDisabled === false) ? (
                 <>
                   <option value="ITG29">Olbia-Tempio</option>
                   <option value="ITG2A">Ogliastra</option>

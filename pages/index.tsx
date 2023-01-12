@@ -12,7 +12,7 @@ export default function Home() {
   const [months, setMonths] = useState<string[]>([]);
 
   useEffect(() => {
-    monthlyApi("ITG2", "AR", "2021-01-01", "2021-12-01").then((res) => {
+    monthlyApi("WORLD", "ITG2", "AR", "2021-01-01", "2021-12-01").then((res) => {
       setTouristsNumber(res.data);
       setMonths(res.labels);
     });

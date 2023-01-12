@@ -101,7 +101,7 @@ const statistiche = () => {
       <Navbar page="statistiche" />
 
       <div className="h-full">
-        <Sidebar side={side} handleSidebar={handleSidebar} handleSaveFilters={handleSaveFilters} />
+        <Sidebar side={side} page="statistiche" handleSidebar={handleSidebar} handleSaveFilters={handleSaveFilters} />
         <h1 className="uppercase text-center pt-32">
           <span className="text-[#284697]">
             Stati

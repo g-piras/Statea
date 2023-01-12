@@ -378,7 +378,7 @@ const Sidebar = (props: {
             <label className="text-sm font-medium text-gray-900">Seleziona la provincia</label>
             <select
               id="province"
-              className="text-start text-sm text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5"
+              className="text-start text-sm text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5"
               value={province}
               onChange={handleProvince}
             >

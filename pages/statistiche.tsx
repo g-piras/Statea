@@ -80,10 +80,17 @@ const statistiche = () => {
     }
 
     if (yearStartRange && yearEndRange) {
+
+      if (new Date(yearStartRange) > new Date(yearEndRange)) {
+        const temp = yearStartRange
+        yearStartRange = yearEndRange
+        yearEndRange = temp
+      }
       annualApi(nazionality, province, "AR", yearStartRange, yearEndRange).then((res) => {
         setTouristsNumber(res.data);
         setYears(res.labels);
       });
+
     }
 
     handleSidebar();

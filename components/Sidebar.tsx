@@ -47,18 +47,14 @@ const Sidebar = (props: {
 
   const handleYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleNazionality = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setNazionality(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleProvince = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setProvince(e.target.value);
-    console.log(e.target.value);
-
   };
 
   const handleYearStartRange = (e: React.ChangeEvent<HTMLSelectElement>) => {

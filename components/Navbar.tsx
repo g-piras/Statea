@@ -14,6 +14,7 @@ const Navbar = (props: { page: string }) => {
   };
 
   return (
+
     <div className="fixed z-50 w-full h-20 shadow-xl backdrop-filter backdrop-blur-2xl">
       <div
         className={
@@ -28,12 +29,14 @@ const Navbar = (props: { page: string }) => {
         >
           <div>
             <div className="flex w-full items-center justify-between">
-              <Image
-                src="/assets/touristats-logo.png"
-                alt="/"
-                width="70"
-                height="70"
-              />
+              <Link href="/">
+                <Image
+                  src="/assets/touristats-logo.png"
+                  alt="/"
+                  width="70"
+                  height="70"
+                />
+              </Link>
               <div
                 onClick={handleNav}
                 className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
@@ -110,14 +113,16 @@ const Navbar = (props: { page: string }) => {
           </div>
         </div>
       </div>
-
+      {/* desktop*/}
       <div className="flex justify-between items-center w-full h-full px-8 2xl:px-12">
-        <Image
-          src="/assets/touristats-logo.png"
-          alt="/"
-          width="60"
-          height="60"
-        />
+        <Link href="/">
+          <Image
+            src="/assets/touristats-logo.png"
+            alt="/"
+            width="70"
+            height="70"
+          />
+        </Link>
         <div>
           <ul className="hidden uppercase md:flex">
             <Link href="/">
@@ -153,7 +158,7 @@ const Navbar = (props: { page: string }) => {
               </li>
             </Link>
           </ul>
-          <div onClick={handleNav} className="md:hidden">
+          <div onClick={handleNav} className="md:hidden cursor-pointer">
             <AiOutlineMenu size={25} />
           </div>
         </div>

@@ -60,7 +60,7 @@ export const Footer = () => {
           </p>
           <div className="flex items-center justify-center my-4 w-full min-[480px]:w-[80%] relative">
             <Link href="https://github.com/KelosDev/Statea" target="_blank">
-              <div className="rounded-full bg-sky-50 shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
+              <div className=" rounded-full bg-sky-50 shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
                 <FaGithub />
               </div>
             </Link>

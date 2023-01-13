@@ -100,11 +100,10 @@ const Sidebar = (props: {
   return (
     <>
       <div
-        className={`fixed md:top-20 bg-white w-full h-[60vh] md:h-[90vh] md:w-96 ease-in duration-500 overflow-y-scroll pb-5 ${
-          props.side
-            ? "top-[40%] rounded-t-3xl md:rounded-none md:left-0"
-            : "top-[100%] md:left-[-24rem]"
-        }`}
+        className={`fixed md:top-20 bg-white w-full h-[60vh] md:h-[90vh] md:w-96 ease-in duration-500 overflow-y-scroll pb-5 z-50 ${props.side
+          ? "top-[40%] rounded-t-3xl md:rounded-none md:left-0"
+          : "top-[100%] md:left-[-24rem]"
+          }`}
       >
         <aside>
           <form onSubmit={handleOnSubmit}>
@@ -132,13 +131,13 @@ const Sidebar = (props: {
                   handleDisabled("yearRange");
                 }}
               >
-                <label className="text-sm font-medium text-gray-900">
+                <label className=" font-medium text-gray-900">
                   Range di anni
                 </label>
                 <div className="flex gap-3">
                   <select
                     id="yearStartRange"
-                    className="text-start text-sm text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5"
+                    className="text-center text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
                     disabled={yearRangeDisabled === true ? true : false}
                     defaultValue="2008"
                   >
@@ -159,7 +158,7 @@ const Sidebar = (props: {
                   </select>
                   <select
                     id="yearEndRange"
-                    className="text-start text-sm text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5"
+                    className="text-center text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
                     disabled={yearRangeDisabled === true ? true : false}
                     defaultValue="2021"
                   >
@@ -186,12 +185,12 @@ const Sidebar = (props: {
                   handleDisabled("year");
                 }}
               >
-                <label className="text-sm font-medium text-gray-900">
+                <label className=" font-medium text-gray-900">
                   Anno
                 </label>
                 <select
                   id="year"
-                  className="text-start text-sm text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5"
+                  className="text-center  text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
                   value={year}
                   onChange={handleYear}
                   disabled={yearDisabled === true ? true : false}
@@ -222,14 +221,14 @@ const Sidebar = (props: {
                   handleDisabled("period");
                 }}
               >
-                <label className="text-sm font-medium text-gray-900">
+                <label className="font-medium text-gray-900">
                   Periodo
                 </label>
                 <div className="flex gap-3">
                   <select
                     id="firstSelectMonth"
                     disabled={periodDisabled === true ? true : false}
-                    className="text-start text-sm text-white mb-2 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5"
+                    className="text-center  text-white mb-2 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
                   >
                     <option value="01">Gen</option>
                     <option value="02">Feb</option>
@@ -248,7 +247,7 @@ const Sidebar = (props: {
                     id="firstSelectYear"
                     disabled={periodDisabled === true ? true : false}
                     onChange={handleFirstSelectYear}
-                    className="text-start text-sm text-white mb-2 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5"
+                    className="text-center  text-white mb-2 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
                     value={firstSelectYear}
                   >
                     <option value="2021">2021</option>
@@ -263,7 +262,7 @@ const Sidebar = (props: {
                   <select
                     id="secondSelectMonth"
                     disabled={periodDisabled === true ? true : false}
-                    className="text-start text-sm text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5"
+                    className="text-center  text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
                     defaultValue="12"
                   >
                     <option value="01">Gen</option>
@@ -283,7 +282,7 @@ const Sidebar = (props: {
                     id="secondSelectYear"
                     disabled={periodDisabled === true ? true : false}
                     onChange={handleSecondSelectYear}
-                    className="text-start text-sm text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5"
+                    className="text-center  text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
                     value={secondSelectYear}
                   >
                     <option value="2021">2021</option>
@@ -296,7 +295,7 @@ const Sidebar = (props: {
                 </div>
               </div>
 
-              <label className="text-sm font-medium text-gray-900">
+              <label className=" font-medium text-gray-900">
                 <div className="flex items-center gap-1">
                   <div>Paese di provenienza</div>
                   <button>
@@ -308,7 +307,7 @@ const Sidebar = (props: {
               </label>
               <select
                 id="nationality"
-                className="text-start text-sm text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5"
+                className="text-center  text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
               >
                 <option value="WORLD">Mondo</option>
                 <option value="WRL_X_ITA">Paesi esteri</option>
@@ -365,12 +364,12 @@ const Sidebar = (props: {
                 )}
               </select>
 
-              <label className="text-sm font-medium text-gray-900">
+              <label className=" font-medium text-gray-900">
                 Provincia
               </label>
               <select
                 id="province"
-                className="text-start text-sm text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5"
+                className="text-center  text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
               >
                 <option value="ITG2">Tutte le province</option>
                 <option value="ITG25">Sassari</option>
@@ -378,10 +377,10 @@ const Sidebar = (props: {
                 <option value="ITG27">Cagliari</option>
                 <option value="ITG28">Oristano</option>
                 {(yearDisabled === false && year === "2016") ||
-                (periodDisabled === false &&
-                  (firstSelectYear === "2016" ||
-                    secondSelectYear === "2016")) ||
-                yearRangeDisabled === false ? (
+                  (periodDisabled === false &&
+                    (firstSelectYear === "2016" ||
+                      secondSelectYear === "2016")) ||
+                  yearRangeDisabled === false ? (
                   <>
                     <option value="ITG29">Olbia-Tempio</option>
                     <option value="ITG2A">Ogliastra</option>

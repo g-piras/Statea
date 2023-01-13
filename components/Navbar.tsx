@@ -45,13 +45,14 @@ const Navbar = (props: { page: string }) => {
               </div>
             </div>
             <div className="border-b border-gray-300 my-4 min-[480px]:w-[80%]">
-              <p className="py-4 font-bold text-xl">TouriStats sections</p>
+              <p className="py-4 text-lg"><span className="text-[#284697] text-2xl">Touri</span>
+                <span className="text-[#00ACC1] text-2xl">Stats</span> section</p>
             </div>
           </div>
-          <div className="py-4 flex-col">
+          <div className="py-6 flex-col">
             <ul className="uppercase">
               <Link href="/">
-                <li className="py-4 text-sm ">
+                <li className="py-4">
                   <span
                     className={`border-b border-transparent hover:border-black ${props.page === "home" ? "border-black" : ""
                       }`}
@@ -61,7 +62,7 @@ const Navbar = (props: { page: string }) => {
                 </li>
               </Link>
               <Link href="/statistiche">
-                <li className="py-4 text-sm ">
+                <li className="py-4">
                   <span
                     className={`border-b border-transparent hover:border-black ${props.page === "statistiche" ? "border-black" : ""
                       }`}
@@ -71,7 +72,7 @@ const Navbar = (props: { page: string }) => {
                 </li>
               </Link>
               <Link href="/previsioni">
-                <li className="py-4 text-sm ">
+                <li className="py-4">
                   <span
                     className={`border-b border-transparent hover:border-black ${props.page === "previsioni" ? "border-black" : ""
                       }`}
@@ -81,7 +82,7 @@ const Navbar = (props: { page: string }) => {
                 </li>
               </Link>
               <Link href="/about">
-                <li className="py-4 text-sm ">
+                <li className="py-4">
                   <span
                     className={`border-b border-transparent hover:border-black ${props.page === "about" ? "border-black" : ""
                       }`}
@@ -96,18 +97,11 @@ const Navbar = (props: { page: string }) => {
                 Let's Connect
               </p>
               <div className="flex items-center justify-between my-4 w-full min-[480px]:w-[80%]">
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                  <FaLinkedinIn />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                  <FaGithub />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                  <AiOutlineMail />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                  <BsFillPersonLinesFill />
-                </div>
+                <Link href="https://github.com/KelosDev/Statea" target="_blank">
+                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                    <FaGithub />
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

@@ -75,7 +75,7 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="relative lg:top-[-100px] transition transform delay-150 order-first md:order-none lg:active:animate-rotate-360 lg:hover:scale-150">
+              <div className="relative lg:top-[-100px] transition transform delay-150 order-first md:order-none lg:active:animate-rotate-infinite lg:hover:scale-150">
                 <div className="flex flex-col items-center">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow "

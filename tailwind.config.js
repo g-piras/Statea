@@ -1,4 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+/**
+ * @type {import('tailwindcss').Config}
+ */
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -27,8 +29,8 @@ module.exports = {
       },
       animation: {
         "rotate-360": "rotate 0.5s ease-in-out;",
+        "rotate-infinite": "rotate 0.5s linear infinite",
       },
     },
   },
-  plugins: [],
 };

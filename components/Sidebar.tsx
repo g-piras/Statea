@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   AiOutlineCheck,
   AiOutlineClose,
-  AiOutlineDelete,
+  AiOutlineInfoCircle,
 } from "react-icons/ai";
 
 const Sidebar = (props: {
@@ -133,7 +133,7 @@ const Sidebar = (props: {
                 }}
               >
                 <label className="text-sm font-medium text-gray-900">
-                  Seleziona il range di anni
+                  Range di anni
                 </label>
                 <div className="flex gap-3">
                   <select
@@ -187,7 +187,7 @@ const Sidebar = (props: {
                 }}
               >
                 <label className="text-sm font-medium text-gray-900">
-                  Seleziona l'anno
+                  Anno
                 </label>
                 <select
                   id="year"
@@ -223,7 +223,7 @@ const Sidebar = (props: {
                 }}
               >
                 <label className="text-sm font-medium text-gray-900">
-                  Seleziona il periodo
+                  Periodo
                 </label>
                 <div className="flex gap-3">
                   <select
@@ -297,7 +297,14 @@ const Sidebar = (props: {
               </div>
 
               <label className="text-sm font-medium text-gray-900">
-                Seleziona il paese di provenienza
+                <div className="flex items-center gap-1">
+                  <div>Paese di provenienza</div>
+                  <button>
+                    <AiOutlineInfoCircle />
+                  </button>
+                  Nota: Tutte la nazionalità sono disponibili solo selezionando
+                  il range di anni
+                </div>
               </label>
               <select
                 id="nationality"
@@ -359,13 +366,13 @@ const Sidebar = (props: {
               </select>
 
               <label className="text-sm font-medium text-gray-900">
-                Seleziona la provincia
+                Provincia
               </label>
               <select
                 id="province"
                 className="text-start text-sm text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5"
               >
-                <option value="ITG2">Sardegna</option>
+                <option value="ITG2">Tutte le province</option>
                 <option value="ITG25">Sassari</option>
                 <option value="ITG26">Nuoro</option>
                 <option value="ITG27">Cagliari</option>

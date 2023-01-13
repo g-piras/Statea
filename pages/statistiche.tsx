@@ -3,6 +3,7 @@ import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { annualApi, monthlyApi } from "../api";
+import { Footer } from "../components/Footer";
 
 const statistiche = () => {
   const [side, setSide] = useState<boolean>(false);
@@ -107,7 +108,7 @@ const statistiche = () => {
         <div className="text-center my-5">
           <button
             onClick={handleSidebar}
-            className="uppercase mb-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+            className="uppercase my-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
           >
             filtra
           </button>
@@ -126,6 +127,8 @@ const statistiche = () => {
           />
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };

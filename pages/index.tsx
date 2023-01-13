@@ -80,7 +80,7 @@ export default function Home() {
             />
           </div>
           <Link href="/previsioni">
-            <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+            <button className="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
               Vai a Previsioni
             </button>
           </Link>

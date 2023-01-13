@@ -4,6 +4,7 @@ import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { labels, data } from "../components/BarChart";
+import { Footer } from "../components/Footer";
 
 const previsioni = () => {
   const [side, setSide] = useState<boolean>(false);
@@ -30,7 +31,7 @@ const previsioni = () => {
           <button
             disabled
             onClick={handleSidebar}
-            className="uppercase mb-10 bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded disabled:opacity-40"
+            className="uppercase my-10 bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded disabled:opacity-40"
           >
             filtra
           </button>
@@ -49,6 +50,8 @@ const previsioni = () => {
           }}
         />
       </div>
+
+      <Footer />
     </>
   );
 };

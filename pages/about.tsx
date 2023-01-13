@@ -49,7 +49,7 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="relative lg:top-[-100px] transition transform delay-150 order-first md:order-none lg:hover:scale-150 ">
+              <div className="relative lg:top-[-100px] transition transform delay-150 order-first md:order-none lg:active:animate-rotate-360 lg:hover:scale-150">
                 <div className="flex flex-col items-center">
                   <img className="object-cover w-28 h-28 rounded-full shadow " src="/assets/Joele.jpg" alt="Person" />
                   <div className="flex flex-col justify-center">
@@ -69,7 +69,7 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="relative flex flex-col justify-center lg:w-[150px] transition transform delay-150 lg:hover:scale-150 ">
+              <div className="relative flex flex-col justify-center lg:w-[150px] transition transform delay-150 lg:hover:scale-150">
                 <div className="flex flex-col items-center">
                   <img className="object-cover w-28 h-28 rounded-full shadow" src="/assets/giampietro.jpg" alt="Person" />
                   <div className="flex flex-col justify-center">
@@ -79,8 +79,8 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="lg:flex lg:justify-center hidden lg:hover:animate-rotate">
-                <img className="object-cover w-150 h-150  " src="/assets/statea2.png" alt="Logo" />
+              <div className="lg:flex lg:justify-center hidden lg:hover:animate-rotate-360">
+                <img className="object-cover w-150 h-150" src="/assets/statea1.png" alt="Logo" />
               </div>
 
               <div className="relative flex flex-col justify-center lg:w-[150px] lg:left-[159px] transition transform delay-150 lg:hover:scale-150">

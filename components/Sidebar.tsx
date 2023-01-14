@@ -31,25 +31,7 @@ const Sidebar = (props: {
   const [yearDisabled, setYearDisabled] = useState(true);
   const [periodDisabled, setPeriodDisabled] = useState(true);
   const [yearRangeDisabled, setYearRangeDisabled] = useState(false);
-  const [firstCheckbox, setfirstCheckbox] = useState(false)
-  const [secondCheckbox, setSecondCheckbox] = useState(false)
-  const [thirdCheckbox, setThirdCheckbox] = useState(false)
-
-
-  const handleChangeFirstCheck = () => {
-    setfirstCheckbox(!firstCheckbox)
-  }
-
-  const handleChangeSecondCheck = () => {
-    setSecondCheckbox(!secondCheckbox)
-  }
-  const handleChangeThirdCheck = () => {
-    setThirdCheckbox(!thirdCheckbox)
-  }
-
-  useEffect(() => {
-    console.log(firstCheckbox);
-  }, [firstCheckbox])
+  const [checked, setChecked] = useState('first-checkbox')
 
   const handleYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(e.target.value);
@@ -154,8 +136,8 @@ const Sidebar = (props: {
                     id="range-checkbox"
                     type="checkbox"
                     name="radio-check"
-                    checked={firstCheckbox}
-                    onChange={handleChangeFirstCheck}
+                    checked={checked === 'first-checkbox'}
+                    onChange={() => setChecked('first-checkbox')}
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded dark:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label className="ml-3 font-medium text-gray-900">
@@ -163,7 +145,7 @@ const Sidebar = (props: {
                   </label>
                 </div>
                 {
-                  firstCheckbox && (
+                  checked === 'first-checkbox' && (
                     <div className="flex gap-3">
                       <select
                         id="yearStartRange"
@@ -223,8 +205,8 @@ const Sidebar = (props: {
                     id="year-checkbox"
                     type="checkbox"
                     name="radio-check"
-                    checked={secondCheckbox}
-                    onChange={handleChangeSecondCheck}
+                    checked={checked === 'second-checkbox'}
+                    onChange={() => setChecked('second-checkbox')}
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded dark:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500" />
                   <label className="ml-3 font-medium text-gray-900">
                     Anno
@@ -232,7 +214,7 @@ const Sidebar = (props: {
                 </div>
 
                 {
-                  secondCheckbox && (
+                  checked === 'second-checkbox' && (
                     <select
                       id="year"
                       className="text-center  text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
@@ -273,15 +255,15 @@ const Sidebar = (props: {
                     id="periodo-checkbox"
                     type="checkbox"
                     name="radio-check"
-                    checked={thirdCheckbox}
-                    onChange={handleChangeThirdCheck}
+                    checked={checked === 'third-checkbox'}
+                    onChange={() => setChecked('third-checkbox')}
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded dark:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500" />
                   <label className="ml-3 font-medium text-gray-900">
                     Periodo
                   </label>
                 </div>
                 {
-                  thirdCheckbox && (
+                  checked === 'third-checkbox' && (
                     <>
                       <div className="flex gap-3">
                         <select

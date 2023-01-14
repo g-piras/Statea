@@ -8,6 +8,12 @@ import { Footer } from "../components/Footer";
 
 const previsioni = () => {
   const [side, setSide] = useState<boolean>(false);
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = () => {
+    // Change state to the opposite (to ture) when checkbox changes
+    setChecked(!checked);
+  };
 
   const handleSidebar = () => {
   };
@@ -50,7 +56,6 @@ const previsioni = () => {
           }}
         />
       </div>
-
       <Footer />
     </>
   );

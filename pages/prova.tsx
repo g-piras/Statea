@@ -6,28 +6,14 @@ const prova = () => {
 
 
     return (
-        <div>
-            <input
-                type='checkbox'
-                checked={checked === 'first-checkbox'}
-                onChange={() => setChecked('first-checkbox')}
-            />
+        <div className='mt-[400px]'>
 
-            {
-                checked === 'first-checkbox' ? (<h1>mostra</h1>) : (<h1>nascondi</h1>)
-            }
+            <div className="tooltip" data-tip="hello">
+                <button className="btn">Hover me</button>
+            </div>
 
-            <input
-                type='checkbox'
-                checked={checked === 'second-checkbox'}
-                onChange={() => setChecked('second-checkbox')}
-            />
-            <input
-                type='checkbox'
-                checked={checked === 'third-checkbox'}
-                onChange={() => setChecked('third-checkbox')}
-            />
         </div>
+
     );
 };
 

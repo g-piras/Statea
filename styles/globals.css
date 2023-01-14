@@ -39,3 +39,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.tooltip::before {
+  width: 250px;
+}

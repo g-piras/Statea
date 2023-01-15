@@ -121,11 +121,30 @@ const statistiche = () => {
 
         <div className="text-center">
           {
-            yearStartRange ? (
-              <div className="badge bg-[#284697] border-transparent">{yearStartRange} - {yearEndRange}
-              </div>
-            ) :
-              <div className="badge">{firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}</div>
+            yearStartRange && yearEndRange && yearStartRange < yearEndRange ?
+              (
+                <div className="badge bg-[#284697] border-transparent">{yearStartRange} - {yearEndRange}</div>
+              ) :
+              yearStartRange && yearEndRange && yearStartRange === yearEndRange ?
+                (
+                  <div className="badge bg-[#284697] border-transparent">{yearStartRange} - {yearEndRange}</div>
+                ) :
+                firstSelectMonth && secondSelectMonth && secondSelectYear && firstSelectYear && firstSelectYear < secondSelectYear ?
+                  (
+                    <div className="badge  bg-[#284697] border-transparent">{firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}</div>
+                  ) :
+                  yearStartRange && yearEndRange && yearStartRange > yearEndRange ?
+                    (
+                      <div className="badge bg-[#284697] border-transparent"> {yearEndRange} - {yearStartRange}</div>
+                    ) :
+                    firstSelectMonth && secondSelectMonth && secondSelectYear && firstSelectYear && firstSelectYear > secondSelectYear ?
+                      (
+                        <div className="badge bg-[#284697] border-transparent">{secondSelectMonth}/{secondSelectYear} - {firstSelectMonth}/{firstSelectYear}</div>
+                      ) :
+                      firstSelectMonth && secondSelectMonth && secondSelectYear && firstSelectYear && firstSelectYear === secondSelectYear &&
+                      (
+                        <div className="badge  bg-[#284697] border-transparent">{secondSelectMonth}/{firstSelectYear} - {firstSelectMonth}/{secondSelectYear}</div>
+                      )
           }
         </div>
         <div className="chart">

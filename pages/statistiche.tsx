@@ -6,7 +6,6 @@ import { annualApi, monthlyApi } from "../api";
 import { Footer } from "../components/Footer";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 
-
 const statistiche = () => {
   const [side, setSide] = useState<boolean>(false);
   const [touristsNumber, setTouristsNumber] = useState<string[]>([]);
@@ -18,9 +17,8 @@ const statistiche = () => {
   const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>(undefined);
   const [secondSelectMonth, setSecondSelectMonth] = useState<undefined | string>(undefined);
   const [secondSelectYear, setSecondSelectYear] = useState<undefined | string>(undefined);
-  const [yearStartRange, setYearStartRange] = useState<undefined | string>('2008');
-  const [yearEndRange, setYearEndRange] = useState<undefined | string>('2021');
-
+  const [yearStartRange, setYearStartRange] = useState<undefined | string>("2008");
+  const [yearEndRange, setYearEndRange] = useState<undefined | string>("2021");
 
   useEffect(() => {
     annualApi(nazionality, province, "AR", yearStartRange, yearEndRange).then((res) => {
@@ -51,9 +49,8 @@ const statistiche = () => {
     setFirstSelectYear(firstSelectYear);
     setSecondSelectMonth(secondSelectMonth);
     setSecondSelectYear(secondSelectYear);
-    setYearStartRange(yearStartRange)
-    setYearEndRange(yearEndRange)
-
+    setYearStartRange(yearStartRange);
+    setYearEndRange(yearEndRange);
 
     if (year) {
       monthlyApi(nazionality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
@@ -79,17 +76,15 @@ const statistiche = () => {
     }
 
     if (yearStartRange && yearEndRange) {
-
       if (new Date(yearStartRange) > new Date(yearEndRange)) {
-        const temp = yearStartRange
-        yearStartRange = yearEndRange
-        yearEndRange = temp
+        const temp = yearStartRange;
+        yearStartRange = yearEndRange;
+        yearEndRange = temp;
       }
       annualApi(nazionality, province, "AR", yearStartRange, yearEndRange).then((res) => {
         setTouristsNumber(res.data);
         setYears(res.labels);
       });
-
     }
 
     handleSidebar();
@@ -100,7 +95,12 @@ const statistiche = () => {
       <Navbar page="statistiche" />
 
       <div className="h-full">
-        <Sidebar side={side} page="statistiche" handleSidebar={handleSidebar} handleSaveFilters={handleSaveFilters} />
+        <Sidebar
+          side={side}
+          page="statistiche"
+          handleSidebar={handleSidebar}
+          handleSaveFilters={handleSaveFilters}
+        />
         <h1 className="uppercase text-center pt-32">
           <span className="text-[#284697]">
             Stati
@@ -120,13 +120,45 @@ const statistiche = () => {
         </div>
 
         <div className="text-center">
-          {
-            yearStartRange ? (
-              <div className="badge bg-[#284697] border-transparent">{yearStartRange} - {yearEndRange}
+          {yearStartRange && yearEndRange && yearStartRange < yearEndRange ? (
+            <div className="badge bg-[#284697] border-transparent">
+              {yearStartRange} - {yearEndRange}
+            </div>
+          ) : yearStartRange && yearEndRange && yearStartRange === yearEndRange ? (
+            <div className="badge bg-[#284697] border-transparent">
+              {yearStartRange} - {yearEndRange}
+            </div>
+          ) : firstSelectMonth &&
+            secondSelectMonth &&
+            secondSelectYear &&
+            firstSelectYear &&
+            firstSelectYear < secondSelectYear ? (
+            <div className="badge  bg-[#284697] border-transparent">
+              {firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}
+            </div>
+          ) : yearStartRange && yearEndRange && yearStartRange > yearEndRange ? (
+            <div className="badge bg-[#284697] border-transparent">
+              {yearEndRange} - {yearStartRange}
+            </div>
+          ) : firstSelectMonth &&
+            secondSelectMonth &&
+            secondSelectYear &&
+            firstSelectYear &&
+            firstSelectYear > secondSelectYear ? (
+            <div className="badge bg-[#284697] border-transparent">
+              {secondSelectMonth}/{secondSelectYear} - {firstSelectMonth}/{firstSelectYear}
+            </div>
+          ) : (
+            firstSelectMonth &&
+            secondSelectMonth &&
+            secondSelectYear &&
+            firstSelectYear &&
+            firstSelectYear === secondSelectYear && (
+              <div className="badge  bg-[#284697] border-transparent">
+                {secondSelectMonth}/{firstSelectYear} - {firstSelectMonth}/{secondSelectYear}
               </div>
-            ) :
-              <div className="badge bg-[#284697] border-transparent">{firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}</div>
-          }
+            )
+          )}
         </div>
         <div className="chart">
           <BarChart

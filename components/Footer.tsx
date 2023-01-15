@@ -4,23 +4,21 @@ import { FaGithub } from "react-icons/fa";
 export const Footer = () => {
   return (
     <>
-      <div className="bg-[#284697] flex justify-between items-center px-5 py-10 mt-36">
+      <div className="bg-[#284697] flex justify-between px-5 py-10 mt-36">
         <div className="w-[50%] h-full text-center ">
-          <div className="py-4 flex-col">
+          <div className="flex-col">
             <ul className="uppercase">
-              <button>
-                <Link href="/">
-                  <li className="md:py-2 py-1 text-sm ">
-                    <span
-                      className="border-b border-transparent hover:border-black text-sky-50 uppercase"
-                    >
-                      Home
-                    </span>
-                  </li>
-                </Link>
-              </button>
+              <Link href="/">
+                <li className="md:py-2 pb-[14px] text-sm ">
+                  <span
+                    className="border-b border-transparent hover:border-black text-sky-50 uppercase"
+                  >
+                    Home
+                  </span>
+                </li>
+              </Link>
               <Link href="/statistiche">
-                <li className="md:py-2 py-1 text-sm ">
+                <li className="md:py-2 py-[14px] text-sm ">
                   <span
                     className="border-b border-transparent hover:border-black text-sky-50"
                   >
@@ -29,7 +27,7 @@ export const Footer = () => {
                 </li>
               </Link>
               <Link href="/previsioni">
-                <li className="md:py-2 py-1 text-sm ">
+                <li className="md:py-2 py-[14px] text-sm ">
                   <span
                     className="border-b border-transparent hover:border-black text-sky-50"
                   >
@@ -38,7 +36,7 @@ export const Footer = () => {
                 </li>
               </Link>
               <Link href="/about">
-                <li className="md:py-2 py-1 text-sm ">
+                <li className="md:py-2 py-[14px] text-sm ">
                   <span
                     className="border-b border-transparent hover:border-black text-sky-50"
                   >

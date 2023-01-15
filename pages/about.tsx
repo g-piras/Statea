@@ -59,7 +59,8 @@ const about = () => {
         <section className="w-full h-full mb-[160px]">
           <div className=" lg:pt-36 relative">
             <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-10 row-gap-8 mx-auto sm:row-gap-10 lg:max-w-screen-lg lg:grid-cols-3">
-              <div className="relative lg:left-[39px] transition transform delay-150 lg:hover:scale-150 ">
+
+              <div className="relative lg:top-[39px] lg:left-[60px] transition transform delay-150 lg:hover:scale-150 ">
                 <div className="flex flex-col items-center">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
@@ -75,7 +76,7 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="relative lg:top-[-100px] transition transform delay-150 order-first md:order-none lg:active:animate-rotate-infinite lg:hover:scale-150">
+              <div className="relative lg:top-[-37px] transition transform delay-150 order-first md:order-none lg:active:animate-rotate-infinite lg:hover:scale-150">
                 <div className="flex flex-col items-center">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow "
@@ -92,7 +93,7 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="relative transition transform delay-150 lg:hover:scale-150">
+              <div className="relative lg:top-[39px] lg:left-[-60px] transition transform delay-150 lg:hover:scale-150">
                 <div className="flex flex-col items-center">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
@@ -110,7 +111,7 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="relative flex flex-col justify-center lg:w-[150px] transition transform delay-150 lg:hover:scale-150">
+              <div className="relative lg:left-[15px] flex flex-col justify-center lg:w-[150px] transition transform delay-150 lg:hover:scale-150">
                 <div className="flex flex-col items-center">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
@@ -134,7 +135,7 @@ const about = () => {
                 />
               </div>
 
-              <div className="relative flex flex-col justify-center lg:w-[150px] lg:left-[159px] transition transform delay-150 lg:hover:scale-150">
+              <div className="relative flex flex-col justify-center lg:w-[150px] lg:left-[150px] transition transform delay-150 lg:hover:scale-150">
                 <div className="flex flex-col items-center ">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
@@ -150,14 +151,14 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="relative transition transform delay-150 lg:hover:scale-150">
+              <div className="relative lg:top-[-39px] transition transform delay-150 lg:hover:scale-150">
                 <div className="flex flex-col items-center">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/matteo2.jpg"
                     alt="Person"
                   />
-                  <div className="flex flex-col justify-center">
+                  <div className=" relative lg:left-[39px] flex flex-col justify-center">
                     <p className="text-lg font-bold ">Matteo Taricco</p>
                     <p className="text-sm text-gray-800 text-center">
                       Back-End Developer
@@ -166,7 +167,7 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="relative lg:bottom-[-100px] transition transform delay-150 lg:hover:scale-150">
+              <div className="relative lg:bottom-[-30px] transition transform delay-150 lg:hover:scale-150">
                 <div className="flex flex-col items-center">
                   <img
                     className="object-cover w-28 h-28  rounded-full shadow"
@@ -180,14 +181,14 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="relative transition transform delay-150 lg:hover:scale-150">
+              <div className="relative lg:top-[-39px] transition transform delay-150 lg:hover:scale-150">
                 <div className="flex flex-col items-center">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/Matteo.jpg"
                     alt="Person"
                   />
-                  <div className="flex flex-col justify-center">
+                  <div className="relative lg:left-[-39px]flex flex-col justify-center">
                     <p className="text-lg font-bold ">Matteo Drago</p>
                     <p className="text-sm text-gray-800 text-center">
                       Fintech Developer

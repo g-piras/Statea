@@ -96,11 +96,10 @@ const Sidebar = (props: {
   return (
     <>
       <div
-        className={`fixed md:top-20 bg-white w-full h-[60vh] md:h-[95vh] md:w-96 ease-in duration-500 overflow-y-scroll pb-5 z-50 ${
-          props.side
-            ? "top-[40%] rounded-t-3xl md:rounded-none md:left-0"
-            : "top-[100%] md:left-[-24rem]"
-        }`}
+        className={`fixed md:top-20 bg-white w-full h-[60vh] md:h-[95vh] md:w-96 ease-in duration-500 overflow-y-scroll pb-5 z-50 ${props.side
+          ? "top-[40%] rounded-t-3xl md:rounded-none md:left-0"
+          : "top-[100%] md:left-[-24rem]"
+          }`}
       >
         <aside>
           <form onSubmit={handleOnSubmit}>
@@ -131,14 +130,14 @@ const Sidebar = (props: {
                 >
                   Range di Anni
                 </a>
-                <a
+                {/* <a
                   className={`tab tab-bordered ${selected === "second" && "tab-active"}`}
                   onClick={() => {
                     handleTabOnClick("second");
                   }}
                 >
                   Anno
-                </a>
+                </a> */}
                 <a
                   className={`tab tab-bordered ${selected === "third" && "tab-active"}`}
                   onClick={() => {
@@ -153,7 +152,7 @@ const Sidebar = (props: {
                 <>
                   <select
                     id="yearStartRange"
-                    className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                    className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                     disabled={yearRangeDisabled === true ? true : false}
                     defaultValue="2008"
                   >
@@ -174,7 +173,7 @@ const Sidebar = (props: {
                   </select>
                   <select
                     id="yearEndRange"
-                    className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                    className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                     disabled={yearRangeDisabled === true ? true : false}
                     defaultValue="2021"
                   >
@@ -196,11 +195,11 @@ const Sidebar = (props: {
                 </>
               )}
 
-              {selected === "second" && (
+              {/* {selected === "second" && (
                 <>
                   <select
                     id="year"
-                    className="text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                    className="text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                     value={year}
                     onChange={handleYear}
                     disabled={yearDisabled === true ? true : false}
@@ -226,7 +225,7 @@ const Sidebar = (props: {
                     )}
                   </select>
                 </>
-              )}
+              )} */}
 
               {selected === "third" && (
                 <>
@@ -234,7 +233,7 @@ const Sidebar = (props: {
                     <select
                       id="firstSelectMonth"
                       disabled={periodDisabled === true ? true : false}
-                      className="inline text-white mb-4 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-4 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                     >
                       <option value="01">Gen</option>
                       <option value="02">Feb</option>
@@ -253,7 +252,7 @@ const Sidebar = (props: {
                       id="firstSelectYear"
                       disabled={periodDisabled === true ? true : false}
                       onChange={handleFirstSelectYear}
-                      className="inline text-white mb-4 ml-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-4 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                       value={firstSelectYear}
                     >
                       <option value="2021">2021</option>
@@ -276,7 +275,7 @@ const Sidebar = (props: {
                     <select
                       id="secondSelectMonth"
                       disabled={periodDisabled === true ? true : false}
-                      className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                       defaultValue="12"
                     >
                       <option value="01">Gen</option>
@@ -296,7 +295,7 @@ const Sidebar = (props: {
                       id="secondSelectYear"
                       disabled={periodDisabled === true ? true : false}
                       onChange={handleSecondSelectYear}
-                      className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                       value={secondSelectYear}
                     >
                       <option value="2021">2021</option>
@@ -414,9 +413,9 @@ const Sidebar = (props: {
                 <option value="ITG27">Cagliari</option>
                 <option value="ITG28">Oristano</option>
                 {(yearDisabled === false && year === "2016") ||
-                (periodDisabled === false &&
-                  (firstSelectYear === "2016" || secondSelectYear === "2016")) ||
-                yearRangeDisabled === false ? (
+                  (periodDisabled === false &&
+                    (firstSelectYear === "2016" || secondSelectYear === "2016")) ||
+                  yearRangeDisabled === false ? (
                   <>
                     <option value="ITG29">Olbia-Tempio</option>
                     <option value="ITG2A">Ogliastra</option>

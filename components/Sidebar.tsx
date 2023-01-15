@@ -25,9 +25,9 @@ const Sidebar = (props: {
   const [yearRangeDisabled, setYearRangeDisabled] = useState(false);
   const [selected, setSelected] = useState("first");
 
-  const handleYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setYear(e.target.value);
-  };
+  // const handleYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setYear(e.target.value);
+  // };
 
   const handleFirstSelectYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFirstSelectYear(e.target.value);
@@ -79,14 +79,14 @@ const Sidebar = (props: {
       setYearDisabled(true);
       setPeriodDisabled(true);
     }
+    // if (tab === "second") {
+    //   setSelected("second");
+    //   setYearRangeDisabled(true);
+    //   setYearDisabled(true);
+    //   setPeriodDisabled(false);
+    // }
     if (tab === "second") {
       setSelected("second");
-      setYearRangeDisabled(true);
-      setYearDisabled(false);
-      setPeriodDisabled(true);
-    }
-    if (tab === "third") {
-      setSelected("third");
       setYearRangeDisabled(true);
       setYearDisabled(true);
       setPeriodDisabled(false);
@@ -139,13 +139,21 @@ const Sidebar = (props: {
                   Anno
                 </a> */}
                 <a
-                  className={`tab tab-bordered ${selected === "third" && "tab-active"}`}
+                  className={`tab tab-bordered ${selected === "second" && "tab-active"}`}
                   onClick={() => {
-                    handleTabOnClick("third");
+                    handleTabOnClick("second");
                   }}
                 >
                   Periodo
                 </a>
+                <div
+                  className="tooltip tooltip-top ml-2"
+                  data-tip="Nota: Puoi selezionare una sola voce per volta"
+                >
+                  <button type="button">
+                    <AiOutlineInfoCircle />
+                  </button>
+                </div>
               </div>
 
               {selected === "first" && (
@@ -227,7 +235,7 @@ const Sidebar = (props: {
                 </>
               )} */}
 
-              {selected === "third" && (
+              {selected === "second" && (
                 <>
                   <div>
                     <select
@@ -320,16 +328,16 @@ const Sidebar = (props: {
               <div>
                 <label htmlFor="nationality" className="font-medium text-gray-900">
                   <div className="inline mr-1">Paese di provenienza</div>
-                  <div
-                    className="tooltip tooltip-top"
-                    data-tip="Nota: Tutte la nazionalità sono disponibili solo selezionando
-                il range di anni"
-                  >
-                    <button type="button">
-                      <AiOutlineInfoCircle />
-                    </button>
-                  </div>
                 </label>
+                <div
+                  className="tooltip tooltip-top ml-3 relative top-[3px]"
+                  data-tip="Nota: Tutte la nazionalità sono disponibili solo selezionando
+                il range di anni"
+                >
+                  <button type="button">
+                    <AiOutlineInfoCircle />
+                  </button>
+                </div>
               </div>
               <select
                 id="nationality"
@@ -395,15 +403,15 @@ const Sidebar = (props: {
               <div>
                 <label htmlFor="nationality" className="font-medium text-gray-900">
                   <div className="inline mr-1">Provincia</div>
-                  <div
-                    className="tooltip tooltip-top"
-                    data-tip="Nota: Alcune province non possono essere selezionate se vengono inseriti dati mensili troppo recenti"
-                  >
-                    <button type="button">
-                      <AiOutlineInfoCircle />
-                    </button>
-                  </div>
                 </label>
+                <div
+                  className="tooltip tooltip-top ml-3 relative top-[3px]"
+                  data-tip="Nota: Alcune province non possono essere selezionate se vengono inseriti dati mensili troppo recenti"
+                >
+                  <button type="button">
+                    <AiOutlineInfoCircle />
+                  </button>
+                </div>
               </div>
               <select
                 id="province"

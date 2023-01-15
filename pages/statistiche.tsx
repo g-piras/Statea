@@ -113,6 +113,11 @@ const statistiche = () => {
             filtra
           </button>
         </div>
+
+        <div className="text-center">
+          <h3>Dati dal: {firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}</h3>
+        </div>
+
         <div className="chart">
           <BarChart
             data={{

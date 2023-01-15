@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  AiOutlineCheck,
-  AiOutlineClose,
-  AiOutlineInfoCircle,
-} from "react-icons/ai";
+import { AiOutlineCheck, AiOutlineClose, AiOutlineInfoCircle } from "react-icons/ai";
 
 const Sidebar = (props: {
   side: boolean;
@@ -21,17 +17,13 @@ const Sidebar = (props: {
     yearEndRange?: string
   ) => void;
 }) => {
-  const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>(
-    "2021"
-  );
-  const [secondSelectYear, setSecondSelectYear] = useState<undefined | string>(
-    "2021"
-  );
+  const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>("2021");
+  const [secondSelectYear, setSecondSelectYear] = useState<undefined | string>("2021");
   const [year, setYear] = useState<undefined | string>("2021");
   const [yearDisabled, setYearDisabled] = useState(true);
   const [periodDisabled, setPeriodDisabled] = useState(true);
   const [yearRangeDisabled, setYearRangeDisabled] = useState(false);
-  const [checked, setChecked] = useState('first-checkbox')
+  const [selected, setSelected] = useState("first");
 
   const handleYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(e.target.value);
@@ -80,13 +72,35 @@ const Sidebar = (props: {
     }
   };
 
+  const handleTabOnClick = (tab: string) => {
+    if (tab === "first") {
+      setSelected("first");
+      setYearRangeDisabled(false);
+      setYearDisabled(true);
+      setPeriodDisabled(true);
+    }
+    if (tab === "second") {
+      setSelected("second");
+      setYearRangeDisabled(true);
+      setYearDisabled(false);
+      setPeriodDisabled(true);
+    }
+    if (tab === "third") {
+      setSelected("third");
+      setYearRangeDisabled(true);
+      setYearDisabled(true);
+      setPeriodDisabled(false);
+    }
+  };
+
   return (
     <>
       <div
-        className={`fixed md:top-20 bg-white w-full h-[60vh] md:h-[95vh] md:w-96 ease-in duration-500 overflow-y-scroll pb-5 z-50 ${props.side
-          ? "top-[40%] rounded-t-3xl md:rounded-none md:left-0"
-          : "top-[100%] md:left-[-24rem]"
-          }`}
+        className={`fixed md:top-20 bg-white w-full h-[60vh] md:h-[95vh] md:w-96 ease-in duration-500 overflow-y-scroll pb-5 z-50 ${
+          props.side
+            ? "top-[40%] rounded-t-3xl md:rounded-none md:left-0"
+            : "top-[100%] md:left-[-24rem]"
+        }`}
       >
         <aside>
           <form onSubmit={handleOnSubmit}>
@@ -108,96 +122,85 @@ const Sidebar = (props: {
               </div>
             </div>
             <div className="px-10">
-              <div className="flex items-center mb-5">
-                <input
-                  id="range-checkbox"
-                  type="checkbox"
-                  name="radio-check"
-                  checked={checked === 'first-checkbox'}
-                  onChange={() => {
-                    setChecked('first-checkbox')
-                    setYearRangeDisabled(false);
-                    setYearDisabled(true)
-                    setPeriodDisabled(true)
+              <div className="tabs mb-5">
+                <a
+                  className={`tab tab-bordered ${selected === "first" && "tab-active"}`}
+                  onClick={() => {
+                    handleTabOnClick("first");
                   }}
-                  className="w-4 h-4"
-                />
-                <label htmlFor="range-checkbox" className="ml-3 font-medium text-gray-900">
-                  Range di anni
-                </label>
-              </div>
-              {
-                checked === 'first-checkbox' && (
-                  <div className="flex gap-3">
-                    <select
-                      id="yearStartRange"
-                      className="text-center text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
-                      disabled={yearRangeDisabled === true ? true : false}
-                      defaultValue="2008"
-                    >
-                      <option value="2021">2021</option>
-                      <option value="2020">2020</option>
-                      <option value="2019">2019</option>
-                      <option value="2018">2018</option>
-                      <option value="2017">2017</option>
-                      <option value="2016">2016</option>
-                      <option value="2015">2015</option>
-                      <option value="2014">2014</option>
-                      <option value="2013">2013</option>
-                      <option value="2012">2012</option>
-                      <option value="2011">2011</option>
-                      <option value="2010">2010</option>
-                      <option value="2009">2009</option>
-                      <option value="2008">2008</option>
-                    </select>
-                    <select
-                      id="yearEndRange"
-                      className="text-center text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
-                      disabled={yearRangeDisabled === true ? true : false}
-                      defaultValue="2021"
-                    >
-                      <option value="2021">2021</option>
-                      <option value="2020">2020</option>
-                      <option value="2019">2019</option>
-                      <option value="2018">2018</option>
-                      <option value="2017">2017</option>
-                      <option value="2016">2016</option>
-                      <option value="2015">2015</option>
-                      <option value="2014">2014</option>
-                      <option value="2013">2013</option>
-                      <option value="2012">2012</option>
-                      <option value="2011">2011</option>
-                      <option value="2010">2010</option>
-                      <option value="2009">2009</option>
-                      <option value="2008">2008</option>
-                    </select>
-                  </div>
-                )
-              }
-
-              <div className="flex items-center mb-5">
-                <input
-                  id="year-checkbox"
-                  type="checkbox"
-                  name="radio-check"
-                  checked={checked === 'second-checkbox'}
-                  onChange={() => {
-                    setChecked('second-checkbox')
-                    setYearRangeDisabled(true);
-                    setYearDisabled(false)
-                    setPeriodDisabled(true)
+                >
+                  Range di Anni
+                </a>
+                <a
+                  className={`tab tab-bordered ${selected === "second" && "tab-active"}`}
+                  onClick={() => {
+                    handleTabOnClick("second");
                   }}
-                  className="w-4 h-4" />
-                <label htmlFor="year-checkbox" className="ml-3 font-medium text-gray-900">
+                >
                   Anno
-                </label>
+                </a>
+                <a
+                  className={`tab tab-bordered ${selected === "third" && "tab-active"}`}
+                  onClick={() => {
+                    handleTabOnClick("third");
+                  }}
+                >
+                  Periodo
+                </a>
               </div>
 
-              {
-                checked === 'second-checkbox' && (
+              {selected === "first" && (
+                <>
+                  <select
+                    id="yearStartRange"
+                    className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                    disabled={yearRangeDisabled === true ? true : false}
+                    defaultValue="2008"
+                  >
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                  </select>
+                  <select
+                    id="yearEndRange"
+                    className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                    disabled={yearRangeDisabled === true ? true : false}
+                    defaultValue="2021"
+                  >
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                  </select>
+                </>
+              )}
+
+              {selected === "second" && (
+                <>
                   <select
                     id="year"
-                    className="text-center  text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                    className="text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
                     value={year}
                     onChange={handleYear}
                     disabled={yearDisabled === true ? true : false}
@@ -222,119 +225,116 @@ const Sidebar = (props: {
                       </>
                     )}
                   </select>
-                )
-              }
-              <div className="flex items-center mb-5">
-                <input
-                  id="periodo-checkbox"
-                  type="checkbox"
-                  name="radio-check"
-                  checked={checked === 'third-checkbox'}
-                  onChange={() => {
-                    setChecked('third-checkbox')
-                    setYearRangeDisabled(true);
-                    setYearDisabled(true)
-                    setPeriodDisabled(false)
-                  }}
-                  className="w-4 h-4" />
-                <label htmlFor="periodo-checkbox" className="ml-3 font-medium text-gray-900">
-                  Periodo
-                </label>
-                <div className="tooltip tooltip-top flex pt-[2px] ml-1" data-tip="Seleziona un periodo dal - al">
-                  <button type="button">
-                    <AiOutlineInfoCircle />
-                  </button>
-                </div>
-              </div>
-              {
-                checked === 'third-checkbox' && (
-                  <>
-                    <div className="flex gap-3">
-                      <select
-                        id="firstSelectMonth"
-                        disabled={periodDisabled === true ? true : false}
-                        className="text-center  text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
-                      >
-                        <option value="01">Gen</option>
-                        <option value="02">Feb</option>
-                        <option value="03">Mar</option>
-                        <option value="04">Apr</option>
-                        <option value="05">Mag</option>
-                        <option value="06">Giu</option>
-                        <option value="07">Lug</option>
-                        <option value="08">Ago</option>
-                        <option value="09">Set</option>
-                        <option value="10">Ott</option>
-                        <option value="11">Nov</option>
-                        <option value="12">Dic</option>
-                      </select>
-                      <select
-                        id="firstSelectYear"
-                        disabled={periodDisabled === true ? true : false}
-                        onChange={handleFirstSelectYear}
-                        className="text-center  text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
-                        value={firstSelectYear}
-                      >
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                      </select>
-                    </div>
-                    <div className="flex gap-3">
-                      <select
-                        id="secondSelectMonth"
-                        disabled={periodDisabled === true ? true : false}
-                        className="text-center  text-white mb-10 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
-                        defaultValue="12"
-                      >
-                        <option value="01">Gen</option>
-                        <option value="02">Feb</option>
-                        <option value="03">Mar</option>
-                        <option value="04">Apr</option>
-                        <option value="05">Mag</option>
-                        <option value="06">Giu</option>
-                        <option value="07">Lug</option>
-                        <option value="08">Ago</option>
-                        <option value="09">Set</option>
-                        <option value="10">Ott</option>
-                        <option value="11">Nov</option>
-                        <option value="12">Dic</option>
-                      </select>
-                      <select
-                        id="secondSelectYear"
-                        disabled={periodDisabled === true ? true : false}
-                        onChange={handleSecondSelectYear}
-                        className="text-center  text-white mb-10 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
-                        value={secondSelectYear}
-                      >
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                      </select>
-                    </div>
-                  </>
-                )
-              }
-              <label htmlFor="nationality" className=" font-medium text-gray-900">
-                <div className="flex items-center gap-1">
-                  <div>Paese di provenienza</div>
-                  <div className="tooltip tooltip-top flex pt-1" data-tip="Nota: Tutte la nazionalità sono disponibili solo selezionando
-                il range di anni">
+                </>
+              )}
+
+              {selected === "third" && (
+                <>
+                  <div>
+                    <select
+                      id="firstSelectMonth"
+                      disabled={periodDisabled === true ? true : false}
+                      className="inline text-white mb-4 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                    >
+                      <option value="01">Gen</option>
+                      <option value="02">Feb</option>
+                      <option value="03">Mar</option>
+                      <option value="04">Apr</option>
+                      <option value="05">Mag</option>
+                      <option value="06">Giu</option>
+                      <option value="07">Lug</option>
+                      <option value="08">Ago</option>
+                      <option value="09">Set</option>
+                      <option value="10">Ott</option>
+                      <option value="11">Nov</option>
+                      <option value="12">Dic</option>
+                    </select>
+                    <select
+                      id="firstSelectYear"
+                      disabled={periodDisabled === true ? true : false}
+                      onChange={handleFirstSelectYear}
+                      className="inline text-white mb-4 ml-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                      value={firstSelectYear}
+                    >
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                      <option value="2014">2014</option>
+                      <option value="2013">2013</option>
+                      <option value="2012">2012</option>
+                      <option value="2011">2011</option>
+                      <option value="2010">2010</option>
+                      <option value="2009">2009</option>
+                      <option value="2008">2008</option>
+                    </select>
+                  </div>
+                  <div>
+                    <select
+                      id="secondSelectMonth"
+                      disabled={periodDisabled === true ? true : false}
+                      className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                      defaultValue="12"
+                    >
+                      <option value="01">Gen</option>
+                      <option value="02">Feb</option>
+                      <option value="03">Mar</option>
+                      <option value="04">Apr</option>
+                      <option value="05">Mag</option>
+                      <option value="06">Giu</option>
+                      <option value="07">Lug</option>
+                      <option value="08">Ago</option>
+                      <option value="09">Set</option>
+                      <option value="10">Ott</option>
+                      <option value="11">Nov</option>
+                      <option value="12">Dic</option>
+                    </select>
+                    <select
+                      id="secondSelectYear"
+                      disabled={periodDisabled === true ? true : false}
+                      onChange={handleSecondSelectYear}
+                      className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg block w-24 p-2.5 cursor-pointer"
+                      value={secondSelectYear}
+                    >
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                      <option value="2014">2014</option>
+                      <option value="2013">2013</option>
+                      <option value="2012">2012</option>
+                      <option value="2011">2011</option>
+                      <option value="2010">2010</option>
+                      <option value="2009">2009</option>
+                      <option value="2008">2008</option>
+                    </select>
+                  </div>
+                </>
+              )}
+
+              <div>
+                <label htmlFor="nationality" className="font-medium text-gray-900">
+                  <div className="inline mr-1">Paese di provenienza</div>
+                  <div
+                    className="tooltip tooltip-top"
+                    data-tip="Nota: Tutte la nazionalità sono disponibili solo selezionando
+                il range di anni"
+                  >
                     <button type="button">
                       <AiOutlineInfoCircle />
                     </button>
                   </div>
-                </div>
-              </label>
+                </label>
+              </div>
               <select
                 id="nationality"
-                className="text-center  text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
+                className="text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
               >
                 <option value="WORLD">Mondo</option>
                 <option value="WRL_X_ITA">Paesi esteri</option>
@@ -391,12 +391,22 @@ const Sidebar = (props: {
                 )}
               </select>
 
-              <label htmlFor="province" className=" font-medium text-gray-900">
-                Provincia
-              </label>
+              <div>
+                <label htmlFor="nationality" className="font-medium text-gray-900">
+                  <div className="inline mr-1">Provincia</div>
+                  <div
+                    className="tooltip tooltip-top"
+                    data-tip="Nota: Alcune province non possono essere selezionate se vengono inseriti dati mensili troppo recenti"
+                  >
+                    <button type="button">
+                      <AiOutlineInfoCircle />
+                    </button>
+                  </div>
+                </label>
+              </div>
               <select
                 id="province"
-                className="text-center  text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
+                className="text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
               >
                 <option value="ITG2">Tutte le province</option>
                 <option value="ITG25">Sassari</option>
@@ -404,10 +414,9 @@ const Sidebar = (props: {
                 <option value="ITG27">Cagliari</option>
                 <option value="ITG28">Oristano</option>
                 {(yearDisabled === false && year === "2016") ||
-                  (periodDisabled === false &&
-                    (firstSelectYear === "2016" ||
-                      secondSelectYear === "2016")) ||
-                  yearRangeDisabled === false ? (
+                (periodDisabled === false &&
+                  (firstSelectYear === "2016" || secondSelectYear === "2016")) ||
+                yearRangeDisabled === false ? (
                   <>
                     <option value="ITG29">Olbia-Tempio</option>
                     <option value="ITG2A">Ogliastra</option>

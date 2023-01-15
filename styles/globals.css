@@ -41,5 +41,17 @@
 }
 
 .tooltip::before {
-  width: 250px;
+  width: 210px;
+}
+
+.tab.tab-active {
+  @apply border-[#284697] text-[#284697];
+}
+
+.tab.tab-active:hover {
+  @apply border-[#284697] text-[#284697];
+}
+
+.tab {
+  @apply font-semibold;
 }

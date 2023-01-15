@@ -111,7 +111,7 @@ const about = () => {
                 </div>
               </div>
 
-              <div className="relative lg:left-[15px] flex flex-col justify-center lg:w-[150px] transition transform delay-150 lg:hover:scale-150">
+              <div className="relative lg:left-[30px] flex flex-col justify-center lg:w-[150px] transition transform delay-150 lg:hover:scale-150">
                 <div className="flex flex-col items-center">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
@@ -135,7 +135,7 @@ const about = () => {
                 />
               </div>
 
-              <div className="relative flex flex-col justify-center lg:w-[150px] lg:left-[150px] transition transform delay-150 lg:hover:scale-150">
+              <div className="relative flex flex-col justify-center lg:w-[150px] lg:left-[135px] transition transform delay-150 lg:hover:scale-150">
                 <div className="flex flex-col items-center ">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
@@ -152,13 +152,13 @@ const about = () => {
               </div>
 
               <div className="relative lg:top-[-39px] transition transform delay-150 lg:hover:scale-150">
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center relative left-[54px]">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/matteo2.jpg"
                     alt="Person"
                   />
-                  <div className=" relative lg:left-[39px] flex flex-col justify-center">
+                  <div className=" relative flex flex-col justify-center">
                     <p className="text-lg font-bold ">Matteo Taricco</p>
                     <p className="text-sm text-gray-800 text-center">
                       Back-End Developer
@@ -182,7 +182,7 @@ const about = () => {
               </div>
 
               <div className="relative lg:top-[-39px] transition transform delay-150 lg:hover:scale-150">
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center relative left-[-54px]">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/Matteo.jpg"

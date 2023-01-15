@@ -30,7 +30,7 @@
 }
 
 .chart {
-  @apply w-3/4 md:w-4/6 lg:w-3/5 xl:w-2/4 h-[270px] sm:h-[350px] md:h-[420px] lg:h-[460px] mb-12 mx-auto;
+  @apply w-3/4 md:w-4/6 lg:w-3/5 xl:w-2/4 h-[270px] sm:h-[350px] md:h-[420px] lg:h-[460px] mb-12 mx-auto mt-4;
 }
 
 .half {

@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { annualApi, monthlyApi } from "../api";
 import { Footer } from "../components/Footer";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+
 
 const statistiche = () => {
   const [side, setSide] = useState<boolean>(false);
@@ -16,12 +18,12 @@ const statistiche = () => {
   const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>(undefined);
   const [secondSelectMonth, setSecondSelectMonth] = useState<undefined | string>(undefined);
   const [secondSelectYear, setSecondSelectYear] = useState<undefined | string>(undefined);
-  const [yearStartRange, setYearStartRange] = useState<undefined | string>(undefined);
-  const [yearEndRange, setYearEndRange] = useState<undefined | string>(undefined);
+  const [yearStartRange, setYearStartRange] = useState<undefined | string>('2008');
+  const [yearEndRange, setYearEndRange] = useState<undefined | string>('2021');
 
 
   useEffect(() => {
-    annualApi(nazionality, province, "AR").then((res) => {
+    annualApi(nazionality, province, "AR", yearStartRange, yearEndRange).then((res) => {
       setTouristsNumber(res.data);
       setYears(res.labels);
     });
@@ -49,6 +51,9 @@ const statistiche = () => {
     setFirstSelectYear(firstSelectYear);
     setSecondSelectMonth(secondSelectMonth);
     setSecondSelectYear(secondSelectYear);
+    setYearStartRange(yearStartRange)
+    setYearEndRange(yearEndRange)
+
 
     if (year) {
       monthlyApi(nazionality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
@@ -115,9 +120,14 @@ const statistiche = () => {
         </div>
 
         <div className="text-center">
-          <h3>Dati dal: {firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}</h3>
+          {
+            yearStartRange ? (
+              <div className="badge bg-[#284697] border-transparent">{yearStartRange} - {yearEndRange}
+              </div>
+            ) :
+              <div className="badge">{firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}</div>
+          }
         </div>
-
         <div className="chart">
           <BarChart
             data={{

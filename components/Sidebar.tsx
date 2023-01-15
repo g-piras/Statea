@@ -14,7 +14,7 @@ const Sidebar = (props: {
     secondSelectMonth?: string,
     secondSelectYear?: string,
     yearStartRange?: string,
-    yearEndRange?: string
+    yearEndRange?: string,
   ) => void;
 }) => {
   const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>("2021");

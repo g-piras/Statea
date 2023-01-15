@@ -125,7 +125,7 @@ const statistiche = () => {
               <div className="badge bg-[#284697] border-transparent">{yearStartRange} - {yearEndRange}
               </div>
             ) :
-              <div className="badge">{firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}</div>
+              <div className="badge bg-[#284697] border-transparent">{firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}</div>
           }
         </div>
         <div className="chart">

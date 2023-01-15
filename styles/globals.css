@@ -55,3 +55,9 @@
 .tab {
   @apply font-semibold;
 }
+
+@media (min-width: 768px) {
+  .md-height {
+    height: calc(100vh - 80px);
+  }
+}

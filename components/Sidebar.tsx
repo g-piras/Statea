@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineCheck, AiOutlineClose, AiOutlineInfoCircle } from "react-icons/ai";
 
 const Sidebar = (props: {
@@ -96,9 +96,9 @@ const Sidebar = (props: {
   return (
     <>
       <div
-        className={`fixed md:top-20 bg-white w-full h-[60vh] md:h-[95vh] md:w-96 ease-in duration-500 overflow-y-scroll pb-5 z-50 ${props.side
-          ? "top-[40%] rounded-t-3xl md:rounded-none md:left-0"
-          : "top-[100%] md:left-[-24rem]"
+        className={`fixed bg-white bottom-0 md:top-20 h-[60vh] md-height w-full md:w-96 ease-in duration-500 overflow-y-scroll overflow-x-hidden ${props.side
+          ? "rounded-t-3xl md:rounded-none md:left-0"
+          : "-bottom-[60vh] md:-left-96"
           }`}
       >
         <aside>
@@ -120,7 +120,7 @@ const Sidebar = (props: {
                 </div>
               </div>
             </div>
-            <div className="px-10">
+            <div className="ml-10 w-fit">
               <div className="tabs mb-5">
                 <a
                   className={`tab tab-bordered ${selected === "first" && "tab-active"}`}

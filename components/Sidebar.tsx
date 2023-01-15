@@ -96,7 +96,7 @@ const Sidebar = (props: {
   return (
     <>
       <div
-        className={`fixed md:top-20 bg-white w-full h-[60vh] md:h-[95vh] md:w-96 ease-in duration-500 overflow-y-scroll pb-5 z-50 ${props.side
+        className={`fixed md:top-20 bg-white w-full h-[60vh] md:h-[95vh] md:w-96 ease-in duration-500 overflow-y-scroll overflow-x-hidden pb-5 z-50 ${props.side
           ? "top-[40%] rounded-t-3xl md:rounded-none md:left-0"
           : "top-[100%] md:left-[-24rem]"
           }`}
@@ -120,7 +120,7 @@ const Sidebar = (props: {
                 </div>
               </div>
             </div>
-            <div className="px-10">
+            <div className="w-[300px] ml-10">
               <div className="tabs mb-5">
                 <a
                   className={`tab tab-bordered ${selected === "first" && "tab-active"}`}

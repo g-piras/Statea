@@ -10,7 +10,7 @@ const statistiche = () => {
   const [side, setSide] = useState<boolean>(false);
   const [touristsNumber, setTouristsNumber] = useState<string[]>([]);
   const [years, setYears] = useState<string[]>([]);
-  const [nazionality, setNazionality] = useState<string>("WORLD");
+  const [nationality, setNationality] = useState<string>("WORLD");
   const [province, setProvince] = useState<string>("ITG2");
   const [year, setYear] = useState<undefined | string>(undefined);
   const [firstSelectMonth, setFirstSelectMonth] = useState<undefined | string>(undefined);
@@ -21,7 +21,7 @@ const statistiche = () => {
   const [yearEndRange, setYearEndRange] = useState<undefined | string>("2021");
 
   useEffect(() => {
-    annualApi(nazionality, province, "AR", yearStartRange, yearEndRange).then((res) => {
+    annualApi(nationality, province, "AR", yearStartRange, yearEndRange).then((res) => {
       setTouristsNumber(res.data);
       setYears(res.labels);
     });
@@ -32,7 +32,7 @@ const statistiche = () => {
   };
 
   const handleSaveFilters = (
-    nazionality: string,
+    nationality: string,
     province: string,
     year?: string,
     firstSelectMonth?: string,
@@ -42,7 +42,7 @@ const statistiche = () => {
     yearStartRange?: string,
     yearEndRange?: string
   ) => {
-    setNazionality(nazionality);
+    setNationality(nationality);
     setProvince(province);
     setYear(year);
     setFirstSelectMonth(firstSelectMonth);
@@ -53,7 +53,7 @@ const statistiche = () => {
     setYearEndRange(yearEndRange);
 
     if (year) {
-      monthlyApi(nazionality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
+      monthlyApi(nationality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
         setTouristsNumber(res.data);
         setYears(res.labels);
       });
@@ -69,7 +69,7 @@ const statistiche = () => {
         endDate = temp;
       }
 
-      monthlyApi(nazionality, province, "AR", startDate, endDate).then((res) => {
+      monthlyApi(nationality, province, "AR", startDate, endDate).then((res) => {
         setTouristsNumber(res.data);
         setYears(res.labels);
       });
@@ -81,7 +81,7 @@ const statistiche = () => {
         yearStartRange = yearEndRange;
         yearEndRange = temp;
       }
-      annualApi(nazionality, province, "AR", yearStartRange, yearEndRange).then((res) => {
+      annualApi(nationality, province, "AR", yearStartRange, yearEndRange).then((res) => {
         setTouristsNumber(res.data);
         setYears(res.labels);
       });
@@ -124,8 +124,7 @@ const statistiche = () => {
             filtra
           </button>
         </div>
-
-        <div className="text-center">
+        <div className="flex flex-col sm:justify-center gap-2 sm:flex-row items-center">
           {yearStartRange && yearEndRange && yearStartRange < yearEndRange ? (
             <div className="badge bg-[#284697] border-transparent">
               {yearStartRange} - {yearEndRange}
@@ -165,7 +164,17 @@ const statistiche = () => {
               </div>
             )
           )}
+          <div className="badge bg-[#284697] border-transparent">
+            {nationality === "WORLD" ? "Mondo" : nationality === "WRL_X_ITA" ? "Paesi esteri" : nationality}
+          </div>
+          <div className="badge bg-[#284697] border-transparent">
+            {province === "ITG2" ? "Tutte le province" : province === "ITG25" ? "Sassari" : province === "ITG26" ? "Nuoro" :
+              province === "ITG27" ? "Cagliari" : province === "ITG28" ? "Oristano" : province === "ITG29" ? "Olbia-Tempio" :
+                province === "ITG2A" ? "Ogliastra" : province === "ITG2B" ? "Medio Campidano" : province === "ITG2C" && "Carbonia-Iglesias"
+            }
+          </div>
         </div>
+
         <div className="chart">
           <BarChart
             data={{

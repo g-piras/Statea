@@ -86,9 +86,8 @@ const Sidebar = (props: {
   return (
     <>
       <div
-        className={`fixed bg-white bottom-0 md:top-20 h-[60vh] md-height w-full md:w-96 ease-in duration-500 overflow-y-scroll overflow-x-hidden ${
-          props.side ? "rounded-t-3xl md:rounded-none md:left-0" : "-bottom-[60vh] md:-left-96"
-        }`}
+        className={`fixed bg-white bottom-0 md:top-20 h-[60vh] md-height w-full md:w-96 ease-in duration-500 overflow-y-scroll overflow-x-hidden ${props.side ? "rounded-t-3xl md:rounded-none md:left-0" : "-bottom-[60vh] md:-left-96"
+          }`}
       >
         <aside>
           <form onSubmit={handleOnSubmit}>

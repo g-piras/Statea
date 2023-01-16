@@ -25,8 +25,8 @@ export default function Home() {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <meta name="description" content="Con Touristats puoi analizzare il flusso dei turisti in Sardegna grazie a statistiche e previsioni" />
-        <link rel="icon" href="/assets/touristats-logo.png" />
-        <title>TouriStats - HomePage</title>
+        <link rel="icon" href="/assets/touristats-logo.jpg" />
+        <title> HomePage - TouriStats</title>
       </Head>
 
       <Navbar page="home" />

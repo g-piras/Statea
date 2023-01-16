@@ -1,4 +1,4 @@
-import { Head } from "next/document";
+import Head from "next/head";
 import React from "react";
 import { Footer } from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -6,6 +6,10 @@ import Navbar from "../components/Navbar";
 const about = () => {
   return (
     <>
+      <Head>
+        <link rel="icon" href="/assets/touristats-logo.jpg" />
+        <title>About - TouriStats</title>
+      </Head>
       <Navbar page="about" />
       <div className="w-full h-full text-center pt-20">
         <section className="w-full h-full lg:px-24 text-gray-800">

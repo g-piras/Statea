@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { annualApi, monthlyApi } from "../api";
 import { Footer } from "../components/Footer";
-import { Head } from "next/document";
+import Head from "next/head";
 
 const statistiche = () => {
   const [side, setSide] = useState<boolean>(false);
@@ -92,6 +92,10 @@ const statistiche = () => {
 
   return (
     <>
+      <Head>
+        <link rel="icon" href="/assets/touristats-logo.jpg" />
+        <title>Statistiche - TouriStats</title>
+      </Head>
       <Navbar page="statistiche" />
       <div className="h-full">
         <Sidebar

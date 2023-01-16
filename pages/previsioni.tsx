@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { labels, data } from "../components/BarChart";
 import { Footer } from "../components/Footer";
-import { Head } from "next/document";
+import Head from "next/head";
 
 const previsioni = () => {
   const [side, setSide] = useState<boolean>(false);
@@ -15,6 +15,10 @@ const previsioni = () => {
   return (
     <>
       <Navbar page="previsioni" />
+      <Head>
+        <link rel="icon" href="/assets/touristats-logo.jpg" />
+        <title>Previsioni - TouriStats</title>
+      </Head>
 
       <div>
         <Sidebar side={side} page="previsioni" handleSidebar={handleSidebar} handleSaveFilters={() => { }} />

@@ -14,27 +14,17 @@ const Sidebar = (props: {
     secondSelectMonth?: string,
     secondSelectYear?: string,
     yearStartRange?: string,
-    yearEndRange?: string,
+    yearEndRange?: string
   ) => void;
 }) => {
-  const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>("2021");
-  const [secondSelectYear, setSecondSelectYear] = useState<undefined | string>("2021");
-  const [year, setYear] = useState<undefined | string>("2021");
   const [yearDisabled, setYearDisabled] = useState(true);
   const [periodDisabled, setPeriodDisabled] = useState(true);
   const [yearRangeDisabled, setYearRangeDisabled] = useState(false);
   const [selected, setSelected] = useState("first");
+  const [province, setProvince] = useState("ITG2");
 
-  // const handleYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   setYear(e.target.value);
-  // };
-
-  const handleFirstSelectYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFirstSelectYear(e.target.value);
-  };
-
-  const handleSecondSelectYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSecondSelectYear(e.target.value);
+  const handleProvince = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setProvince(e.target.value);
   };
 
   const handleOnSubmit = (e: any) => {
@@ -96,10 +86,9 @@ const Sidebar = (props: {
   return (
     <>
       <div
-        className={`fixed bg-white bottom-0 md:top-20 h-[60vh] md-height w-full md:w-96 ease-in duration-500 overflow-y-scroll overflow-x-hidden ${props.side
-          ? "rounded-t-3xl md:rounded-none md:left-0"
-          : "-bottom-[60vh] md:-left-96"
-          }`}
+        className={`fixed bg-white bottom-0 md:top-20 h-[60vh] md-height w-full md:w-96 ease-in duration-500 overflow-y-scroll overflow-x-hidden ${
+          props.side ? "rounded-t-3xl md:rounded-none md:left-0" : "-bottom-[60vh] md:-left-96"
+        }`}
       >
         <aside>
           <form onSubmit={handleOnSubmit}>
@@ -153,8 +142,7 @@ const Sidebar = (props: {
                   className="tooltip tooltip-top ml-2"
                   data-tip="Nota: Puoi selezionare una sola voce per volta"
                 >
-                  <button type="button"
-                    name="btn">
+                  <button type="button" name="btn">
                     <AiOutlineInfoCircle />
                   </button>
                 </div>
@@ -168,11 +156,18 @@ const Sidebar = (props: {
                     disabled={yearRangeDisabled === true ? true : false}
                     defaultValue="2008"
                   >
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                    <option value="2017">2017</option>
+                    {province !== "ITG29" &&
+                      province !== "ITG2A" &&
+                      province !== "ITG2B" &&
+                      province !== "ITG2C" && (
+                        <>
+                          <option value="2021">2021</option>
+                          <option value="2020">2020</option>
+                          <option value="2019">2019</option>
+                          <option value="2018">2018</option>
+                          <option value="2017">2017</option>
+                        </>
+                      )}
                     <option value="2016">2016</option>
                     <option value="2015">2015</option>
                     <option value="2014">2014</option>
@@ -189,11 +184,18 @@ const Sidebar = (props: {
                     disabled={yearRangeDisabled === true ? true : false}
                     defaultValue="2021"
                   >
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                    <option value="2017">2017</option>
+                    {province !== "ITG29" &&
+                      province !== "ITG2A" &&
+                      province !== "ITG2B" &&
+                      province !== "ITG2C" && (
+                        <>
+                          <option value="2021">2021</option>
+                          <option value="2020">2020</option>
+                          <option value="2019">2019</option>
+                          <option value="2018">2018</option>
+                          <option value="2017">2017</option>
+                        </>
+                      )}
                     <option value="2016">2016</option>
                     <option value="2015">2015</option>
                     <option value="2014">2014</option>
@@ -263,15 +265,20 @@ const Sidebar = (props: {
                     <select
                       id="firstSelectYear"
                       disabled={periodDisabled === true ? true : false}
-                      onChange={handleFirstSelectYear}
                       className="inline text-white mb-4 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
-                      value={firstSelectYear}
                     >
-                      <option value="2021">2021</option>
-                      <option value="2020">2020</option>
-                      <option value="2019">2019</option>
-                      <option value="2018">2018</option>
-                      <option value="2017">2017</option>
+                      {province !== "ITG29" &&
+                        province !== "ITG2A" &&
+                        province !== "ITG2B" &&
+                        province !== "ITG2C" && (
+                          <>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                          </>
+                        )}
                       <option value="2016">2016</option>
                       <option value="2015">2015</option>
                       <option value="2014">2014</option>
@@ -306,15 +313,20 @@ const Sidebar = (props: {
                     <select
                       id="secondSelectYear"
                       disabled={periodDisabled === true ? true : false}
-                      onChange={handleSecondSelectYear}
                       className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
-                      value={secondSelectYear}
                     >
-                      <option value="2021">2021</option>
-                      <option value="2020">2020</option>
-                      <option value="2019">2019</option>
-                      <option value="2018">2018</option>
-                      <option value="2017">2017</option>
+                      {province !== "ITG29" &&
+                        province !== "ITG2A" &&
+                        province !== "ITG2B" &&
+                        province !== "ITG2C" && (
+                          <>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                          </>
+                        )}
                       <option value="2016">2016</option>
                       <option value="2015">2015</option>
                       <option value="2014">2014</option>
@@ -338,8 +350,7 @@ const Sidebar = (props: {
                   data-tip="Nota: Tutte la nazionalità sono disponibili solo selezionando
                 il range di anni"
                 >
-                  <button type="button"
-                    name="btn">
+                  <button type="button" name="btn">
                     <AiOutlineInfoCircle />
                   </button>
                 </div>
@@ -413,8 +424,7 @@ const Sidebar = (props: {
                   className="tooltip tooltip-top ml-3 relative top-[3px]"
                   data-tip="Nota: Le province (Olbia-Tempio, Ogliastra, Medio Campidano, Carbonia-Iglesias) non sono disponibili per anni successivi al 2016"
                 >
-                  <button type="button"
-                    name="btn">
+                  <button type="button" name="btn">
                     <AiOutlineInfoCircle />
                   </button>
                 </div>
@@ -422,25 +432,18 @@ const Sidebar = (props: {
               <select
                 id="province"
                 className="text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
+                value={province}
+                onChange={handleProvince}
               >
                 <option value="ITG2">Tutte le province</option>
                 <option value="ITG25">Sassari</option>
                 <option value="ITG26">Nuoro</option>
                 <option value="ITG27">Cagliari</option>
                 <option value="ITG28">Oristano</option>
-                {(yearDisabled === false && year === "2016") ||
-                  (periodDisabled === false &&
-                    (firstSelectYear === "2016" || secondSelectYear === "2016")) ||
-                  yearRangeDisabled === false ? (
-                  <>
-                    <option value="ITG29">Olbia-Tempio</option>
-                    <option value="ITG2A">Ogliastra</option>
-                    <option value="ITG2B">Medio Campidano</option>
-                    <option value="ITG2C">Carbonia-Iglesias</option>
-                  </>
-                ) : (
-                  ""
-                )}
+                <option value="ITG29">Olbia-Tempio</option>
+                <option value="ITG2A">Ogliastra</option>
+                <option value="ITG2B">Medio Campidano</option>
+                <option value="ITG2C">Carbonia-Iglesias</option>
               </select>
             </div>
           </form>

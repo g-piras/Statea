@@ -8,8 +8,8 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
+    locales: ["it"],
+    defaultLocale: "it",
   },
   reactStrictMode: true,
   swcMinify: true,

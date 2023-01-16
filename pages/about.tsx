@@ -7,14 +7,6 @@ const about = () => {
   return (
     <>
       <Navbar page="about" />
-      <Head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-        <meta name="robots" content="noindex" />
-        <meta name="description" content="Con Touristats puoi analizzare il flusso dei turisti in Sardegna grazie a statistiche e previsioni" />
-        <link rel="icon" href="/assets/touristats-logo.png" />
-        <title>TouriStats - About</title>
-      </Head>
       <div className="w-full h-full text-center pt-20">
         <section className="w-full h-full lg:px-24 text-gray-800">
           <h1 className="uppercase my-10 px-10">

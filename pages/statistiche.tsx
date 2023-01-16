@@ -92,14 +92,6 @@ const statistiche = () => {
 
   return (
     <>
-      <Head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-        <meta name="robots" content="noindex" />
-        <meta name="description" content="Con Touristats puoi analizzare il flusso dei turisti in Sardegna grazie a statistiche e previsioni" />
-        <link rel="icon" href="/assets/touristats-logo.png" />
-        <title>TouriStats - Statistiche</title>
-      </Head>
       <Navbar page="statistiche" />
       <div className="h-full">
         <Sidebar

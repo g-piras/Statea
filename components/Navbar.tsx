@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { BsFillPersonLinesFill } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
 
 const Navbar = (props: { page: string }) => {
   const [nav, setNav] = useState(false);
@@ -32,7 +31,7 @@ const Navbar = (props: { page: string }) => {
               <Link href="/">
                 <Image
                   src="/assets/touristats-logo.png"
-                  alt="/"
+                  alt="Touristats Logo"
                   width="70"
                   height="70"
                 />
@@ -112,7 +111,7 @@ const Navbar = (props: { page: string }) => {
         <Link href="/">
           <Image
             src="/assets/touristats-logo.png"
-            alt="/"
+            alt="Touristats Logo"
             width="70"
             height="70"
           />

@@ -1,10 +1,10 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { annualApi, monthlyApi } from "../api";
 import { Footer } from "../components/Footer";
-import { AiOutlineInfoCircle } from "react-icons/ai";
+import { Head } from "next/document";
 
 const statistiche = () => {
   const [side, setSide] = useState<boolean>(false);
@@ -92,8 +92,15 @@ const statistiche = () => {
 
   return (
     <>
+      <Head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="robots" content="noindex" />
+        <meta name="description" content="Con Touristats puoi analizzare il flusso dei turisti in Sardegna grazie a statistiche e previsioni" />
+        <link rel="icon" href="/assets/touristats-logo.png" />
+        <title>TouriStats - Statistiche</title>
+      </Head>
       <Navbar page="statistiche" />
-
       <div className="h-full">
         <Sidebar
           side={side}

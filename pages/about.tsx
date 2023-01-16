@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import { Head } from "next/document";
+import React from "react";
 import { Footer } from "../components/Footer";
 import Navbar from "../components/Navbar";
 
@@ -6,6 +7,14 @@ const about = () => {
   return (
     <>
       <Navbar page="about" />
+      <Head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="robots" content="noindex" />
+        <meta name="description" content="Con Touristats puoi analizzare il flusso dei turisti in Sardegna grazie a statistiche e previsioni" />
+        <link rel="icon" href="/assets/touristats-logo.png" />
+        <title>TouriStats - About</title>
+      </Head>
       <div className="w-full h-full text-center pt-20">
         <section className="w-full h-full lg:px-24 text-gray-800">
           <h1 className="uppercase my-10 px-10">
@@ -65,7 +74,7 @@ const about = () => {
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/sebastiano.jpg"
-                    alt="Person"
+                    alt="Sebastiano"
                   />
                   <div className="flex flex-col justify-center">
                     <p className="text-lg font-bold ">Sebastiano Demichelis</p>
@@ -81,7 +90,7 @@ const about = () => {
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow "
                     src="/assets/Joele.jpg"
-                    alt="Person"
+                    alt="Joele"
                   />
                   <div className="flex flex-col justify-center">
                     <p className="text-lg font-bold ">Joele Melchiorre</p>
@@ -98,7 +107,7 @@ const about = () => {
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/Federico.jpg"
-                    alt="Person"
+                    alt="Federico"
                   />
                   <div className="flex flex-col justify-center">
                     <p className="text-lg font-bold ">
@@ -116,7 +125,7 @@ const about = () => {
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/giampietro.jpg"
-                    alt="Person"
+                    alt="Giampietro"
                   />
                   <div className="flex flex-col justify-center">
                     <p className="text-lg font-bold ">Giampietro Piras</p>
@@ -140,7 +149,7 @@ const about = () => {
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/Emilio.jpg"
-                    alt="Person"
+                    alt="Emilio"
                   />
                   <div className="flex flex-col justify-center">
                     <p className="text-lg font-bold ">Emilio Gasbarro</p>
@@ -156,7 +165,7 @@ const about = () => {
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/matteo2.jpg"
-                    alt="Person"
+                    alt="Matteo"
                   />
                   <div className=" relative flex flex-col justify-center">
                     <p className="text-lg font-bold ">Matteo Taricco</p>
@@ -172,7 +181,7 @@ const about = () => {
                   <img
                     className="object-cover w-28 h-28  rounded-full shadow"
                     src="/assets/fabio.png"
-                    alt="Person"
+                    alt="Fabio"
                   />
                   <div className="flex flex-col justify-center">
                     <p className="text-lg font-bold">Fabio Leoni</p>
@@ -186,7 +195,7 @@ const about = () => {
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/Matteo.jpg"
-                    alt="Person"
+                    alt="Matteo"
                   />
                   <div className="relative lg:left-[-39px]flex flex-col justify-center">
                     <p className="text-lg font-bold ">Matteo Drago</p>

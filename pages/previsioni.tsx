@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { labels, data } from "../components/BarChart";
 import { Footer } from "../components/Footer";
+import { Head } from "next/document";
 
 const previsioni = () => {
   const [side, setSide] = useState<boolean>(false);
-  const [checked, setChecked] = useState(false);
-
-  const handleChange = () => {
-    // Change state to the opposite (to ture) when checkbox changes
-    setChecked(!checked);
-  };
 
   const handleSidebar = () => {
   };
 
   return (
     <>
+      <Head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="robots" content="noindex" />
+        <meta name="description" content="Con Touristats puoi analizzare il flusso dei turisti in Sardegna grazie a statistiche e previsioni" />
+        <link rel="icon" href="/assets/touristats-logo.png" />
+        <title>TouriStats - Previsioni</title>
+      </Head>
       <Navbar page="previsioni" />
 
       <div>

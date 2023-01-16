@@ -22,9 +22,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>TouriStats</title>
-        <meta name="A site to analize turist's flow in Sardinia" content="Powered By Statea &copy;" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="robots" content="noindex" />
+        <meta name="description" content="Con Touristats puoi analizzare il flusso dei turisti in Sardegna grazie a statistiche e previsioni" />
+        <link rel="icon" href="/assets/touristats-logo.png" />
+        <title>TouriStats - HomePage</title>
       </Head>
 
       <Navbar page="home" />
@@ -87,6 +90,7 @@ export default function Home() {
         </div>
       </div>
       <Footer />
+
     </>
   );
 }

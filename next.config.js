@@ -7,17 +7,14 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
   reactStrictMode: true,
   swcMinify: true,
   output: 'standalone',
 }
 
 module.exports = nextConfig
-
-module.exports = {
-  i18n: {
-    locales: ['it'],
-    defaultLocale: 'it',
-  },
-};
 

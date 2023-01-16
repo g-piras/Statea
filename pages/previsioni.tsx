@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";

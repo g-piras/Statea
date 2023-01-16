@@ -109,6 +109,7 @@ const Sidebar = (props: {
                 <button
                   type="submit"
                   className=" rounded-full shadow-lg shadow-gray-400 p-[10px] cursor-pointer"
+                  name="btn"
                 >
                   <AiOutlineCheck />
                 </button>
@@ -123,6 +124,7 @@ const Sidebar = (props: {
             <div className="ml-10 w-fit">
               <div className="tabs mb-5">
                 <a
+                  id="btn"
                   className={`tab tab-bordered ${selected === "first" && "tab-active"}`}
                   onClick={() => {
                     handleTabOnClick("first");
@@ -140,6 +142,7 @@ const Sidebar = (props: {
                 </a> */}
                 <a
                   className={`tab tab-bordered ${selected === "second" && "tab-active"}`}
+                  id="btn"
                   onClick={() => {
                     handleTabOnClick("second");
                   }}
@@ -150,7 +153,8 @@ const Sidebar = (props: {
                   className="tooltip tooltip-top ml-2"
                   data-tip="Nota: Puoi selezionare una sola voce per volta"
                 >
-                  <button type="button">
+                  <button type="button"
+                    name="btn">
                     <AiOutlineInfoCircle />
                   </button>
                 </div>
@@ -334,7 +338,8 @@ const Sidebar = (props: {
                   data-tip="Nota: Tutte la nazionalità sono disponibili solo selezionando
                 il range di anni"
                 >
-                  <button type="button">
+                  <button type="button"
+                    name="btn">
                     <AiOutlineInfoCircle />
                   </button>
                 </div>
@@ -406,9 +411,10 @@ const Sidebar = (props: {
                 </label>
                 <div
                   className="tooltip tooltip-top ml-3 relative top-[3px]"
-                  data-tip="Nota: Alcune province non possono essere selezionate se vengono inseriti dati mensili troppo recenti"
+                  data-tip="Nota: Le province (Olbia-Tempio, Ogliastra, Medio Campidano, Carbonia-Iglesias) non sono disponibili per anni successivi al 2016"
                 >
-                  <button type="button">
+                  <button type="button"
+                    name="btn">
                     <AiOutlineInfoCircle />
                   </button>
                 </div>

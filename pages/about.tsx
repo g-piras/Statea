@@ -160,7 +160,7 @@ const about = () => {
               </div>
 
               <div className="relative lg:top-[-39px] transition transform delay-150 lg:hover:scale-150">
-                <div className="flex flex-col items-center relative left-[54px]">
+                <div className="flex flex-col items-center relative lg:left-[54px]">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/matteo2.jpg"
@@ -190,7 +190,7 @@ const about = () => {
               </div>
 
               <div className="relative lg:top-[-39px] transition transform delay-150 lg:hover:scale-150">
-                <div className="flex flex-col items-center relative left-[-54px]">
+                <div className="flex flex-col items-center relative lg:left-[-54px]">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
                     src="/assets/Matteo.jpg"

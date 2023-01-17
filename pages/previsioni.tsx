@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 import { labels, data } from "../components/BarChart";
 import { Footer } from "../components/Footer";
 import Head from "next/head";
-import { annualApiForecast } from "../api";
+import { annualApiForecast, monthlyApiForecast } from "../api";
 
 const previsioni = () => {
   const [side, setSide] = useState<boolean>(false);
@@ -32,9 +32,67 @@ const previsioni = () => {
     setSide(!side)
   };
 
+  const handleSaveFilters = (
+    nationality: string,
+    province: string,
+    year?: string,
+    firstSelectMonth?: string,
+    firstSelectYear?: string,
+    secondSelectMonth?: string,
+    secondSelectYear?: string,
+    yearStartRange?: string,
+    yearEndRange?: string
+  ) => {
+    setNationality(nationality);
+    setProvince(province);
+    setYear(year);
+    setFirstSelectMonth(firstSelectMonth);
+    setFirstSelectYear(firstSelectYear);
+    setSecondSelectMonth(secondSelectMonth);
+    setSecondSelectYear(secondSelectYear);
+    setYearStartRange(yearStartRange);
+    setYearEndRange(yearEndRange);
+
+    if (year) {
+      monthlyApiForecast(nationality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
+        setTouristsNumber(res.data);
+        setYears(res.labels);
+      });
+    }
+
+    if (firstSelectMonth && firstSelectYear && secondSelectMonth && secondSelectYear) {
+      let startDate = firstSelectYear + "-" + firstSelectMonth + "-01";
+      let endDate = secondSelectYear + "-" + secondSelectMonth + "-01";
+
+      if (new Date(startDate) > new Date(endDate)) {
+        const temp = startDate;
+        startDate = endDate;
+        endDate = temp;
+      }
+
+      monthlyApiForecast(nationality, province, "AR", startDate, endDate).then((res) => {
+        setTouristsNumber(res.data);
+        setYears(res.labels);
+      });
+    }
+
+    if (yearStartRange && yearEndRange) {
+      if (new Date(yearStartRange) > new Date(yearEndRange)) {
+        const temp = yearStartRange;
+        yearStartRange = yearEndRange;
+        yearEndRange = temp;
+      }
+      annualApiForecast(nationality, province, "AR", yearStartRange, yearEndRange).then((res) => {
+        setTouristsNumber(res.data);
+        setYears(res.labels);
+      });
+    }
+
+    handleSidebar();
+  };
+
   return (
     <>
-      <Navbar page="previsioni" />
       <Head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
@@ -42,13 +100,13 @@ const previsioni = () => {
         <link rel="icon" href="/assets/touristats-logo.jpg" />
         <title>Previsioni - TouriStats</title>
       </Head>
-
-      <div>
+      <Navbar page="previsioni" />
+      <div className="h-full">
         <Sidebar
           side={side}
           page="previsioni"
           handleSidebar={handleSidebar}
-          handleSaveFilters={() => { }}
+          handleSaveFilters={handleSaveFilters}
         />
         <h1 className="uppercase text-center pt-32">
           <span className="text-[#284697]">
@@ -68,19 +126,70 @@ const previsioni = () => {
             filtra
           </button>
         </div>
-      </div>
-      <div className="chart">
-        <BarChart
-          data={{
-            labels: labels,
-            datasets: [
-              {
-                data: data,
-                backgroundColor: "#00ACC1",
-              },
-            ],
-          }}
-        />
+        <div className="flex flex-col sm:justify-center gap-2 sm:flex-row items-center">
+          {yearStartRange && yearEndRange && yearStartRange < yearEndRange ? (
+            <div className="badge bg-[#284697] border-transparent">
+              {yearStartRange} - {yearEndRange}
+            </div>
+          ) : yearStartRange && yearEndRange && yearStartRange === yearEndRange ? (
+            <div className="badge bg-[#284697] border-transparent">
+              {yearStartRange} - {yearEndRange}
+            </div>
+          ) : firstSelectMonth &&
+            secondSelectMonth &&
+            secondSelectYear &&
+            firstSelectYear &&
+            firstSelectYear < secondSelectYear ? (
+            <div className="badge  bg-[#284697] border-transparent">
+              {firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}
+            </div>
+          ) : yearStartRange && yearEndRange && yearStartRange > yearEndRange ? (
+            <div className="badge bg-[#284697] border-transparent">
+              {yearEndRange} - {yearStartRange}
+            </div>
+          ) : firstSelectMonth &&
+            secondSelectMonth &&
+            secondSelectYear &&
+            firstSelectYear &&
+            firstSelectYear > secondSelectYear ? (
+            <div className="badge bg-[#284697] border-transparent">
+              {secondSelectMonth}/{secondSelectYear} - {firstSelectMonth}/{firstSelectYear}
+            </div>
+          ) : (
+            firstSelectMonth &&
+            secondSelectMonth &&
+            secondSelectYear &&
+            firstSelectYear &&
+            firstSelectYear === secondSelectYear && (
+              <div className="badge  bg-[#284697] border-transparent">
+                {secondSelectMonth}/{firstSelectYear} - {firstSelectMonth}/{secondSelectYear}
+              </div>
+            )
+          )}
+          <div className="badge bg-[#284697] border-transparent">
+            {nationality === "WORLD" ? "Mondo" : nationality === "WRL_X_ITA" ? "Paesi esteri" : nationality}
+          </div>
+          <div className="badge bg-[#284697] border-transparent">
+            {province === "ITG2" ? "Tutte le province" : province === "ITG25" ? "Sassari" : province === "ITG26" ? "Nuoro" :
+              province === "ITG27" ? "Cagliari" : province === "ITG28" ? "Oristano" : province === "ITG29" ? "Olbia-Tempio" :
+                province === "ITG2A" ? "Ogliastra" : province === "ITG2B" ? "Medio Campidano" : province === "ITG2C" && "Carbonia-Iglesias"
+            }
+          </div>
+        </div>
+
+        <div className="chart">
+          <BarChart
+            data={{
+              labels: labels,
+              datasets: [
+                {
+                  data: data,
+                  backgroundColor: "#00ACC1",
+                },
+              ],
+            }}
+          />
+        </div>
       </div>
       <Footer />
     </>

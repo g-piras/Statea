@@ -124,6 +124,7 @@ const statistiche = () => {
             filtra
           </button>
         </div>
+
         <div className="flex flex-col sm:justify-center gap-2 sm:flex-row items-center">
           {yearStartRange && yearEndRange && yearStartRange < yearEndRange ? (
             <div className="badge bg-[#284697] border-transparent">

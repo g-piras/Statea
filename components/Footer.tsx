@@ -66,7 +66,8 @@ export const Footer = () => {
           <div>
             <p className="text-sky-50 text-center">
               SEDE OPERATIVA <br></br>
-              Torino, via Jacopo Durandi 10
+              Torino, via Jacopo Durandi 10 <br></br>
+              <a href="#">statea@gmail.com</a>
             </p>
           </div>
         </div>

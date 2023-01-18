@@ -25,41 +25,43 @@ const about = () => {
               ut
             </span>
           </h1>
-          <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg">
-            Benvenuti su{" "}
-            <span className="text-[#284697] text-xl font-bold">Touri</span>
-            <span className="text-[#00ACC1] text-xl font-bold">stats</span>, il
-            sito web di <span className="font-bold uppercase">Statea</span> che
-            ti offre informazioni sui flussi turistici in Sardegna. Portiamo la
-            nostra esperienza nello sviluppo di siti web basati su dati ISTAT
-            per il settore del turismo. Siamo orgogliosi di offrire una
-            piattaforma che consenta di monitorare e analizzare in modo{" "}
+          <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg text-justify text-last-center">
+            Benvenuti in{" "}
+            <span className="font-bold uppercase">Statea</span>. Siamo un'azienda che
+            sviluppa siti e applicazioni per il web, basati su dati ISTAT,
+            per il settore del turismo. Siamo orgogliosi di offrire soluzioni
+            che consentano di monitorare e analizzare in modo{" "}
             <span className="font-bold uppercase">semplice</span> e{" "}
             <span className="font-bold uppercase"> intuitivo</span> l'affluenza
             dei turisti in diverse aree dell'isola, così come previsioni su come
             cambieranno in futuro.
           </p>
-          <h3 className="uppercase text-gray-800 mt-[100px] mb-2 px-10 text-2xl">
-            con il nostro prodotto ...
+          <h3 className="uppercase text-gray-800 mt-[100px] mb-1 px-10 text-2xl">
+            con i nostri prodotti ...
           </h3>
-          <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg ">
+          <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg text-justify text-last-center">
             ... ci poniamo l'obiettivo di{" "}
-            <span className="font-bold uppercase">aiutare</span> le aziende del
+            <span className="font-bold uppercase">aiutare</span> le aziende che operano nel
             settore turistico a{" "}
             <span className="font-bold uppercase">comprendere</span> e sfruttare
-            al meglio i dati e le previsioni presenti all'interno di{" "}
-            <span className="text-[#284697] text-xl font-bold">Touri</span>
-            <span className="text-[#00ACC1] text-xl font-bold">Stats</span> per
+            al meglio i dati e le previsioni presenti all'interno delle{" "}
+            nostre Web-App per
             migliorare il loro{" "}
             <span className="font-bold uppercase">business</span>.
-            <span className="block mt-5">
-              Grazie per aver visitato{" "}
-              <span className="text-[#284697] text-xl font-bold">Touri</span>
-              <span className="text-[#00ACC1] text-xl font-bold">stats</span>.
-            </span>
           </p>
 
-          <h2 className="uppercase text-gray-800 mt-[120px] mb-10 px-10">
+          <h3 className="uppercase text-gray-800 mt-[100px] mb-1 px-10 text-2xl">
+            Con noi ...
+          </h3>
+          <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg text-justify text-last-center">
+            ... troverai terreno fertile in cui potrai dar vita alle tue <span className="font-bold uppercase"> idee</span>.
+            Verrai seguito passo dopo passo nella realizzazione del tuo <span className="font-bold uppercase"> prodotto</span>.
+            Con il nostro team non ci sono limiti all'immaginazione.
+            Vieni a conoscerci
+          </p>
+
+
+          <h2 className="uppercase text-gray-800 mt-[120px] mb-10 lg:mb-[-55px] px-10">
             noi siamo
           </h2>
         </section>

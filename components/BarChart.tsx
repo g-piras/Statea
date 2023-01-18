@@ -51,7 +51,6 @@ export const data = [
 export default function BarChart(props: {
   data: {
     labels: string[];
-
     datasets: [
       {
         data: string[],
@@ -71,3 +70,5 @@ export default function BarChart(props: {
 
   return <Bar options={options} data={props.data} />;
 }
+
+

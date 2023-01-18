@@ -46,12 +46,6 @@ const previsioni = () => {
     setNationality(nationality);
     setProvince(province);
     setYear(year);
-    setFirstSelectMonth(firstSelectMonth);
-    setFirstSelectYear(firstSelectYear);
-    setSecondSelectMonth(secondSelectMonth);
-    setSecondSelectYear(secondSelectYear);
-    setYearStartRange(yearStartRange);
-    setYearEndRange(yearEndRange);
 
     // if (year) {
     //   monthlyApiForecast(nationality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
@@ -65,9 +59,19 @@ const previsioni = () => {
       let endDate = secondSelectYear + "-" + secondSelectMonth + "-01";
 
       if (new Date(startDate) > new Date(endDate)) {
+        setFirstSelectMonth(secondSelectMonth);
+        setFirstSelectYear(secondSelectYear);
+        setSecondSelectMonth(firstSelectMonth);
+        setSecondSelectYear(firstSelectYear);
         const temp = startDate;
         startDate = endDate;
         endDate = temp;
+      }
+      else {
+        setFirstSelectMonth(firstSelectMonth);
+        setFirstSelectYear(firstSelectYear);
+        setSecondSelectMonth(secondSelectMonth);
+        setSecondSelectYear(secondSelectYear);
       }
 
       // monthlyApiForecast(nationality, province, "AR", startDate, endDate).then((res) => {
@@ -78,9 +82,15 @@ const previsioni = () => {
 
     if (yearStartRange && yearEndRange) {
       if (new Date(yearStartRange) > new Date(yearEndRange)) {
+        setYearStartRange(yearEndRange);
+        setYearEndRange(yearStartRange);
         const temp = yearStartRange;
         yearStartRange = yearEndRange;
         yearEndRange = temp;
+      }
+      else {
+        setYearStartRange(yearStartRange);
+        setYearEndRange(yearEndRange);
       }
       // annualApiForecast(nationality, province, "AR", yearStartRange, yearEndRange).then((res) => {
       //   setTouristsNumber(res.data);
@@ -128,45 +138,19 @@ const previsioni = () => {
           </button>
         </div>
         <div className="flex flex-col sm:justify-center gap-2 sm:flex-row items-center">
-          {yearStartRange && yearEndRange && yearStartRange < yearEndRange ? (
+          {yearStartRange && yearEndRange && (
             <div className="badge bg-[#284697] border-transparent">
               {yearStartRange} - {yearEndRange}
             </div>
-          ) : yearStartRange && yearEndRange && yearStartRange === yearEndRange ? (
-            <div className="badge bg-[#284697] border-transparent">
-              {yearStartRange} - {yearEndRange}
-            </div>
-          ) : firstSelectMonth &&
-            secondSelectMonth &&
-            secondSelectYear &&
-            firstSelectYear &&
-            firstSelectYear < secondSelectYear ? (
-            <div className="badge  bg-[#284697] border-transparent">
-              {firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}
-            </div>
-          ) : yearStartRange && yearEndRange && yearStartRange > yearEndRange ? (
-            <div className="badge bg-[#284697] border-transparent">
-              {yearEndRange} - {yearStartRange}
-            </div>
-          ) : firstSelectMonth &&
-            secondSelectMonth &&
-            secondSelectYear &&
-            firstSelectYear &&
-            firstSelectYear > secondSelectYear ? (
-            <div className="badge bg-[#284697] border-transparent">
-              {secondSelectMonth}/{secondSelectYear} - {firstSelectMonth}/{firstSelectYear}
-            </div>
-          ) : (
-            firstSelectMonth &&
-            secondSelectMonth &&
-            secondSelectYear &&
-            firstSelectYear &&
-            firstSelectYear === secondSelectYear && (
-              <div className="badge  bg-[#284697] border-transparent">
-                {secondSelectMonth}/{firstSelectYear} - {firstSelectMonth}/{secondSelectYear}
-              </div>
-            )
           )}
+          {firstSelectMonth &&
+            secondSelectMonth &&
+            secondSelectYear &&
+            firstSelectYear && (
+              <div className="badge  bg-[#284697] border-transparent">
+                {firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}
+              </div>
+            )}
           <div className="badge bg-[#284697] border-transparent">
             {nationality === "WORLD" ? "Mondo" : nationality === "WRL_X_ITA" ? "Paesi esteri" : nationality}
           </div>

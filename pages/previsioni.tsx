@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 import { labels, data } from "../components/BarChart";
 import { Footer } from "../components/Footer";
 import Head from "next/head";
-import { annualApiForecast, monthlyApiForecast } from "../api";
+// import { annualApiForecast, monthlyApiForecast } from "../api";
 
 const previsioni = () => {
   const [side, setSide] = useState<boolean>(false);
@@ -21,12 +21,12 @@ const previsioni = () => {
   const [yearStartRange, setYearStartRange] = useState<undefined | string>("2008");
   const [yearEndRange, setYearEndRange] = useState<undefined | string>("2021");
 
-  useEffect(() => {
-    annualApiForecast(nationality, province, 'AR', yearStartRange).then((res) => {
-      setTouristsNumber(res.data)
-      setYears(res.labels)
-    })
-  }, [])
+  // useEffect(() => {
+  //   annualApiForecast(nationality, province, 'AR', yearStartRange).then((res) => {
+  //     setTouristsNumber(res.data)
+  //     setYears(res.labels)
+  //   })
+  // }, [])
 
   const handleSidebar = () => {
     setSide(!side)
@@ -53,12 +53,12 @@ const previsioni = () => {
     setYearStartRange(yearStartRange);
     setYearEndRange(yearEndRange);
 
-    if (year) {
-      monthlyApiForecast(nationality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
-        setTouristsNumber(res.data);
-        setYears(res.labels);
-      });
-    }
+    // if (year) {
+    //   monthlyApiForecast(nationality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
+    //     setTouristsNumber(res.data);
+    //     setYears(res.labels);
+    //   });
+    // }
 
     if (firstSelectMonth && firstSelectYear && secondSelectMonth && secondSelectYear) {
       let startDate = firstSelectYear + "-" + firstSelectMonth + "-01";
@@ -70,10 +70,10 @@ const previsioni = () => {
         endDate = temp;
       }
 
-      monthlyApiForecast(nationality, province, "AR", startDate, endDate).then((res) => {
-        setTouristsNumber(res.data);
-        setYears(res.labels);
-      });
+      // monthlyApiForecast(nationality, province, "AR", startDate, endDate).then((res) => {
+      //   setTouristsNumber(res.data);
+      //   setYears(res.labels);
+      // });
     }
 
     if (yearStartRange && yearEndRange) {
@@ -82,10 +82,10 @@ const previsioni = () => {
         yearStartRange = yearEndRange;
         yearEndRange = temp;
       }
-      annualApiForecast(nationality, province, "AR", yearStartRange, yearEndRange).then((res) => {
-        setTouristsNumber(res.data);
-        setYears(res.labels);
-      });
+      // annualApiForecast(nationality, province, "AR", yearStartRange, yearEndRange).then((res) => {
+      //   setTouristsNumber(res.data);
+      //   setYears(res.labels);
+      // });
     }
 
     handleSidebar();
@@ -119,6 +119,7 @@ const previsioni = () => {
         </h1>
         <div className="text-center my-5">
           <button
+            disabled
             onClick={handleSidebar}
             className="uppercase my-10 bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded disabled:opacity-40"
             name="btn"

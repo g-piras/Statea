@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:9980/v1";
+const BASE_URL = "http://18.102.24.178:9980/v1";
 
 export type annualDataType = {
   labels: string[];
@@ -33,31 +33,31 @@ export const annualApi = async (
 };
 
 // API PREVISIONI ANNUALI
-export const annualApiForecast = async (
-  originID: string,
-  destinationID: string,
-  typeID: string,
-  startYear?: string,
-  endYear?: string
-) => {
-  const res = await fetch(
-    `${BASE_URL}/forecasts/annual/origin/${originID}/destination/${destinationID}/type/${typeID}${startYear !== undefined && endYear !== undefined
-      ? `?startYear=${startYear}&endYear=${endYear}`
-      : ""
-    }`
-  );
-  const data = await res.json();
+// export const annualApiForecast = async (
+//   originID: string,
+//   destinationID: string,
+//   typeID: string,
+//   startYear?: string,
+//   endYear?: string
+// ) => {
+//   const res = await fetch(
+//     `${BASE_URL}/forecasts/annual/origin/${originID}/destination/${destinationID}/type/${typeID}${startYear !== undefined && endYear !== undefined
+//       ? `?startYear=${startYear}&endYear=${endYear}`
+//       : ""
+//     }`
+//   );
+//   const data = await res.json();
 
-  const mappedData: annualDataType = { labels: [], data: [] };
+//   const mappedData: annualDataType = { labels: [], data: [] };
 
-  if (Array.isArray(data))
-    data.map((el: any) => {
-      mappedData.data.push(el.observation);
-      mappedData.labels.push(el.year);
-    });
+//   if (Array.isArray(data))
+//     data.map((el: any) => {
+//       mappedData.data.push(el.observation);
+//       mappedData.labels.push(el.year);
+//     });
 
-  return mappedData;
-};
+//   return mappedData;
+// };
 
 
 export type monthlyDataType = {
@@ -117,52 +117,53 @@ export const monthlyApi = async (
 };
 
 // API PREVISIONI MENSILI
-export const monthlyApiForecast = async (
-  originID: string,
-  destinationID: string,
-  typeID: string,
-  startDate?: string,
-  endDate?: string
-) => {
-  const res = await fetch(
-    `${BASE_URL}/forecasts/monthly/origin/${originID}/destination/${destinationID}/type/${typeID}${startDate !== undefined && endDate !== undefined
-      ? `?startDate=${startDate}&endDate=${endDate}`
-      : ""
-    }`
-  );
-  const data = await res.json();
 
-  const mappedData: monthlyDataType = { labels: [], data: [] };
+// export const monthlyApiForecast = async (
+//   originID: string,
+//   destinationID: string,
+//   typeID: string,
+//   startDate?: string,
+//   endDate?: string
+// ) => {
+//   const res = await fetch(
+//     `${BASE_URL}/forecasts/monthly/origin/${originID}/destination/${destinationID}/type/${typeID}${startDate !== undefined && endDate !== undefined
+//       ? `?startDate=${startDate}&endDate=${endDate}`
+//       : ""
+//     }`
+//   );
+//   const data = await res.json();
 
-  if (Array.isArray(data))
-    data.map((el: any) => {
-      mappedData.data.push(el.observation);
+//   const mappedData: monthlyDataType = { labels: [], data: [] };
 
-      // if (data.length <= 12) {
-      //   const monthDate = new Date(el.date);
-      //   const monthString =
-      //     monthDate
-      //       .toLocaleString("it-IT", {
-      //         month: "short",
-      //       })
-      //       .charAt(0)
-      //       .toUpperCase() +
-      //     monthDate
-      //       .toLocaleString("it-IT", {
-      //         month: "short",
-      //       })
-      //       .slice(1);
-      //   mappedData.labels.push(monthString);
-      // } 
+//   if (Array.isArray(data))
+//     data.map((el: any) => {
+//       mappedData.data.push(el.observation);
 
-      const monthDate = new Date(el.date);
-      const monthString = monthDate.toLocaleString("it-IT", {
-        month: "numeric",
-        year: "2-digit",
-      });
-      mappedData.labels.push(monthString);
+//       // if (data.length <= 12) {
+//       //   const monthDate = new Date(el.date);
+//       //   const monthString =
+//       //     monthDate
+//       //       .toLocaleString("it-IT", {
+//       //         month: "short",
+//       //       })
+//       //       .charAt(0)
+//       //       .toUpperCase() +
+//       //     monthDate
+//       //       .toLocaleString("it-IT", {
+//       //         month: "short",
+//       //       })
+//       //       .slice(1);
+//       //   mappedData.labels.push(monthString);
+//       // }
 
-    });
+//       const monthDate = new Date(el.date);
+//       const monthString = monthDate.toLocaleString("it-IT", {
+//         month: "numeric",
+//         year: "2-digit",
+//       });
+//       mappedData.labels.push(monthString);
 
-  return mappedData;
-};
+//     });
+
+//   return mappedData;
+// };

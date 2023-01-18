@@ -1,4 +1,4 @@
-const BASE_URL = "http://18.102.24.178:9980/v1";
+const BASE_URL = "http://localhost:9980/v1";
 
 export type annualDataType = {
   labels: string[];

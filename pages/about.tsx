@@ -123,7 +123,7 @@ const about = () => {
                 <div className="flex flex-col items-center">
                   <img
                     className="object-cover w-28 h-28 rounded-full shadow"
-                    src="/assets/giamp.jpg"
+                    src="/assets/giampietro.jpg"
                     alt="Giampietro"
                   />
                   <div className="flex flex-col justify-center">

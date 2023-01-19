@@ -38,7 +38,7 @@ export default function Home() {
           Benvenuti in <span className="text-[#284697]">Touri</span>
           <span className="text-[#00ACC1]">Stats</span>
         </h1>
-        <p className="tracking-wide text-gray-600 mx-auto max-w-[70%]">
+        <p className="tracking-wide text-gray-600 mx-auto max-w-[70%] text-last-center text-justify">
           <span className="text-[#284697] text-xl">Touri</span>
           <span className="text-[#00ACC1] text-xl">Stats </span>è un servizio
           web dedicato all'analisi del flusso turistico in

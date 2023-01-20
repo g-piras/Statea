@@ -33,7 +33,7 @@ const about = () => {
             che consentano di monitorare e analizzare in modo{" "}
             <span className="font-bold uppercase">semplice</span> e{" "}
             <span className="font-bold uppercase"> intuitivo</span> l'affluenza
-            dei turisti in diverse aree dell'isola, così come previsioni su come
+            dei turisti in diverse aree della Sardegna, così come previsioni su come
             cambieranno in futuro.
           </p>
           <h3 className="uppercase text-gray-800 mt-[100px] mb-1 px-10 text-2xl">

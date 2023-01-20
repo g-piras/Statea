@@ -38,9 +38,9 @@ export default function Home() {
           Benvenuti in <span className="text-[#284697]">Touri</span>
           <span className="text-[#00ACC1]">Stats</span>
         </h1>
-        <p className="tracking-wide text-gray-600 mx-auto max-w-[70%] text-last-center text-justify">
-          <span className="text-[#284697] text-xl">Touri</span>
-          <span className="text-[#00ACC1] text-xl">Stats </span>è un servizio
+        <p className="tracking-wide text-lg text-gray-600 mx-auto max-w-[70%] text-last-center text-justify">
+          <span className="text-[#284697] font-semibold text-xl">Touri</span>
+          <span className="text-[#00ACC1] font-semibold text-xl">Stats </span>è un servizio
           web dedicato all'analisi del flusso turistico in
           <span className="uppercase font-bold"> Sardegna </span>
           <br />
@@ -49,7 +49,7 @@ export default function Home() {
         </p>
         <div className="text-gray-700">
           <h2 className="mt-[50px] mb-5 px-10">Statistiche anno 2021</h2>
-          <p>Quasi 2.5 milioni di turisti arrivati da qualsiasi parte del mondo nell'anno 2021</p>
+          <p className="mx-auto text-lg max-w-[70%] text-last-center text-justify">Quasi 2.5 milioni di turisti arrivati da tutto  il mondo nell'anno 2021</p>
           <div className="chart">
             <BarChart
               data={{
@@ -69,7 +69,7 @@ export default function Home() {
             </button>
           </Link>
           <h2 className="mt-[50px] mb-5 px-10">Previsioni anno successivo</h2>
-          <p>Prevediamo l'arrivo di circa "tot" turisti nell'anno 2023</p>
+          <p className="mx-auto text-lg max-w-[70%] text-last-center text-justify">Prevediamo l'arrivo di circa "tot" turisti nell'anno 2023</p>
           <div className="chart">
             <BarChart
               data={{

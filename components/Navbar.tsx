@@ -44,8 +44,8 @@ const Navbar = (props: { page: string }) => {
               </div>
             </div>
             <div className="border-b border-gray-300 my-4 min-[480px]:w-[80%]">
-              <p className="py-4 text-lg"><span className="text-[#284697] text-2xl">Touri</span>
-                <span className="text-[#00ACC1] text-2xl">Stats</span> section</p>
+              <p className="py-4 text-lg"><span className="text-[#284697] text-2xl font-bold">Touri</span>
+                <span className="text-[#00ACC1] text-2xl font-bold">Stats</span> section</p>
             </div>
           </div>
           <div className="py-6 flex-col">

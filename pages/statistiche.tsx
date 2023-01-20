@@ -147,7 +147,7 @@ const statistiche = () => {
         </div>
         <div className="flex flex-col sm:justify-center gap-2 sm:flex-row items-center">
           {yearStartRange && yearEndRange && (
-            <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-80 font-semibold">
+            <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-60 font-semibold">
               {yearStartRange} - {yearEndRange}
             </div>
           )}
@@ -155,14 +155,14 @@ const statistiche = () => {
             secondSelectMonth &&
             secondSelectYear &&
             firstSelectYear && (
-              <div className="badge  bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-80 font-semibold">
+              <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-60 font-semibold">
                 {firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}
               </div>
             )}
-          <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-80 font-semibold">
+          <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-60 font-semibold">
             {nationality === "WORLD" ? "Tutte le nazionalità" : nationality === "WRL_X_ITA" ? "Paesi esteri" : nationality}
           </div>
-          <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-80 font-semibold">
+          <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-60 font-semibold">
             {province === "ITG2" ? "Tutte le province" : province === "ITG25" ? "Sassari" : province === "ITG26" ? "Nuoro" :
               province === "ITG27" ? "Cagliari" : province === "ITG28" ? "Oristano" : province === "ITG29" ? "Olbia-Tempio" :
                 province === "ITG2A" ? "Ogliastra" : province === "ITG2B" ? "Medio Campidano" : province === "ITG2C" && "Carbonia-Iglesias"

@@ -15,7 +15,7 @@ const about = () => {
       </Head>
       <Navbar page="about" />
       <div className="w-full h-full text-center pt-[120px]">
-        <section className="w-full h-full lg:px-24 text-gray-800">
+        <section className="w-full h-full text-gray-800">
           <h1 className="uppercase my-10 px-10">
             <span className="text-[#284697]">Ab</span>
             <span className="text-[#00ACC1]">

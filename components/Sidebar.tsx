@@ -93,16 +93,16 @@ const Sidebar = (props: {
           <form onSubmit={handleOnSubmit}>
             <div className="flex w-full items-center justify-between p-10">
               <span className="font-bold text-[#284697] text-2xl ">Filtra</span>
-              <div className="flex gap-1">
+              <div className="flex gap-2">
                 <button
                   type="submit"
-                  className=" rounded-full shadow-lg shadow-gray-400 p-[10px] cursor-pointer"
+                  className=" rounded-full shadow-md shadow-gray-500 p-[10px] cursor-pointer"
                   name="btn"
                 >
                   <AiOutlineCheck />
                 </button>
                 <div
-                  className=" rounded-full shadow-lg shadow-gray-400 p-[10px] cursor-pointer"
+                  className=" rounded-full shadow-md shadow-gray-500 p-[10px] cursor-pointer"
                   onClick={props.handleSidebar}
                 >
                   <AiOutlineClose />

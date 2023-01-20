@@ -118,7 +118,7 @@ const previsioni = () => {
           handleSidebar={handleSidebar}
           handleSaveFilters={handleSaveFilters}
         />
-        <h1 className="uppercase text-center pt-32">
+        <h1 className="uppercase text-center pt-40">
           <span className="text-[#284697]">
             Prev
             <span className="half" title="S">
@@ -131,15 +131,18 @@ const previsioni = () => {
           <button
             disabled
             onClick={handleSidebar}
-            className="uppercase my-10 bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded disabled:opacity-40"
+            className="uppercase my-10 bg-transparent hover:bg-[#00ACC1] text-[#0094c1] hover:text-white font-semibold py-2 px-4 border border-[#00ACC1] hover:border-transparent rounded shadow-md shadow-[#0094c1] disabled:opacity-40"
             name="btn"
           >
             filtra
           </button>
         </div>
+        <div className="flex justify-center pb-5">
+          <p className="uppercase font-semibold">filtri attivi:</p>
+        </div>
         <div className="flex flex-col sm:justify-center gap-2 sm:flex-row items-center">
           {yearStartRange && yearEndRange && (
-            <div className="badge bg-[#284697] border-transparent">
+            <div className="badge bg-[#00ACC1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-80 ">
               {yearStartRange} - {yearEndRange}
             </div>
           )}
@@ -147,14 +150,14 @@ const previsioni = () => {
             secondSelectMonth &&
             secondSelectYear &&
             firstSelectYear && (
-              <div className="badge  bg-[#284697] border-transparent">
+              <div className="badge  bg-[#00ACC1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-80">
                 {firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}
               </div>
             )}
-          <div className="badge bg-[#284697] border-transparent">
-            {nationality === "WORLD" ? "Mondo" : nationality === "WRL_X_ITA" ? "Paesi esteri" : nationality}
+          <div className="badge bg-[#00ACC1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-80">
+            {nationality === "WORLD" ? "Tutte le nazionalità" : nationality === "WRL_X_ITA" ? "Paesi esteri" : nationality}
           </div>
-          <div className="badge bg-[#284697] border-transparent">
+          <div className="badge bg-[#00ACC1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-80">
             {province === "ITG2" ? "Tutte le province" : province === "ITG25" ? "Sassari" : province === "ITG26" ? "Nuoro" :
               province === "ITG27" ? "Cagliari" : province === "ITG28" ? "Oristano" : province === "ITG29" ? "Olbia-Tempio" :
                 province === "ITG2A" ? "Ogliastra" : province === "ITG2B" ? "Medio Campidano" : province === "ITG2C" && "Carbonia-Iglesias"
@@ -175,8 +178,8 @@ const previsioni = () => {
             }}
           />
         </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

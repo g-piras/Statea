@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 export const Footer = () => {
   return (
     <>
-      <div className="bg-[#284697] flex justify-between px-5 py-10 mt-36">
+      <div className="bg-[#284697] flex justify-between px-5 py-10 mt-36 items-center">
         <div className="w-[50%] h-full text-center ">
           <div className="flex-col">
             <ul className="uppercase">

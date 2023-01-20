@@ -14,7 +14,7 @@ const about = () => {
         <title>About - TouriStats</title>
       </Head>
       <Navbar page="about" />
-      <div className="w-full h-full text-center pt-20">
+      <div className="w-full h-full text-center pt-[120px]">
         <section className="w-full h-full lg:px-24 text-gray-800">
           <h1 className="uppercase my-10 px-10">
             <span className="text-[#284697]">Ab</span>
@@ -25,7 +25,7 @@ const about = () => {
               ut
             </span>
           </h1>
-          <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg text-justify text-last-center">
+          <p className="tracking-wide text-gray-600 mx-auto max-w-[70%] pt-10 text-lg text-justify text-last-center">
             Benvenuti in{" "}
             <span className="font-bold uppercase">Statea</span>. Siamo un'azienda che
             sviluppa siti e applicazioni per il web, basati su dati ISTAT,
@@ -39,7 +39,7 @@ const about = () => {
           <h3 className="uppercase text-gray-800 mt-[100px] mb-1 px-10 text-2xl">
             con i nostri prodotti ...
           </h3>
-          <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg text-justify text-last-center">
+          <p className="tracking-wide text-gray-600 mx-auto max-w-[70%] pt-10 text-lg text-justify text-last-center">
             ... ci poniamo l'obiettivo di{" "}
             <span className="font-bold uppercase">aiutare</span> le aziende che operano nel
             settore turistico a{" "}
@@ -53,13 +53,12 @@ const about = () => {
           <h3 className="uppercase text-gray-800 mt-[100px] mb-1 px-10 text-2xl">
             Con noi ...
           </h3>
-          <p className="tracking-wide text-gray-600 mx-auto max-w-[60%] pt-10 text-lg text-justify text-last-center">
+          <p className="tracking-wide text-gray-600 mx-auto max-w-[70%] pt-10 text-lg text-justify text-last-center">
             ... troverai terreno fertile in cui potrai dar vita alle tue <span className="font-bold uppercase"> idee</span>.
             Verrai seguito passo dopo passo nella realizzazione del tuo <span className="font-bold uppercase"> prodotto</span>.
             Con il nostro team non ci sono limiti all'immaginazione.
             Vieni a conoscerci
           </p>
-
 
           <h2 className="uppercase text-gray-800 mt-[120px] mb-10 lg:mb-[-55px] px-10">
             noi siamo

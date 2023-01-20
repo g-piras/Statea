@@ -48,7 +48,8 @@ export default function Home() {
           sui flussi di turisti italiani e stranieri verso la regione
         </p>
         <div className="text-gray-700">
-          <h2 className="mt-10 mb-14 px-10">Statistiche anno 2021</h2>
+          <h2 className="mt-[50px] mb-5 px-10">Statistiche anno 2021</h2>
+          <p>Quasi 2.5 milioni di turisti arrivati da qualsiasi parte del mondo nell'anno 2021</p>
           <div className="chart">
             <BarChart
               data={{
@@ -63,11 +64,12 @@ export default function Home() {
             />
           </div>
           <Link href="/statistiche">
-            <button className="mb-10 bg-transparent hover:bg-blue-500 text-blue-700  hover:text-white font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+            <button className="mb-10 bg-transparent hover:bg-[#284697] text-[#284697] hover:text-white font-semibold py-2 px-4 border border-[#284697] hover:border-transparent rounded shadow-md shadow-[#284697]">
               Vai a Statistiche
             </button>
           </Link>
-          <h2 className="mt-10 mb-14 px-10">Previsioni anno successivo</h2>
+          <h2 className="mt-[50px] mb-5 px-10">Previsioni anno successivo</h2>
+          <p>Prevediamo l'arrivo di circa "tot" turisti nell'anno 2023</p>
           <div className="chart">
             <BarChart
               data={{
@@ -82,7 +84,7 @@ export default function Home() {
             />
           </div>
           <Link href="/previsioni">
-            <button className="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+            <button className="bg-transparent hover:bg-[#00ACC1] text-[#0094c1] hover:text-white font-semibold py-2 px-4 border border-[#00ACC1] hover:border-transparent rounded shadow-md shadow-[#0094c1]">
               Vai a Previsioni
             </button>
           </Link>

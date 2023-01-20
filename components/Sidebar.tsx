@@ -427,7 +427,8 @@ const Sidebar = (props: {
                 </label>
                 <div
                   className="tooltip tooltip-top ml-3 relative top-[3px]"
-                  data-tip="Nota: Tutte la nazionalità sono disponibili solo selezionando
+                  data-tip="Scegli le nazionalità dei turisti.
+                  Nota: Tutte le nazionalità sono disponibili solo selezionando
                 il range di anni"
                 >
                   <button type="button" name="btn">
@@ -503,7 +504,7 @@ const Sidebar = (props: {
                 </label>
                 <div
                   className="tooltip tooltip-top ml-3 relative top-[3px]"
-                  data-tip="Nota: Le province (Olbia-Tempio, Ogliastra, Medio Campidano, Carbonia-Iglesias) non sono disponibili per anni successivi al 2016"
+                  data-tip="Scegli la provincia. Nota: Le province (Olbia-Tempio, Ogliastra, Medio Campidano, Carbonia-Iglesias) non sono disponibili per anni successivi al 2016"
                 >
                   <button type="button" name="btn">
                     <AiOutlineInfoCircle />

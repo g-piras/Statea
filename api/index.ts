@@ -14,9 +14,10 @@ export const annualApi = async (
   endYear?: string
 ) => {
   const res = await fetch(
-    `${BASE_URL}/data/annual/origin/${originID}/destination/${destinationID}/type/${typeID}${startYear !== undefined && endYear !== undefined
-      ? `?startYear=${startYear}&endYear=${endYear}`
-      : ""
+    `${BASE_URL}/data/annual/origin/${originID}/destination/${destinationID}/type/${typeID}${
+      startYear !== undefined && endYear !== undefined
+        ? `?startYear=${startYear}&endYear=${endYear}`
+        : ""
     }`
   );
   const data = await res.json();
@@ -59,7 +60,6 @@ export const annualApi = async (
 //   return mappedData;
 // };
 
-
 export type monthlyDataType = {
   labels: string[];
   data: string[];
@@ -74,9 +74,10 @@ export const monthlyApi = async (
   endDate?: string
 ) => {
   const res = await fetch(
-    `${BASE_URL}/data/monthly/origin/${originID}/destination/${destinationID}/type/${typeID}${startDate !== undefined && endDate !== undefined
-      ? `?startDate=${startDate}&endDate=${endDate}`
-      : ""
+    `${BASE_URL}/data/monthly/origin/${originID}/destination/${destinationID}/type/${typeID}${
+      startDate !== undefined && endDate !== undefined
+        ? `?startDate=${startDate}&endDate=${endDate}`
+        : ""
     }`
   );
   const data = await res.json();
@@ -102,7 +103,7 @@ export const monthlyApi = async (
       //       })
       //       .slice(1);
       //   mappedData.labels.push(monthString);
-      // } 
+      // }
 
       const monthDate = new Date(el.date);
       const monthString = monthDate.toLocaleString("it-IT", {
@@ -110,7 +111,6 @@ export const monthlyApi = async (
         year: "2-digit",
       });
       mappedData.labels.push(monthString);
-
     });
 
   return mappedData;

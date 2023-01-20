@@ -86,23 +86,24 @@ const Sidebar = (props: {
   return (
     <>
       <div
-        className={`fixed bg-white bottom-0 md:top-20 h-[60vh] md-height w-full md:w-96 ease-in duration-500 overflow-y-scroll overflow-x-hidden ${props.side ? "rounded-t-3xl md:rounded-none md:left-0" : "-bottom-[60vh] md:-left-96"
-          }`}
+        className={`fixed bg-white bottom-0 md:top-20 h-[60vh] md-height w-full md:w-96 ease-in duration-500 overflow-y-scroll overflow-x-hidden ${
+          props.side ? "rounded-t-3xl md:rounded-none md:left-0" : "-bottom-[60vh] md:-left-96"
+        }`}
       >
         <aside>
           <form onSubmit={handleOnSubmit}>
             <div className="flex w-full items-center justify-between p-10">
               <span className="font-bold text-[#284697] text-2xl ">Filtra</span>
-              <div className="flex gap-2">
+              <div className="flex gap-1">
                 <button
                   type="submit"
-                  className=" rounded-full shadow-md shadow-gray-500 p-[10px] cursor-pointer"
+                  className=" rounded-full shadow-lg shadow-gray-400 p-[10px] cursor-pointer"
                   name="btn"
                 >
                   <AiOutlineCheck />
                 </button>
                 <div
-                  className=" rounded-full shadow-md shadow-gray-500 p-[10px] cursor-pointer"
+                  className=" rounded-full shadow-lg shadow-gray-400 p-[10px] cursor-pointer"
                   onClick={props.handleSidebar}
                 >
                   <AiOutlineClose />
@@ -147,7 +148,7 @@ const Sidebar = (props: {
                 </div>
               </div>
 
-              {selected === "first" && props.page === 'statistiche' ? (
+              {selected === "first" && (
                 <>
                   <select
                     id="yearStartRange"
@@ -155,28 +156,52 @@ const Sidebar = (props: {
                     disabled={yearRangeDisabled === true ? true : false}
                     defaultValue="2008"
                   >
-                    {
-                      province !== "ITG29" &&
-                      province !== "ITG2A" &&
-                      province !== "ITG2B" &&
-                      province !== "ITG2C" && (
-                        <>
-                          <option value="2021">2021</option>
-                          <option value="2020">2020</option>
-                          <option value="2019">2019</option>
-                          <option value="2018">2018</option>
-                          <option value="2017">2017</option>
-                        </>
-                      )}
-                    <option value="2016">2016</option>
-                    <option value="2015">2015</option>
-                    <option value="2014">2014</option>
-                    <option value="2013">2013</option>
-                    <option value="2012">2012</option>
-                    <option value="2011">2011</option>
-                    <option value="2010">2010</option>
-                    <option value="2009">2009</option>
-                    <option value="2008">2008</option>
+                    {props.page === "statistiche" && (
+                      <>
+                        {province === "IT111" ? (
+                          <>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                          </>
+                        ) : (
+                          <>
+                            {province !== "ITG29" &&
+                              province !== "ITG2A" &&
+                              province !== "ITG2B" &&
+                              province !== "ITG2C" && (
+                                <>
+                                  <option value="2021">2021</option>
+                                  <option value="2020">2020</option>
+                                  <option value="2019">2019</option>
+                                  <option value="2018">2018</option>
+                                  <option value="2017">2017</option>
+                                </>
+                              )}
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                          </>
+                        )}
+                      </>
+                    )}
+                    {props.page === "previsioni" && (
+                      <>
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                      </>
+                    )}
                   </select>
 
                   <select
@@ -208,44 +233,9 @@ const Sidebar = (props: {
                     <option value="2008">2008</option>
                   </select>
                 </>
-              )
-                : selected === "first" && props.page === 'previsioni' &&
-                (
-                  <>
-                    <select
-                      id="yearStartRange"
-                      className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
-                      disabled={yearRangeDisabled === true ? true : false}
-                      defaultValue="2022"
-                    >
-                      <>
-                        <option value="2026">2026</option>
-                        <option value="2025">2025</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                      </>
-                    </select>
+              )}
 
-                    <select
-                      id="yearEndRange"
-                      className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
-                      disabled={yearRangeDisabled === true ? true : false}
-                      defaultValue="2026"
-                    >
-                      <>
-                        <option value="2026">2026</option>
-                        <option value="2025">2025</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                      </>
-                    </select>
-                  </>
-                )}
-
-
-              {selected === "second" && props.page === 'statistiche' ? (
+              {selected === "second" && props.page === "statistiche" ? (
                 <>
                   <div>
                     <select
@@ -344,9 +334,9 @@ const Sidebar = (props: {
                     </select>
                   </div>
                 </>
-              )
-                : selected === "second" && props.page === 'previsioni' &&
-                (
+              ) : (
+                selected === "second" &&
+                props.page === "previsioni" && (
                   <>
                     <div>
                       <select
@@ -381,7 +371,6 @@ const Sidebar = (props: {
                           <option value="2023">2023</option>
                           <option value="2022">2022</option>
                         </>
-
                       </select>
                     </div>
                     <div>
@@ -419,7 +408,8 @@ const Sidebar = (props: {
                       </select>
                     </div>
                   </>
-                )}
+                )
+              )}
 
               <div>
                 <label htmlFor="nationality" className="font-medium text-gray-900">
@@ -427,8 +417,7 @@ const Sidebar = (props: {
                 </label>
                 <div
                   className="tooltip tooltip-top ml-3 relative top-[3px]"
-                  data-tip="Scegli le nazionalità dei turisti.
-                  Nota: Tutte le nazionalità sono disponibili solo selezionando
+                  data-tip="Nota: Tutte la nazionalità sono disponibili solo selezionando
                 il range di anni"
                 >
                   <button type="button" name="btn">
@@ -504,45 +493,44 @@ const Sidebar = (props: {
                 </label>
                 <div
                   className="tooltip tooltip-top ml-3 relative top-[3px]"
-                  data-tip="Scegli la provincia. Nota: Le province (Olbia-Tempio, Ogliastra, Medio Campidano, Carbonia-Iglesias) non sono disponibili per anni successivi al 2016"
+                  data-tip="Nota: Le province (Olbia-Tempio, Ogliastra, Medio Campidano, Carbonia-Iglesias) non sono disponibili per anni successivi al 2016"
                 >
                   <button type="button" name="btn">
                     <AiOutlineInfoCircle />
                   </button>
                 </div>
               </div>
-              {
-                props.page === 'statistiche' ? (
-                  <select
-                    id="province"
-                    className="text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
-                    value={province}
-                    onChange={handleProvince}
-                  >
-                    <option value="ITG2">Tutte le province</option>
-                    <option value="ITG25">Sassari</option>
-                    <option value="ITG26">Nuoro</option>
-                    <option value="ITG27">Cagliari</option>
-                    <option value="ITG28">Oristano</option>
-                    <option value="ITG29">Olbia-Tempio</option>
-                    <option value="ITG2A">Ogliastra</option>
-                    <option value="ITG2B">Medio Campidano</option>
-                    <option value="ITG2C">Carbonia-Iglesias</option>
-                  </select>
-                ) :
-                  (<select
-                    id="province"
-                    className="text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
-                    value={province}
-                    onChange={handleProvince}
-                  >
-                    <option value="ITG2">Tutte le province</option>
-                    <option value="ITG25">Sassari</option>
-                    <option value="ITG26">Nuoro</option>
-                    <option value="ITG27">Cagliari</option>
-                    <option value="ITG28">Oristano</option>
-                  </select>)
-              }
+              {props.page === "statistiche" ? (
+                <select
+                  id="province"
+                  className="text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
+                  value={province}
+                  onChange={handleProvince}
+                >
+                  <option value="ITG2">Tutte le province</option>
+                  <option value="ITG25">Sassari</option>
+                  <option value="ITG26">Nuoro</option>
+                  <option value="ITG27">Cagliari</option>
+                  <option value="ITG28">Oristano</option>
+                  <option value="ITG29">Olbia-Tempio</option>
+                  <option value="ITG2A">Ogliastra</option>
+                  <option value="ITG2B">Medio Campidano</option>
+                  <option value="ITG2C">Carbonia-Iglesias</option>
+                </select>
+              ) : (
+                <select
+                  id="province"
+                  className="text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
+                  value={province}
+                  onChange={handleProvince}
+                >
+                  <option value="ITG2">Tutte le province</option>
+                  <option value="ITG25">Sassari</option>
+                  <option value="ITG26">Nuoro</option>
+                  <option value="ITG27">Cagliari</option>
+                  <option value="ITG28">Oristano</option>
+                </select>
+              )}
             </div>
           </form>
         </aside>

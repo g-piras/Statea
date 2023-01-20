@@ -136,7 +136,7 @@ const statistiche = () => {
         <div className="text-center my-5">
           <button
             onClick={handleSidebar}
-            className="uppercase my-10 bg-transparent hover:bg-[#284697] text-[#284697] hover:text-white font-semibold py-2 px-4 border border-[#284697] hover:border-transparent rounded shadow-lg shadow-[#284697]"
+            className="uppercase my-10 bg-transparent hover:bg-[#284697] text-[#284697] hover:text-white font-semibold py-2 px-4 border border-[#284697] hover:border-transparent rounded shadow-md shadow-[#284697]"
           >
             filtra
           </button>

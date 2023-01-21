@@ -69,12 +69,6 @@ const Sidebar = (props: {
       setYearDisabled(true);
       setPeriodDisabled(true);
     }
-    // if (tab === "second") {
-    //   setSelected("second");
-    //   setYearRangeDisabled(true);
-    //   setYearDisabled(true);
-    //   setPeriodDisabled(false);
-    // }
     if (tab === "second") {
       setSelected("second");
       setYearRangeDisabled(true);
@@ -86,9 +80,8 @@ const Sidebar = (props: {
   return (
     <>
       <div
-        className={`fixed bg-white bottom-0 md:top-20 h-[60vh] md-height w-full md:w-96 ease-in duration-500 overflow-y-scroll overflow-x-hidden ${
-          props.side ? "rounded-t-3xl md:rounded-none md:left-0" : "-bottom-[60vh] md:-left-96"
-        }`}
+        className={`fixed bg-white bottom-0 md:top-20 h-[60vh] md-height w-full md:w-96 ease-in duration-500 overflow-y-scroll overflow-x-hidden ${props.side ? "rounded-t-3xl md:rounded-none md:left-0" : "-bottom-[60vh] md:-left-96"
+          }`}
       >
         <aside>
           <form onSubmit={handleOnSubmit}>
@@ -121,14 +114,6 @@ const Sidebar = (props: {
                 >
                   Range di Anni
                 </a>
-                {/* <a
-                  className={`tab tab-bordered ${selected === "second" && "tab-active"}`}
-                  onClick={() => {
-                    handleTabOnClick("second");
-                  }}
-                >
-                  Anno
-                </a> */}
                 <a
                   className={`tab tab-bordered ${selected === "second" && "tab-active"}`}
                   id="btn"
@@ -142,7 +127,7 @@ const Sidebar = (props: {
                   className="tooltip tooltip-top ml-2"
                   data-tip="Nota: Puoi selezionare una sola voce per volta"
                 >
-                  <button type="button" name="btn">
+                  <button type="button" name="btn" className="w-[44px] h-[44px] flex justify-center items-center relative top-[5px]">
                     <AiOutlineInfoCircle />
                   </button>
                 </div>
@@ -152,7 +137,7 @@ const Sidebar = (props: {
                 <>
                   <select
                     id="yearStartRange"
-                    className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                    className="inline text-white text-lg mb-7 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                     disabled={yearRangeDisabled === true ? true : false}
                     defaultValue="2008"
                   >
@@ -206,7 +191,7 @@ const Sidebar = (props: {
 
                   <select
                     id="yearEndRange"
-                    className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                    className="inline text-white mb-7 ml-2 text-lg bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                     disabled={yearRangeDisabled === true ? true : false}
                     defaultValue="2021"
                   >
@@ -241,7 +226,7 @@ const Sidebar = (props: {
                     <select
                       id="firstSelectMonth"
                       disabled={periodDisabled === true ? true : false}
-                      className="inline text-white mb-4 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-4 text-lg bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                     >
                       <option value="01">Gen</option>
                       <option value="02">Feb</option>
@@ -260,7 +245,7 @@ const Sidebar = (props: {
                     <select
                       id="firstSelectYear"
                       disabled={periodDisabled === true ? true : false}
-                      className="inline text-white mb-4 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-4 ml-2 text-lg bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                     >
                       {province !== "ITG29" &&
                         province !== "ITG2A" &&
@@ -289,7 +274,7 @@ const Sidebar = (props: {
                     <select
                       id="secondSelectMonth"
                       disabled={periodDisabled === true ? true : false}
-                      className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-7 bg-gray-700 text-lg border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                       defaultValue="12"
                     >
                       <option value="01">Gen</option>
@@ -308,7 +293,7 @@ const Sidebar = (props: {
                     <select
                       id="secondSelectYear"
                       disabled={periodDisabled === true ? true : false}
-                      className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-7 ml-2 bg-gray-700 border text-lg border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                     >
                       {province !== "ITG29" &&
                         province !== "ITG2A" &&
@@ -342,7 +327,7 @@ const Sidebar = (props: {
                       <select
                         id="firstSelectMonth"
                         disabled={periodDisabled === true ? true : false}
-                        className="inline text-white mb-4 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                        className="inline text-white mb-4 bg-gray-700 border text-lg border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                       >
                         <option value="01">Gen</option>
                         <option value="02">Feb</option>
@@ -362,7 +347,7 @@ const Sidebar = (props: {
                         id="firstSelectYear"
                         disabled={periodDisabled === true ? true : false}
                         defaultValue="2022"
-                        className="inline text-white mb-4 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                        className="inline text-white mb-4 ml-2 bg-gray-700 border text-lg border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                       >
                         <>
                           <option value="2026">2026</option>
@@ -377,7 +362,7 @@ const Sidebar = (props: {
                       <select
                         id="secondSelectMonth"
                         disabled={periodDisabled === true ? true : false}
-                        className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                        className="inline text-white mb-7 bg-gray-700 border text-lg border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                         defaultValue="12"
                       >
                         <option value="01">Gen</option>
@@ -396,7 +381,7 @@ const Sidebar = (props: {
                       <select
                         id="secondSelectYear"
                         disabled={periodDisabled === true ? true : false}
-                        className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                        className="inline text-white mb-7 ml-2 bg-gray-700 border text-lg border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
                       >
                         <>
                           <option value="2026">2026</option>
@@ -420,7 +405,7 @@ const Sidebar = (props: {
                   data-tip="Nota: Tutte la nazionalità sono disponibili solo selezionando
                 il range di anni"
                 >
-                  <button type="button" name="btn">
+                  <button type="button" name="btn" className="w-[44px] h-[44px] flex justify-center items-center">
                     <AiOutlineInfoCircle />
                   </button>
                 </div>
@@ -428,10 +413,10 @@ const Sidebar = (props: {
 
               <select
                 id="nationality"
-                className="text-white mb-5 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
+                className="text-white mb-5 mt-2 bg-gray-700 border text-lg border-gray-600 rounded-lg block w-[200px] p-2.5 cursor-pointer"
               >
-                <option value="WORLD">Mondo</option>
-                <option value="WRL_X_ITA">Paesi esteri - Italia esclusa -</option>
+                <option value="WORLD">Tutti - Italia inclusa -</option>
+                <option value="WRL_X_ITA">Tutti - Italia esclusa -</option>
                 <option value="IT">Italia</option>
                 {yearDisabled && periodDisabled ? (
                   <>
@@ -495,7 +480,7 @@ const Sidebar = (props: {
                   className="tooltip tooltip-top ml-3 relative top-[3px]"
                   data-tip="Nota: Le province (Olbia-Tempio, Ogliastra, Medio Campidano, Carbonia-Iglesias) non sono disponibili per anni successivi al 2016"
                 >
-                  <button type="button" name="btn">
+                  <button type="button" name="btn" className="w-[44px] h-[44px] flex justify-center items-center">
                     <AiOutlineInfoCircle />
                   </button>
                 </div>
@@ -503,7 +488,7 @@ const Sidebar = (props: {
               {props.page === "statistiche" ? (
                 <select
                   id="province"
-                  className="text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[165px] p-2.5 cursor-pointer"
+                  className="text-white mb-14 mt-2 bg-gray-700 border text-lg border-gray-600 rounded-lg block w-[200px] p-2.5 cursor-pointer"
                   value={province}
                   onChange={handleProvince}
                 >

@@ -69,7 +69,7 @@ export default function Home() {
             </button>
           </Link>
           <h2 className="mt-[50px] mb-5 px-10">Previsioni anno successivo</h2>
-          <p className="mx-auto text-lg max-w-[70%] text-last-center text-justify">Prevediamo l'arrivo di circa "tot" turisti nell'anno 2023</p>
+          <p className="mx-auto text-lg max-w-[70%] text-last-center text-justify">Prevediamo l'arrivo di circa 3.1 milioni di turisti da tutto il mondo nell'anno 2023</p>
           <div className="chart">
             <BarChart
               data={{

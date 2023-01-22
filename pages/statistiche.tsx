@@ -165,7 +165,8 @@ const statistiche = () => {
           <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-60 font-semibold">
             {province === "ITG2" ? "Tutte le province" : province === "ITG25" ? "Sassari" : province === "ITG26" ? "Nuoro" :
               province === "ITG27" ? "Cagliari" : province === "ITG28" ? "Oristano" : province === "ITG29" ? "Olbia-Tempio" :
-                province === "ITG2A" ? "Ogliastra" : province === "ITG2B" ? "Medio Campidano" : province === "ITG2C" && "Carbonia-Iglesias"
+                province === "ITG2A" ? "Ogliastra" : province === "ITG2B" ? "Medio Campidano" : province === "ITG2C" ? "Carbonia-Iglesias"
+                  : province === "IT111" && "Sud Sardegna"
             }
           </div>
         </div>

@@ -5,16 +5,23 @@ import { Footer } from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { labels, data } from "../components/BarChart";
 import { useEffect, useState } from "react";
-import { monthlyApi } from "../api";
+import { monthlyApi, monthlyApiForecast } from "../api";
 
 export default function Home() {
   const [touristsNumber, setTouristsNumber] = useState<string[]>([]);
   const [months, setMonths] = useState<string[]>([]);
 
+  const [touristsNumberForecast, setTouristsNumberForecast] = useState<string[]>([]);
+  const [monthsForecast, setMonthsForecast] = useState<string[]>([]);
+
   useEffect(() => {
     monthlyApi("WORLD", "ITG2", "AR", "2021-01-01", "2021-12-01").then((res) => {
       setTouristsNumber(res.data);
       setMonths(res.labels);
+    });
+    monthlyApiForecast("WORLD", "ITG2", "AR", "2023-01-01", "2023-12-01").then((res) => {
+      setTouristsNumberForecast(res.data);
+      setMonthsForecast(res.labels);
     });
 
   }, []);
@@ -69,14 +76,14 @@ export default function Home() {
             </button>
           </Link>
           <h2 className="mt-[50px] mb-5 px-10">Previsioni anno successivo</h2>
-          <p className="mx-auto text-lg max-w-[70%] text-last-center text-justify">Prevediamo l'arrivo di circa 3.1 milioni di turisti da tutto il mondo nell'anno 2023</p>
+          <p className="mx-auto text-lg max-w-[70%] text-last-center text-justify">Prevediamo l'arrivo di circa 3.6 milioni di turisti da tutto il mondo nell'anno 2023</p>
           <div className="chart">
             <BarChart
               data={{
-                labels: labels,
+                labels: monthsForecast,
                 datasets: [
                   {
-                    data: data,
+                    data: touristsNumberForecast,
                     backgroundColor: "#00ACC1",
                   },
                 ],

@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 import { labels, data } from "../components/BarChart";
 import { Footer } from "../components/Footer";
 import Head from "next/head";
-// import { annualApiForecast, monthlyApiForecast } from "../api";
+import { annualApiForecast, monthlyApiForecast } from "../api";
 
 const previsioni = () => {
   const [side, setSide] = useState<boolean>(false);
@@ -18,15 +18,15 @@ const previsioni = () => {
   const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>(undefined);
   const [secondSelectMonth, setSecondSelectMonth] = useState<undefined | string>(undefined);
   const [secondSelectYear, setSecondSelectYear] = useState<undefined | string>(undefined);
-  const [yearStartRange, setYearStartRange] = useState<undefined | string>("2008");
-  const [yearEndRange, setYearEndRange] = useState<undefined | string>("2021");
+  const [yearStartRange, setYearStartRange] = useState<undefined | string>("2023");
+  const [yearEndRange, setYearEndRange] = useState<undefined | string>("2030");
 
-  // useEffect(() => {
-  //   annualApiForecast(nationality, province, 'AR', yearStartRange).then((res) => {
-  //     setTouristsNumber(res.data)
-  //     setYears(res.labels)
-  //   })
-  // }, [])
+  useEffect(() => {
+    annualApiForecast(nationality, province, 'AR', yearStartRange).then((res) => {
+      setTouristsNumber(res.data)
+      setYears(res.labels)
+    })
+  }, [])
 
   const handleSidebar = () => {
     setSide(!side)
@@ -46,13 +46,19 @@ const previsioni = () => {
     setNationality(nationality);
     setProvince(province);
     setYear(year);
+    setFirstSelectMonth(firstSelectMonth);
+    setFirstSelectYear(firstSelectYear);
+    setSecondSelectMonth(secondSelectMonth);
+    setSecondSelectYear(secondSelectYear);
+    setYearStartRange(yearStartRange);
+    setYearEndRange(yearEndRange);
 
-    // if (year) {
-    //   monthlyApiForecast(nationality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
-    //     setTouristsNumber(res.data);
-    //     setYears(res.labels);
-    //   });
-    // }
+    if (year) {
+      monthlyApiForecast(nationality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
+        setTouristsNumber(res.data);
+        setYears(res.labels);
+      });
+    }
 
     if (firstSelectMonth && firstSelectYear && secondSelectMonth && secondSelectYear) {
       let startDate = firstSelectYear + "-" + firstSelectMonth + "-01";
@@ -74,10 +80,10 @@ const previsioni = () => {
         setSecondSelectYear(secondSelectYear);
       }
 
-      // monthlyApiForecast(nationality, province, "AR", startDate, endDate).then((res) => {
-      //   setTouristsNumber(res.data);
-      //   setYears(res.labels);
-      // });
+      monthlyApiForecast(nationality, province, "AR", startDate, endDate).then((res) => {
+        setTouristsNumber(res.data);
+        setYears(res.labels);
+      });
     }
 
     if (yearStartRange && yearEndRange) {
@@ -92,10 +98,10 @@ const previsioni = () => {
         setYearStartRange(yearStartRange);
         setYearEndRange(yearEndRange);
       }
-      // annualApiForecast(nationality, province, "AR", yearStartRange, yearEndRange).then((res) => {
-      //   setTouristsNumber(res.data);
-      //   setYears(res.labels);
-      // });
+      annualApiForecast(nationality, province, "AR", yearStartRange, yearEndRange).then((res) => {
+        setTouristsNumber(res.data);
+        setYears(res.labels);
+      });
     }
 
     handleSidebar();
@@ -129,7 +135,6 @@ const previsioni = () => {
         </h1>
         <div className="text-center my-5">
           <button
-            disabled
             onClick={handleSidebar}
             className="uppercase my-10 bg-transparent hover:bg-[#00ACC1] text-[#0094c1] hover:text-white font-semibold py-2 px-4 border border-[#00ACC1] hover:border-transparent rounded shadow-md shadow-[#0094c1] disabled:opacity-40"
             name="btn"
@@ -142,7 +147,7 @@ const previsioni = () => {
         </div>
         <div className="flex flex-col sm:justify-center gap-2 sm:flex-row items-center">
           {yearStartRange && yearEndRange && (
-            <div className="badge bg-[#00ACC1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-60">
+            <div className="badge bg-[#0084c1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-60">
               {yearStartRange} - {yearEndRange}
             </div>
           )}
@@ -150,17 +155,18 @@ const previsioni = () => {
             secondSelectMonth &&
             secondSelectYear &&
             firstSelectYear && (
-              <div className="badge  bg-[#00ACC1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-60">
+              <div className="badge  bg-[#0084c1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-60">
                 {firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}
               </div>
             )}
-          <div className="badge bg-[#00ACC1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-60">
+          <div className="badge bg-[#0084c1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-60">
             {nationality === "WORLD" ? "Tutte le nazionalità" : nationality === "WRL_X_ITA" ? "Paesi esteri" : nationality}
           </div>
-          <div className="badge bg-[#00ACC1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-60">
+          <div className="badge bg-[#0084c1] border-none rounded-sm uppercase p-3 font-semibold bg-opacity-60">
             {province === "ITG2" ? "Tutte le province" : province === "ITG25" ? "Sassari" : province === "ITG26" ? "Nuoro" :
               province === "ITG27" ? "Cagliari" : province === "ITG28" ? "Oristano" : province === "ITG29" ? "Olbia-Tempio" :
-                province === "ITG2A" ? "Ogliastra" : province === "ITG2B" ? "Medio Campidano" : province === "ITG2C" && "Carbonia-Iglesias"
+                province === "ITG2A" ? "Ogliastra" : province === "ITG2B" ? "Medio Campidano" : province === "ITG2C" ? "Carbonia-Iglesias"
+                  : province === "IT111" && "Sud Sardegna"
             }
           </div>
         </div>
@@ -168,10 +174,10 @@ const previsioni = () => {
         <div className="chart">
           <BarChart
             data={{
-              labels: labels,
+              labels: years,
               datasets: [
                 {
-                  data: data,
+                  data: touristsNumber,
                   backgroundColor: "#00ACC1",
                 },
               ],

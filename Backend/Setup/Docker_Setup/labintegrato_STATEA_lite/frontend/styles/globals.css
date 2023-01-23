@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-[#ecf0f3] text-[#1f2937] tracking-wide;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-bold;
+	}
+
+	h1 {
+		@apply text-4xl sm:text-5xl md:text-6xl;
+	}
+
+	h2 {
+		@apply text-3xl sm:text-4xl;
+	}
+
+	li {
+		@apply cursor-pointer;
+	}
+}
+
+.chart {
+	@apply w-3/4 md:w-4/6 lg:w-3/5 xl:w-2/4 h-[270px] sm:h-[350px] md:h-[420px] lg:h-[460px] mb-12 mx-auto mt-4;
+}
+
+.half {
+	background: -webkit-linear-gradient(left, #284697, #00acc1);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.tooltip::before {
+	width: 210px;
+}
+
+.tab.tab-active {
+	@apply border-[#284697] text-[#284697];
+}
+
+.tab.tab-active:hover {
+	@apply border-[#284697] text-[#284697];
+}
+
+.tab {
+	@apply font-semibold;
+}
+
+@media (min-width: 768px) {
+	.md-height {
+		height: calc(100vh - 80px);
+	}
+}
+
+.text-last-center {
+	text-align-last: center;
+}

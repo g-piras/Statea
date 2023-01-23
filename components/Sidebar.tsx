@@ -238,9 +238,9 @@ const Sidebar = (props: {
                 <>
                   <select
                     id="yearStartRange"
-                    className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                    className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg w-24 p-2.5 cursor-pointer"
                     disabled={yearRangeDisabled === true ? true : false}
-                    value={defaultValue.start}
+                    defaultValue={defaultValue.start}
                   >
                     {yearOptions.map(((option) => (
                       <option key={option.value} value={option.value}>
@@ -251,9 +251,9 @@ const Sidebar = (props: {
 
                   <select
                     id="yearEndRange"
-                    className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                    className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg w-24 p-2.5 cursor-pointer"
                     disabled={yearRangeDisabled === true ? true : false}
-                    value={defaultValue.end}
+                    defaultValue={defaultValue.end}
                   >
                     {yearOptions.map(((option) => (
                       <option key={option.value} value={option.value}>
@@ -270,7 +270,7 @@ const Sidebar = (props: {
                     <select
                       id="firstSelectMonth"
                       disabled={periodDisabled === true ? true : false}
-                      className="inline text-white mb-4 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-4 bg-gray-700 border border-gray-600 rounded-lg w-24 p-2.5 cursor-pointer"
                     >
                       <option value="01">Gen</option>
                       <option value="02">Feb</option>
@@ -289,7 +289,7 @@ const Sidebar = (props: {
                     <select
                       id="firstSelectYear"
                       disabled={periodDisabled === true ? true : false}
-                      className="inline text-white mb-4 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-4 ml-2 bg-gray-700 border border-gray-600 rounded-lg w-24 p-2.5 cursor-pointer"
                     >
                       {yearOptions.map(((option) => (
                         <option key={option.value} value={option.value}>
@@ -302,7 +302,7 @@ const Sidebar = (props: {
                     <select
                       id="secondSelectMonth"
                       disabled={periodDisabled === true ? true : false}
-                      className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg w-24 p-2.5 cursor-pointer"
                       defaultValue="12"
                     >
                       <option value="01">Gen</option>
@@ -321,7 +321,7 @@ const Sidebar = (props: {
                     <select
                       id="secondSelectYear"
                       disabled={periodDisabled === true ? true : false}
-                      className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg  w-24 p-2.5 cursor-pointer"
+                      className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg w-24 p-2.5 cursor-pointer"
                     >
                       {yearOptions.map(((option) => (
                         <option key={option.value} value={option.value}>

@@ -32,11 +32,13 @@ class DataFetcher {
 
         if (res.statusCode() == 404) {
 
+            res.body().close();
             // no new record found
             return InputStream.nullInputStream();
         }
         else if (res.statusCode() != 200) {
 
+            res.body().close();
             throw new HttpException("Request failed with status code: " + res.statusCode());
         }
 
@@ -61,6 +63,7 @@ class DataFetcher {
 
         if (res.statusCode() != 200) {
 
+            res.body().close();
             throw new HttpException("Request failed with status code: " + res.statusCode());
         }
 

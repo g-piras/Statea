@@ -31,45 +31,46 @@ public class DistrictService {
      */
     public Map<District, District> parse(InputStream dataStream) throws IOException {
 
-        BufferedReader dataReader = new BufferedReader(new InputStreamReader(dataStream));
-        
-        JsonNode node = mapper.readTree(dataReader);
+        try (BufferedReader dataReader = new BufferedReader(new InputStreamReader(dataStream))) {
 
-        // setting up lookup
-        Map<District, District> validDistricts = new HashMap<>();
+            JsonNode node = mapper.readTree(dataReader);
 
-        // JSON tree traversal to find available Sardinian districts
-        Iterator<JsonNode> dimensions = node.get("data").get("structure").get("dimensions").get("series").elements();
-        while (dimensions.hasNext()) {
+            // setting up lookup
+            Map<District, District> validDistricts = new HashMap<>();
 
-            JsonNode dimension = dimensions.next();
+            // JSON tree traversal to find available Sardinian districts
+            Iterator<JsonNode> dimensions = node.get("data").get("structure").get("dimensions").get("series").elements();
+            while (dimensions.hasNext()) {
 
-            if (dimension.get("id").asText().equals("ITTER107")) {
+                JsonNode dimension = dimensions.next();
 
-                Iterator<JsonNode> districts = dimension.get("values").elements();
-                while (districts.hasNext()) {
+                if (dimension.get("id").asText().equals("ITTER107")) {
 
-                    JsonNode district = districts.next();
+                    Iterator<JsonNode> districts = dimension.get("values").elements();
+                    while (districts.hasNext()) {
 
-                    String currentId = district.get("id").asText();
-                    // Sardinian districts start with "ITG2". "IT111" represents the new "Sud Sardegna" district
-                    if (currentId.startsWith("ITG2") || currentId.equals("IT111")) {
+                        JsonNode district = districts.next();
 
-                        // add Sardinian district to Map
-                        District currentDistrict = mapper.treeToValue(district, District.class);
-                        validDistricts.put(currentDistrict, currentDistrict);
+                        String currentId = district.get("id").asText();
+                        // Sardinian districts start with "ITG2". "IT111" represents the new "Sud Sardegna" district
+                        if (currentId.startsWith("ITG2") || currentId.equals("IT111")) {
+
+                            // add Sardinian district to Map
+                            District currentDistrict = mapper.treeToValue(district, District.class);
+                            validDistricts.put(currentDistrict, currentDistrict);
+                        }
                     }
+
+                    // set Sardinia as aggregate record
+                    District sardinia = validDistricts.remove(new District("ITG2", null, false));
+                    sardinia.setAggregate(true);
+                    validDistricts.put(sardinia, sardinia);
                 }
-
-                // set Sardinia as aggregate record
-                District sardinia = validDistricts.remove(new District("ITG2", null, false));
-                sardinia.setAggregate(true);
-                validDistricts.put(sardinia, sardinia);
             }
-        }
 
-        dataReader.close();
-        return validDistricts;
+            dataReader.close();
+            return validDistricts;
+        }
     }
 
     public InputStream districtInfoFetch() throws URISyntaxException, IOException, InterruptedException, HttpException {

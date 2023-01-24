@@ -33,58 +33,56 @@ public class FintechDataService {
 
     public <T extends FintechRecordAbstract> void parseRecordsAndSend(InputStream dataStream, Class<T> classType) throws IOException, InterruptedException, ExecutionException {
 
-        BufferedReader dataReader = new BufferedReader(new InputStreamReader(dataStream));
+        try (BufferedReader dataReader = new BufferedReader(new InputStreamReader(dataStream))) {
 
-        Iterator<JsonNode> records = mapper.readTree(dataReader).elements();
+            Iterator<JsonNode> records = mapper.readTree(dataReader).elements();
 
-        while (records.hasNext()) {
+            while (records.hasNext()) {
 
-            T currentRecord = mapper.treeToValue(records.next(), classType);
+                T currentRecord = mapper.treeToValue(records.next(), classType);
 
-                        /** !!!!!!!!!!!!!!!!!!!! Better approach but unfortunately Java Generics are not suited for De/Serialization !!!!!!!!!!!!!!!!!!!!
-             * 
-             * kafkaService.sendMessage(new FintechRecordMessage<T>(currentRecord));
-             */
+                            /** !!!!!!!!!!!!!!!!!!!! Better approach but unfortunately Java Generics are not suited for De/Serialization !!!!!!!!!!!!!!!!!!!!
+                 * 
+                 * kafkaService.sendMessage(new FintechRecordMessage<T>(currentRecord));
+                 */
 
-            if (currentRecord instanceof FintechRecordMonth) {
+                if (currentRecord instanceof FintechRecordMonth) {
 
-                kafkaService.sendMessage(new FintechRecordMonthMessage((FintechRecordMonth)currentRecord));
-            }
-            else if (currentRecord instanceof FintechRecordYear) {
+                    kafkaService.sendMessage(new FintechRecordMonthMessage((FintechRecordMonth)currentRecord));
+                }
+                else if (currentRecord instanceof FintechRecordYear) {
 
-                kafkaService.sendMessage(new FintechRecordYearMessage((FintechRecordYear)currentRecord));
+                    kafkaService.sendMessage(new FintechRecordYearMessage((FintechRecordYear)currentRecord));
+                }
             }
         }
-
-        dataReader.close();
     }
 
     public void parseResourceListAndSend(InputStream dataStream, ResourceListTypesEnum resourceType) throws IOException, JsonProcessingException, URISyntaxException, InterruptedException, HttpException, ExecutionException {
 
-        BufferedReader dataReader = new BufferedReader(new InputStreamReader(dataStream));
+        try (BufferedReader dataReader = new BufferedReader(new InputStreamReader(dataStream))){
 
-        Iterator<JsonNode> resources = mapper.readTree(dataReader).elements();
+            Iterator<JsonNode> resources = mapper.readTree(dataReader).elements();
 
-        while (resources.hasNext()) {
+            while (resources.hasNext()) {
 
-            // extract resource name
-            String currentResource = mapper.treeToValue(resources.next(), String.class);
+                // extract resource name
+                String currentResource = mapper.treeToValue(resources.next(), String.class);
 
-            // build request body
-            String requestBody = mapper
-                                .writerWithDefaultPrettyPrinter()
-                                .writeValueAsString(new FintechDataRequest(currentResource, resourceType.getQuantity()));
+                // build request body
+                String requestBody = mapper
+                                    .writerWithDefaultPrettyPrinter()
+                                    .writeValueAsString(new FintechDataRequest(currentResource, resourceType.getQuantity()));
 
-            // make the call to obtain the forecast records
-            InputStream recordsStream = FintechDataManager.fintechRecordsFetch(requestBody);
+                // make the call to obtain the forecast records
+                InputStream recordsStream = FintechDataManager.fintechRecordsFetch(requestBody);
 
-            // parse records and send them to Kafka topic
-            parseRecordsAndSend(recordsStream, resourceType.getRecordType());
+                // parse records and send them to Kafka topic
+                parseRecordsAndSend(recordsStream, resourceType.getRecordType());
 
-            recordsStream.close();
+                recordsStream.close();
+            }
         }
-
-        dataReader.close();
     }
 
     public InputStream fintechResourceListFetch(ResourceListTypesEnum resourceType) throws URISyntaxException, IOException, InterruptedException, HttpException {

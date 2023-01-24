@@ -28,7 +28,7 @@ public class KafkaService {
         this.kafkaTemplate.send(mainTopic, message).get();
 
         //LOG
-        log.info("Message sent: {}", message);
+        log.info("Message sent -> {}", message);
     }
 
     public void sendError(Throwable ex) {

@@ -37,6 +37,7 @@ class FintechDataManager {
 
         if (res.statusCode() != 200) {
 
+            res.body().close();
             throw new HttpException("Request failed with status code: " + res.statusCode());
         }
 
@@ -61,6 +62,7 @@ class FintechDataManager {
 
         if (res.statusCode() != 200) {
 
+            res.body().close();
             throw new HttpException("Request failed with status code: " + res.statusCode());
         }
 

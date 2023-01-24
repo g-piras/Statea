@@ -31,18 +31,18 @@ public class ScheduledTasks {
         fintechDataService.fintechModelUpdate();
 
         // fetch monthly resources list
-        InputStream monthlyList = fintechDataService.fintechResourceListFetch(ResourceListTypesEnum.monthly);
+        try (InputStream monthlyList = fintechDataService.fintechResourceListFetch(ResourceListTypesEnum.monthly)){
 
-        // parse and send records
-        fintechDataService.parseResourceListAndSend(monthlyList, ResourceListTypesEnum.monthly);
-        monthlyList.close();
+            // parse and send records
+            fintechDataService.parseResourceListAndSend(monthlyList, ResourceListTypesEnum.monthly);
+        }
 
         // fetch annual resources list
-        InputStream annualList = fintechDataService.fintechResourceListFetch(ResourceListTypesEnum.annual);
+        try (InputStream annualList = fintechDataService.fintechResourceListFetch(ResourceListTypesEnum.annual)) {
 
-        // parse and send records
-        fintechDataService.parseResourceListAndSend(annualList, ResourceListTypesEnum.annual);
-        annualList.close();
+            // parse and send records
+            fintechDataService.parseResourceListAndSend(annualList, ResourceListTypesEnum.annual);
+        }
 
         //LOG
         log.info("Success at: {}", LocalDateTime.now());

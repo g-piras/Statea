@@ -46,7 +46,7 @@ public class ConsumerTasks {
     public void consumeMessage(FintechRecordMonthMessage message) {
 
         // DEBUG
-        log.info("#### -> Consumed message -> {}", message);
+        log.info("Message consumed -> {}", message);
         
         FintechRecordMonth currentRecord = message.getRecord();
 
@@ -68,7 +68,7 @@ public class ConsumerTasks {
     public void consumeMessage(FintechRecordYearMessage message) {
 
         // DEBUG
-        log.info("#### -> Consumed message -> {}", message);
+        log.info("Message consumed -> {}", message);
         
         FintechRecordYear currentRecord = message.getRecord();
 

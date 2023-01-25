@@ -20,7 +20,7 @@ This is a project build with Next.js, a framework for building server-rendered R
 ### **Front-End**
 - React.js with Next.js as a framework 
 - Tailwind CSS framework
-- Third part React libraries: daisyui
+- Third part React libraries: daisyui, chartJS
 
 ### **Back-End**
 - Java with Spring Boot as a framework
@@ -61,3 +61,12 @@ npm run test
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) for more information.
+
+---
+## Links
+
+[README_FrontEnd](./README_Frontend.md)
+
+[README_BackEnd](./Backend/readme.md)
+
+[README_FinTech](./FinTech/README.md)

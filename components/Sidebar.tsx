@@ -23,6 +23,8 @@ const Sidebar = (props: {
   const [yearRangeDisabled, setYearRangeDisabled] = useState(false);
   const [selected, setSelected] = useState("first");
   const [province, setProvince] = useState("ITG2");
+  const [startYear, setStartYear] = useState("2008");
+  const [endYear, setEndYear] = useState("2021");
 
   const yearOptionsControl = (province: string) => {
     if (props.page === "statistiche") {
@@ -83,7 +85,7 @@ const Sidebar = (props: {
     }
   };
 
-  const defaultValueControl = (province: string) => {
+  const yearRangeValueControl = (province: string) => {
     if (props.page === "statistiche") {
       if (province === "IT111") {
         return {
@@ -113,14 +115,23 @@ const Sidebar = (props: {
   }
 
   const [yearOptions, setYearOptions] = useState(yearOptionsControl(province))
-  const [defaultValue, setDefaultValue] = useState(defaultValueControl(province))
 
-  const handleProvince = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleStartYearOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setStartYear(e.target.value)
+  }
+
+  const handleEndYearOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setEndYear(e.target.value);
+  }
+
+  const handleProvinceOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setProvince(e.target.value);
   };
 
   useEffect(() => {
-    setDefaultValue(defaultValueControl(province))
+    const rangeValues = yearRangeValueControl(province)
+    setStartYear(rangeValues.start)
+    setEndYear(rangeValues.end)
     setYearOptions(yearOptionsControl(province))
   }, [province])
 
@@ -224,11 +235,7 @@ const Sidebar = (props: {
                   className="tooltip tooltip-top ml-2"
                   data-tip="Nota: Puoi selezionare una sola voce per volta"
                 >
-                  <button type="button" name="btn" className="w-[44px] h-[44px] flex justify-center items-center relative top-[5px]"
-                    onClick={() => {
-                      console.log(defaultValue);
-
-                    }}>
+                  <button type="button" name="btn" className="w-[44px] h-[44px] flex justify-center items-center relative top-[5px]">
                     <AiOutlineInfoCircle />
                   </button>
                 </div>
@@ -240,7 +247,8 @@ const Sidebar = (props: {
                     id="yearStartRange"
                     className="inline text-white mb-7 bg-gray-700 border border-gray-600 rounded-lg w-24 p-2.5 cursor-pointer"
                     disabled={yearRangeDisabled === true ? true : false}
-                    defaultValue={defaultValue.start}
+                    onChange={handleStartYearOnChange}
+                    value={startYear}
                   >
                     {yearOptions.map(((option) => (
                       <option key={option.value} value={option.value}>
@@ -253,7 +261,8 @@ const Sidebar = (props: {
                     id="yearEndRange"
                     className="inline text-white mb-7 ml-2 bg-gray-700 border border-gray-600 rounded-lg w-24 p-2.5 cursor-pointer"
                     disabled={yearRangeDisabled === true ? true : false}
-                    defaultValue={defaultValue.end}
+                    onChange={handleEndYearOnChange}
+                    value={endYear}
                   >
                     {yearOptions.map(((option) => (
                       <option key={option.value} value={option.value}>
@@ -428,7 +437,7 @@ const Sidebar = (props: {
                   id="province"
                   className="text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[200px] p-2.5 cursor-pointer"
                   value={province}
-                  onChange={handleProvince}
+                  onChange={handleProvinceOnChange}
                 >
                   <option value="ITG2">Tutte le province</option>
                   <option value="ITG25">Sassari</option>
@@ -446,7 +455,7 @@ const Sidebar = (props: {
                   id="province"
                   className="text-white mb-14 mt-2 bg-gray-700 border border-gray-600 rounded-lg block w-[200px] p-2.5 cursor-pointer"
                   value={province}
-                  onChange={handleProvince}
+                  onChange={handleProvinceOnChange}
                 >
                   <option value="ITG2">Tutte le province</option>
                   <option value="ITG25">Sassari</option>

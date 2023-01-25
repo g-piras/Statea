@@ -63,12 +63,6 @@ def get_pred():
         if ".py" in name:
             print("si")
             month = json_data["quantity"]
-            if name.find("ITG27") != -1 or name.find("ITG29") != -1 or name.find("ITG2A") != -1 or name.find("ITG2B") != -1 or name.find("ITG2C") != -1:
-                start_date = 72
-                #month = month + 72
-            else:
-                start_date = 36
-                #month = month + 36
             result = load_py.get_result(path_file,name,month)
             array_names = load_py.get_info(name)
             return jsonify(load_py.getter_main(result,array_names,month))

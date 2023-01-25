@@ -2,6 +2,7 @@ services:
 
   pma:
     image: phpmyadmin:5.2.0-apache
+    platform: linux/amd64
     hostname: pma
     ports:
       - "127.0.0.1:9981:80"
@@ -17,6 +18,7 @@ services:
     
   webserver:
     image: statea/webserver
+    platform: linux/amd64
     build: ./webserver/
     hostname: webserver
     ports:
@@ -32,6 +34,7 @@ services:
 
   frontend:
     image: statea/frontend
+    platform: linux/amd64
     build: ./frontend/
     hostname: frontend
     ports:
@@ -44,6 +47,7 @@ services:
 
   db:
     image: mariadb:jammy
+    platform: linux/amd64
     hostname: db
     volumes:
       - db-data:/var/lib/mysql

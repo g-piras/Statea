@@ -1,35 +1,22 @@
-Using [Flask](https://flask.palletsprojects.com/en/2.2.x/) to build a Restful API Server with Swagger document.
+# Restful API
 
-# Useful files
+Using [Flask](https://flask.palletsprojects.com/en/2.2.x/) to build a Restful API.
 
-The main and load files to use are the ones in the flask folder, the others are for testing.
+per ottimizzare l'api abbiamo deciso di suddividere le macro funzioni in due, main e load.
 
-# Useful commands
+## Main
 
-to set the name that requires flask and run it:
+Il file main si occupa di prendere elaborare i dati dal get_all nei contoller e generare tutti gli script di predizione.
 
-```
-$ export FLASK_APP=FLASK_API.py
-```
+## Load
 
-```
-$ FLASK_APP=FLASK_API.py
-```
+Gestische le richieste che vengono fatte agli script/funzioni e le sistema per poi essere utilizzate nel API.
 
-to run it:
+## FLASK_API
 
-```
-$ flask run
-```
+Gestische le chiamate api predendo i dati già sistemati dal load.py
 
-## Generate requirements.txt
+---
 
-```
-pip freeze > requirements.txt
-```
-
-## Install requirements.txt
-
-```
-pip install -r requirements.txt
-```
+Swagger documentation:
+[documentation](https://app.swaggerhub.com/apis/Kindaglia/Statea_Fintech/1.0.0)

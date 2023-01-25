@@ -1,4 +1,4 @@
-FROM amazoncorretto:17-alpine
+FROM --platform=linux/amd64 amazoncorretto:17-alpine
 RUN addgroup -S spring && adduser -S spring -G spring && \
 apk add --no-cache tzdata
 USER spring:spring

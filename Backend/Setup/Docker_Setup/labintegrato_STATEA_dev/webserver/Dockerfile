@@ -1,4 +1,4 @@
-FROM ubuntu/apache2:2.4-22.04_beta
+FROM --platform=linux/amd64 ubuntu/apache2:2.4-22.04_beta
 WORKDIR /root/myfolder
 RUN apt update -y && \
 apt upgrade -y && \

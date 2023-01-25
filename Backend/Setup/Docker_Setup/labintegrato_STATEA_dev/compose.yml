@@ -2,6 +2,7 @@ services:
 
   pma:
     image: phpmyadmin:5.2.0-apache
+    platform: linux/amd64
     hostname: pma
     ports:
       - "127.0.0.1:9983:80"
@@ -17,6 +18,7 @@ services:
     
   webserver:
     image: stateadev/apache
+    platform: linux/amd64
     build: ./webserver/
     hostname: webserver
     ports:
@@ -36,6 +38,7 @@ services:
 
   consumerstats:
     image: stateadev/ubuntu-consumerstats
+    platform: linux/amd64
     build: ./ubuntu_consumerstats/
     hostname: consumerstats
     volumes:
@@ -52,6 +55,7 @@ services:
 
   producerstats:
     image: stateadev/ubuntu-producerstats
+    platform: linux/amd64
     build: ./ubuntu_producerstats/
     hostname: producerstats
     volumes:
@@ -68,6 +72,7 @@ services:
 
   consumerforecasts:
     image: stateadev/ubuntu-consumerforecasts
+    platform: linux/amd64
     build: ./ubuntu_consumerforecasts/
     hostname: consumerforecasts
     volumes:
@@ -84,6 +89,7 @@ services:
 
   producerforecasts:
     image: stateadev/ubuntu-producerforecasts
+    platform: linux/amd64
     build: ./ubuntu_producerforecasts/
     hostname: producerforecasts
     volumes:
@@ -100,6 +106,7 @@ services:
 
   db:
     image: mariadb:jammy
+    platform: linux/amd64
     hostname: db
     ports:
       - "127.0.0.1:9906:3306"
@@ -113,6 +120,7 @@ services:
 
   zookeeper:
     image: bitnami/zookeeper:3.8.0
+    platform: linux/amd64
     hostname: zookeeper
     networks:
       - backend
@@ -133,6 +141,7 @@ services:
 
   kafka:
     image: stateadev/kafka
+    platform: linux/amd64
     build: ./kafka/
     hostname: kafka
     networks:
@@ -174,6 +183,7 @@ services:
 
   redis:
     image: stateadev/redis
+    platform: linux/amd64
     build: ./myredis/
     hostname: redis
     networks:
@@ -184,6 +194,7 @@ services:
 
   fintech:
     image: stateadev/fintech
+    platform: linux/amd64
     build: ./fintech/
     hostname: fintech
     ports:

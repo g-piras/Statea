@@ -1,4 +1,4 @@
-FROM ubuntu:rolling
+FROM --platform=linux/amd64 ubuntu:rolling
 WORKDIR /root/myfolder
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Rome

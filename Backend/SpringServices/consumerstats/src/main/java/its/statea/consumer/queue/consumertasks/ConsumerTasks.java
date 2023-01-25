@@ -46,7 +46,7 @@ public class ConsumerTasks {
     public void consumeMessage(IstatRecordMonthMessage message) {
 
         // DEBUG
-        log.info("#### -> Consumed message -> {}", message);
+        log.info("Message consumed -> {}", message);
         
         IstatRecordMonth currentRecord = message.getRecord();
 
@@ -68,7 +68,7 @@ public class ConsumerTasks {
     public void consumeMessage(IstatRecordYearMessage message) {
 
         // DEBUG
-        log.info("#### -> Consumed message -> {}", message);
+        log.info("Message consumed -> {}", message);
         
         IstatRecordYear currentRecord = message.getRecord();
 

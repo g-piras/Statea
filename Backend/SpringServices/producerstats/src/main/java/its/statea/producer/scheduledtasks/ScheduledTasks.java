@@ -56,8 +56,10 @@ public class ScheduledTasks {
         String lastUpdateDate = redisService.lastUpdateDate();
 
         // filter and send all relevant Istat records to Kafka statsTopic
-        InputStream dataStream = istatRecordService.istatRecordsFetch(lastUpdateDate);
-        istatRecordService.parseFilterAndSend(dataStream, originFilter, destinationFilter, accommodationTypeFilter, observationTypeFilter);
+        try (InputStream dataStream = istatRecordService.istatRecordsFetch(lastUpdateDate)) {
+            
+            istatRecordService.parseFilterAndSend(dataStream, originFilter, destinationFilter, accommodationTypeFilter, observationTypeFilter);
+        }
 
         // update redis isoDate if all went well
         redisService.saveUpdateDate();

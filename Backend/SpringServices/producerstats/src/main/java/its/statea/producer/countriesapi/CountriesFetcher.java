@@ -40,27 +40,30 @@ public class CountriesFetcher {
         .build()
         .send(req, BodyHandlers.ofInputStream());
 
-        if (res.statusCode() != 200) {
+        try (InputStream bodyStream = res.body()) {
 
-            throw new HttpException("Request failed with status code: " + res.statusCode());
+            if (res.statusCode() != 200) {
+
+                throw new HttpException("Request failed with status code: " + res.statusCode());
+            }
+    
+            Iterator<JsonNode> countries = mapper.readTree(bodyStream).elements();
+
+            // JSON parse into Map<Country, Country>
+            Map<Country, Country> countriesMap = new HashMap<>();
+            while (countries.hasNext()) {
+
+                Country currentCountry = mapper.treeToValue(countries.next(), Country.class);
+                countriesMap.put(currentCountry, currentCountry);
+            }
+
+            // add aggregates (WORLD, WRL_X_ITA)
+            Country world = new Country("WORLD", "World", "Mondo", true);
+            countriesMap.put(world, world);
+            Country wrlXIta = new Country("WRL_X_ITA", "Foreign countries", "Paesi esteri", true);
+            countriesMap.put(wrlXIta, wrlXIta);
+
+            return countriesMap;
         }
- 
-        Iterator<JsonNode> countries = mapper.readTree(res.body()).elements();
-
-        // JSON parse into Map<Country, Country>
-        Map<Country, Country> countriesMap = new HashMap<>();
-        while (countries.hasNext()) {
-
-            Country currentCountry = mapper.treeToValue(countries.next(), Country.class);
-            countriesMap.put(currentCountry, currentCountry);
-        }
-
-        // add aggregates (WORLD, WRL_X_ITA)
-        Country world = new Country("WORLD", "World", "Mondo", true);
-        countriesMap.put(world, world);
-        Country wrlXIta = new Country("WRL_X_ITA", "Foreign countries", "Paesi esteri", true);
-        countriesMap.put(wrlXIta, wrlXIta);
-
-        return countriesMap;
     }
 }

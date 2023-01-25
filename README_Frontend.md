@@ -17,6 +17,8 @@ to enter development mode.
 
 At this point the application will be executed at localhost:3000.
 
+---
+
 ## Site description and usage
 
 **`Home`**:
@@ -30,7 +32,7 @@ To customize the results, the user can press the 'Filtra' button above the graph
 
 You can also choose the various nationalities of tourists arriving in Sardinia and there is the possibility to see the data also for individual provinces.
 
-**Note**: Selecting 'Periodo' the nationalities that can be chosen are only 'Tutte le nazionalità' che include anche quella italiana, 'Tutte le nazionalità - italia esclusa' e 'Italia'. This is due to the availability of data from ISTAT. 
+**Note**: Selecting 'Periodo' the nationalities that can be chosen are only 'Tutte le nazionalità' that icludes Italy, 'Tutte le nazionalità - Italy is not included' e 'Italia'. This is due to the availability of data from ISTAT. 
 
 Once the desired filters are selected, just click on the round button with a checkmark in the middle to confirm the changes and see the new updated grapg appear. As for
 
@@ -80,7 +82,7 @@ In the [Previsioni](./pages/previsioni.tsx) file you can find:
   const [side, setSide] = useState<boolean>(false); // to save the state of sidebar (open or close)
   const [years, setYears] = useState<string[]>([]); 
 
-  // To save the select option state
+  // This code declares 8 state variables using useState hook, initial values are set for each of them.
   const [nationality, setNationality] = useState<string>("WORLD");
   const [province, setProvince] = useState<string>("ITG2");
   const [year, setYear] = useState<undefined | string>(undefined);
@@ -100,30 +102,43 @@ In the [Statistiche](./pages/statistiche.tsx) file you can find the same hooks a
 [Index.ts](api/index.ts)
 
 ```ts
-export const annualApi = () => {} // to fetch statistics annual data
-export const annualApiForecast = () => {} // to fetch forecasts annual data
-export const monthlyApi = () => {} // to fetch statistics monthly data
-export const monthlyApiForecast = () => {} // to fetch forecasts monthly data
+export const annualApi = () => {}
+/* This function, annualApi, is an asynchronous function that makes a fetch request to a specified API endpoint to retrieve annual data, takes five parameters: originID, destinationID, typeID, startYear and endYear and returns mapped data. */
+
+export const annualApiForecast = () => {}
+/* This code exports a function called "annualApiForecast" that takes in five parameters: "originID", "destinationID", "typeID", "startYear", and "endYear". The function uses the Fetch API to make a GET request to a specified URL with the provided parameters included in the URL. The response is then parsed as JSON and mapped to a new object called "mappedData" with properties "labels" and "data" before being returned. The optional parameters "startYear" and "endYear" are included in the URL as query parameters if they are provided. */
+
+export const monthlyApi = () => {}
+/* This code exports a function that makes GET request with provided parameters and returns mapped object with "labels" and "data" properties, "startDate" and "endDate" are optional in the url, it parses response as JSON and maps it to "mappedData" object. "labels" are populated with month and year obtained by using "toLocaleString" method on date of each element in response.*/
+
+export const monthlyApiForecast = () => {}
+/* This code exports a function that makes a GET request with provided parameters and returns a mapped object with "labels" and "data" properties, "startDate" and "endDate" are optional parameters in the url and it's calling forecasted data. */
 ```
-
-[BarChart.tsx](./components/BarChart.tsx)
-
-```ts
-export const BarChart = () => {} // to configure the graph 
-```
-
 [Navbar.tsx](./components/Navbar.tsx)
 
 ```ts
-const handleNav = () => {} // to handle the closing and opening of the navbar
+const handleNav = () => {}
+/* This code defines a function that toggles a boolean value by using the setNav function and passing the opposite of current state of nav as argument. */
 ```
 
 [previsioni.tsx](./pages/previsioni.tsx)
 
 ```ts
-const handleSidebar = () => {} // to handle the closing and opening of the filter sidebar
-const handleSaveFilters = () => {} // to save the filters selected
+const handleSidebar = () => {}
+/* This code defines a function that toggles a boolean value by using the setSide function and passing the opposite of current state of side as argument. */
+
+const handleSaveFilters = () => {} 
+/* This function, handleSaveFilters, handles the saving of filters for a tourism data application. It takes in several parameters such as nationality, province, year, firstSelectMonth, firstSelectYear, secondSelectMonth, secondSelectYear, yearStartRange, and yearEndRange. It sets the corresponding state variables and then checks which filter options have been selected and makes API calls accordingly. It also calls the handleSidebar function at the end. */
 ```
+
+---
+
+## Components
+
+- [BarChart.tsx](./components/BarChart.tsx)  -> To customize the chart and set data
+- [Navbar.tsx](./components//Navbar.tsx) -> To handle the navbar
+- [Footer.tsx](./components/Footer.tsx) -> Footer
+- [Sidebar.tsx](./components/Sidebar.tsx) -> To handle the filter sidebar
 
 ---
 
@@ -140,8 +155,8 @@ Browser Compatibility:
 
 ## **Contacts**
 >- federico.stroppiana@edu.itspiemonte.it
->- joele.melchiorre@edu.itspiemonte.it
 >- giampietro.piras@edu.itspiemonte.it
+>- joele.melchiorre@edu.itspiemonte.it
 >- sebastiano.demichelis@edu.itspiemonte.it
 
 ---
@@ -149,8 +164,8 @@ Browser Compatibility:
 ## **Authors**     
 
 - Federico Stroppiana 
-- Joele Melchiorre 
 - Giampietro Piras
+- Joele Melchiorre 
 - Sebastiano Demichelis 
 
 ---

@@ -104,6 +104,7 @@ const statistiche = () => {
       });
     }
 
+
     handleSidebar();
   };
 

@@ -23,7 +23,7 @@ const Navbar = (props: { page: string }) => {
         }
       >
         <div
-          className={`fixed overflow-y-scroll  top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 ${nav ? "left-0" : "left-[-100%]"
+          className={`fixed overflow-y-scroll top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 ${nav ? "left-0" : "left-[-100%]"
             }`}
         >
           <div>

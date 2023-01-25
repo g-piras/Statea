@@ -232,7 +232,7 @@ const Sidebar = (props: {
                   Periodo
                 </a>
                 <div
-                  className="tooltip tooltip-top ml-2"
+                  className="tooltip tooltip-top"
                   data-tip="Nota: Puoi selezionare una sola voce per volta"
                 >
                   <button type="button" name="btn" className="w-[44px] h-[44px] flex justify-center items-center relative top-[5px]">
@@ -348,7 +348,7 @@ const Sidebar = (props: {
                   <div className="inline mr-1">Paese di provenienza</div>
                 </label>
                 <div
-                  className="tooltip tooltip-top ml-3 relative top-[3px]"
+                  className="tooltip tooltip-top relative top-[3px]"
                   data-tip="Nota: Tutte la nazionalità sono disponibili solo selezionando
                 il range di anni"
                 >
@@ -424,7 +424,7 @@ const Sidebar = (props: {
                   <div className="inline mr-1">Provincia</div>
                 </label>
                 <div
-                  className="tooltip tooltip-top ml-3 relative top-[3px]"
+                  className="tooltip tooltip-top relative top-[3px]"
                   data-tip="Nota: Le province (Olbia-Tempio, Ogliastra, Medio Campidano, Carbonia-Iglesias) non sono disponibili per anni successivi al 2016"
                 >
                   <button type="button" name="btn" className="w-[44px] h-[44px] flex justify-center items-center">

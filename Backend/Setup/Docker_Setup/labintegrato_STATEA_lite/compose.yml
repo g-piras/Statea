@@ -1,0 +1,65 @@
+services:
+
+  pma:
+    image: phpmyadmin:5.2.0-apache
+    platform: linux/amd64
+    hostname: pma
+    ports:
+      - "127.0.0.1:9981:80"
+    networks:
+      - backend
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
+      - UPLOAD_LIMIT=10M
+    restart: always
+    depends_on:
+      - db
+    
+  webserver:
+    image: statea/webserver
+    platform: linux/amd64
+    build: ./webserver/
+    hostname: webserver
+    ports:
+      - "9980:8080"
+    networks:
+      - frontend
+      - backend
+    environment:
+      - TZ=Europe/Rome
+    restart: always
+    depends_on:
+      - db
+
+  frontend:
+    image: statea/frontend
+    platform: linux/amd64
+    build: ./frontend/
+    hostname: frontend
+    ports:
+      - "9930:9930"
+    networks:
+      - frontend
+    restart: always
+    depends_on:
+      - webserver
+
+  db:
+    image: mariadb:jammy
+    platform: linux/amd64
+    hostname: db
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend
+    environment:
+      - MARIADB_ROOT_PASSWORD=test
+    restart: always
+
+volumes:
+  db-data:
+
+networks:
+  frontend: {}
+  backend: {}

@@ -12,7 +12,6 @@ const statistiche = () => {
   const [years, setYears] = useState<string[]>([]);
   const [nationality, setNationality] = useState<string>("WORLD");
   const [province, setProvince] = useState<string>("ITG2");
-  const [year, setYear] = useState<undefined | string>(undefined);
   const [firstSelectMonth, setFirstSelectMonth] = useState<undefined | string>(undefined);
   const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>(undefined);
   const [secondSelectMonth, setSecondSelectMonth] = useState<undefined | string>(undefined);
@@ -34,7 +33,6 @@ const statistiche = () => {
   const handleSaveFilters = (
     nationality: string,
     province: string,
-    year?: string,
     firstSelectMonth?: string,
     firstSelectYear?: string,
     secondSelectMonth?: string,
@@ -44,20 +42,12 @@ const statistiche = () => {
   ) => {
     setNationality(nationality);
     setProvince(province);
-    setYear(year);
     setFirstSelectMonth(firstSelectMonth);
     setFirstSelectYear(firstSelectYear);
     setSecondSelectMonth(secondSelectMonth);
     setSecondSelectYear(secondSelectYear);
     setYearStartRange(yearStartRange);
     setYearEndRange(yearEndRange);
-
-    if (year) {
-      monthlyApi(nationality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
-        setTouristsNumber(res.data);
-        setYears(res.labels);
-      });
-    }
 
     if (firstSelectMonth && firstSelectYear && secondSelectMonth && secondSelectYear) {
       let startDate = firstSelectYear + "-" + firstSelectMonth + "-01";
@@ -71,8 +61,7 @@ const statistiche = () => {
         const temp = startDate;
         startDate = endDate;
         endDate = temp;
-      }
-      else {
+      } else {
         setFirstSelectMonth(firstSelectMonth);
         setFirstSelectYear(firstSelectYear);
         setSecondSelectMonth(secondSelectMonth);
@@ -92,8 +81,7 @@ const statistiche = () => {
         const temp = yearStartRange;
         yearStartRange = yearEndRange;
         yearEndRange = temp;
-      }
-      else {
+      } else {
         setYearStartRange(yearStartRange);
         setYearEndRange(yearEndRange);
       }
@@ -104,7 +92,6 @@ const statistiche = () => {
       });
     }
 
-
     handleSidebar();
   };
 
@@ -113,7 +100,10 @@ const statistiche = () => {
       <Head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-        <meta name="description" content="Con Touristats puoi analizzare il flusso dei turisti in Sardegna grazie a statistiche e previsioni" />
+        <meta
+          name="description"
+          content="Con Touristats puoi analizzare il flusso dei turisti in Sardegna grazie a statistiche e previsioni"
+        />
         <link rel="icon" href="/assets/touristats-logo.jpg" />
         <title>Statistiche - TouriStats</title>
       </Head>
@@ -152,23 +142,38 @@ const statistiche = () => {
               {yearStartRange} - {yearEndRange}
             </div>
           )}
-          {firstSelectMonth &&
-            secondSelectMonth &&
-            secondSelectYear &&
-            firstSelectYear && (
-              <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-60 font-semibold">
-                {firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}
-              </div>
-            )}
+          {firstSelectMonth && secondSelectMonth && secondSelectYear && firstSelectYear && (
+            <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-60 font-semibold">
+              {firstSelectMonth}/{firstSelectYear} - {secondSelectMonth}/{secondSelectYear}
+            </div>
+          )}
           <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-60 font-semibold">
-            {nationality === "WORLD" ? "Tutte le nazionalità" : nationality === "WRL_X_ITA" ? "Paesi esteri" : nationality}
+            {nationality === "WORLD"
+              ? "Tutte le nazionalità"
+              : nationality === "WRL_X_ITA"
+              ? "Paesi esteri"
+              : nationality}
           </div>
           <div className="badge bg-[#284697] border-none rounded-sm uppercase p-3 bg-opacity-60 font-semibold">
-            {province === "ITG2" ? "Tutte le province" : province === "ITG25" ? "Sassari" : province === "ITG26" ? "Nuoro" :
-              province === "ITG27" ? "Cagliari" : province === "ITG28" ? "Oristano" : province === "ITG29" ? "Olbia-Tempio" :
-                province === "ITG2A" ? "Ogliastra" : province === "ITG2B" ? "Medio Campidano" : province === "ITG2C" ? "Carbonia-Iglesias"
-                  : province === "IT111" && "Sud Sardegna"
-            }
+            {province === "ITG2"
+              ? "Tutte le province"
+              : province === "ITG25"
+              ? "Sassari"
+              : province === "ITG26"
+              ? "Nuoro"
+              : province === "ITG27"
+              ? "Cagliari"
+              : province === "ITG28"
+              ? "Oristano"
+              : province === "ITG29"
+              ? "Olbia-Tempio"
+              : province === "ITG2A"
+              ? "Ogliastra"
+              : province === "ITG2B"
+              ? "Medio Campidano"
+              : province === "ITG2C"
+              ? "Carbonia-Iglesias"
+              : province === "IT111" && "Sud Sardegna"}
           </div>
         </div>
 

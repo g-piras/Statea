@@ -51,9 +51,15 @@ This is a project build with Next.js, a framework for building server-rendered R
    ```
    npm run dev
    ```
-To run the test suite, use the following command:
+
+To use the api services you have to change the base url in the first line of the file [index.ts](./api/index.ts) from
+
+```ts
+const BASE_URL = "http://localhost:9980/v1";
 ```
-npm run test
+to
+```ts
+const BASE_URL = "http://18.102.24.178:9980/v1";
 ```
 
 ---

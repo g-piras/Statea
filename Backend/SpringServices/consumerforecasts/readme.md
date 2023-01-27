@@ -11,8 +11,8 @@ Its main goal is to read prediction records from a Kafka queue and store them in
 
 # How to package
 
-1) Execute the command ```./mvnw clean package``` 
-2) The .jar file will be in the ```target``` folder
+1) Execute the command `./mvnw clean package` 
+2) The .jar file will be in the `target` folder
 
 # Project Structure
 

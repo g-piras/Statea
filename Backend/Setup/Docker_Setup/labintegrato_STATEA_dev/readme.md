@@ -6,33 +6,33 @@ Docker setup for Back-End development
 
 Firstly:
 
-1) Execute ```docker build -t stateadev/myubuntu ./myubuntu``` to build MyUbuntu image
-2) Execute ```docker compose -p stateadev up -d``` to run Docker
+1) Execute `docker build -t stateadev/myubuntu ./myubuntu` to build MyUbuntu image
+2) Execute `docker compose -p stateadev up -d` to run Docker
 
 Only the first time:
 
-3) Go to ```localhost:9983```
-4) Log into phpMyAdmin with user ```root``` and password ```test```
+3) Go to `localhost:9983`
+4) Log into phpMyAdmin with user `root` and password `test`
 5) Import the [DB dump](../../../stateadb_dump.sql)
 
 Finally:
 
-6) Access a container with VSCode ([guide here](https://code.visualstudio.com/docs/devcontainers/containers)) and execute the command ```cd /home/spring``` inside the container
-7) Clone the repository with the ```git clone``` command
-8) Move to the [service folder](../../../SpringServices) for the specific container with the ```cd``` command
+6) Access a container with VSCode ([guide here](https://code.visualstudio.com/docs/devcontainers/containers)) and execute the command `cd /home/spring` inside the container
+7) Clone the repository with the `git clone` command
+8) Move to the [service folder](../../../SpringServices) for the specific container with the `cd` command
 9) If necessary install the following VSCode extensions: [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) and [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=pivotal.vscode-boot-dev-pack)
 10) Run the Spring service 
 
 Notes:
 
- - PhpMyAdmin: ```localhost:9983```
- - Webserver: ```localhost:9982```
- - MariaDB: ```localhost:9906```
- - FinTech: ```localhost:9950```
+ - PhpMyAdmin: `localhost:9983`
+ - Webserver: `localhost:9982`
+ - MariaDB: `localhost:9906`
+ - FinTech: `localhost:9950`
 
 # Warning
 
-Docker volumes ```stateadev_kafka-data``` and ```stateadev_zookeeper-data``` work in pair.
+Docker volumes `stateadev_kafka-data` and `stateadev_zookeeper-data` work in pair.
 Hence you either delete both or none of them.
 
 # Contents

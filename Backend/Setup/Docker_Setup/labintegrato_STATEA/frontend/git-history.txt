@@ -1,0 +1,163 @@
+* cf34254 [clean] clean code
+* 575756f update readme
+* 036ab56 update readme frontend
+*   a42fd71 Merge branch 'develop' into FinTech
+|\  
+| *   ffff775 Merge branch 'emiEdu' into giampietro
+| |\  
+| | *   605cd26 Merge branch 'emiEdu' of https://github.com/KelosDev/Statea into emiEdu
+| | |\  
+| | * \   eb6be09 Merge branch 'develop' into emiEdu
+| | |\ \  
+| * | \ \   dda13b4 Merge branch 'main' into giampietro
+| |\ \ \ \  
+| | * | | | 803fc36 Create LICENSE
+| * | | | |   72dfe30 Merge branch 'develop' into giampietro
+| |\ \ \ \ \  
+| | | |_|/ /  
+| | |/| | |   
+| | * | | | cb509e9 general readme
+| | * | | | 8989db3 start readme
+| | * | | | b919636 [fix] readme removed
+| | * | | | 2357e57 [style] remove tooltip margin
+| | * | | | 11cf2f1 [fix] controlled select
+| | * | | | 90010ed [fix] fixed navbar scroll in landscape mobile view
+| | * | | | 376084c [fix] fixed navbar scroll in landscape mobile view
+| | * | | | 7c8be98 [fix] select bugfix
+| | * | | | 970711d [fix] bugfix
+| * | | | | d81c56d branch stabile
+| |/ / / /  
+| * | | | fb9b7cc [feat] new forecasts
+| * | | | 880e090 [feat] new forecasts
+| * | | | 994486f [feat] fetch previsioni ok
+| * | | | 0ecd86d [style] infoicons styled
+| * | | | c89940c [feat] modified sidebar for new province
+| * | | | be6bcc5 [style] bugstyle
+| * | | | 64cfa55 [fix] errata corrige
+| * | | | 0f7fd0a [style] more style
+| * | | | a0bb70b [style] style on buttons, badges, footer, pages
+| * | | | 4dba133 [style] justified text hom
+| * | | | 0a8b9f9 [fix] bugfix
+| * | | | 2e2df34 [update] update photos in about page
+| * | | | 9412ced code to uncomment for the filter to work on the forecast page
+| * | | | aaa45ac [view] code comments for mobile deploy
+| * | | | 2c8d15d [fix] fixed mobile view
+| * | | |   d124e09 Merge branch 'previsioni' of https://github.com/KelosDev/Statea into previsioni
+| |\ \ \ \  
+| | * | | | cc1cb2c Delete mykey
+| * | | | | 401905c [feat] sidebar-V2 with controls for previsioni page, added content e controls to previsioni page
+| * | | | | ef7e5fc starting previsioni page api
+| * | | | | 87c369f [feat] added info labels
+| * | | | | 8f9e5f5 [feat] remove some options from years filters
+| * | | | | 7d07df8 [fix] bugfix
+| * | | | | 2242883  [fix] fixed seo, I know. OK
+| * | | | | a2ef89c  [fix] fixed Head tags
+| * | | | | 75433fd [fix] seo ok
+| * | | | | f403d06 [fix] bugfix
+| * | | | | f8cd58b [feat] added seo tags
+| * | | | | f4cc499 [fix] file next-config
+| * | | | | 0db57c7 trying webpack compression
+| * | | | |   7b64f13 [fix] resolving merging problems
+| |\ \ \ \ \  
+| | * | | | | 57142d1 Co-authored-by: FedericoStroppiana <FedericoStroppiana@users.noreply.github.com>
+| | * | | | | 97815c7 [fix] inverted years and month labels in graphic
+| * | | | | | 22a9c5c [style] fix graphics bugs
+| |/ / / / /  
+| * | | | | 963b519 [fix] bugfix
+| * | | | | e5bb2f6 [fix] various bug fix
+| * | | | | fca48ec  [feat] starting legends on top of the graphics
+| * | | | | e4fd0d1 [fix] fixed data nationality
+* | | | | | 14c3a5b add FinTech
+| |_|/ / /  
+|/| | | |   
+| | | | | * 80c95cb mvnw permissions changed
+| | | | | * 07d7c3f mvnw permissions changed
+| | | | | * 1388307 mvnw permissions changed
+| | | | |/  
+| | | | * e8ff988 [feature] Apple Chip support for Docker
+| | | | * 1a9bce8 updated backend
+| | | |/  
+| | | * 6be2670 Backend folder added
+| |_|/  
+|/| |   
+| | | * dbdd593 Delete mykey
+| | |/  
+| |/|   
+| * | 907c2a2  [fix] fixed: footer, sidebar, about page
+| * | 3def5f8 [style] add tabs in sidebar
+| * | 6a5c382 [feat] added info-icon in navbar, now checkbox works correctly in sidebar
+| * | dee9f22 [feat] checkbox in sidebar (ci sono riuscito)
+| * | 8483372 [feat] checkbox in sidebar (ci ho provato...)
+| * | 62f6fd8 [fix] various bug fix
+| * | 949ab84 [feat] added link to HomePage at image logo
+| * | 32dbe8c [fix] style, info button
+| * | 5c4fa32 [fix] modified rotation and about
+| * | 5a0e377 [feat] added footer
+| | | * 7f4262a Delete mykey
+| | |/  
+| |/|   
+| * | a2b1739 [fix] removed redux, fixed various sidebar problems
+| |/  
+| * 66069ac [feat] added sidebar in previsioni page using props
+| * a276b66 [feat] starting previsioni page
+| * 2c0d567 [fix] fixed margin-bottom sidebar mobile view
+| * 5c8169b [fix] fixed if startYear < endYear on statistic page
+| * e665861 [fix] hide selects
+| *   5e94ec5 Merge branch 'develop' into federico
+| |\  
+| | * 38a0636 [fix] order joele div
+| * | 78c5bbc [feat] added year range linked with chart
+| * | 6849cc6 Merge branch 'develop' into federico
+| |\| 
+| | * 55145a1 [feat] add photo teammates on about page
+| | * 653a0d0 [fix] team leader icon was not at the top in mobile view
+| | * 4c571fa [feat] added statea description
+| | * 2d1e7a2 [feat] new page about
+| * | d570b19 [fix] removed next export from build
+| |/  
+| * c44a74f [feat] selects linked with api and charts
+| * 0b913c5 [feat] progress filters api
+| * ad2604b [feat] datapicker
+| * e934004 [fix] sidebar height fixed for mobile and desktop view
+| * c47f5f9 [fix] fixed button Link index.tsx
+| * 08a0cb4 [feat] added period selects
+| * 5f8f930 [fix] fetch url bugfix
+| * d454669 [feat] added annual api linked with filter selects
+| * 66c923d [fix] added docker config
+| * 84fc46f starting api
+| * 6f59918 [fix] bugfix
+| * 3bd4656 [feat] handle filter values
+| * 9643dc4 [feat] added redux for navbar & sidebar state
+| * da4662f [feat] add mobile sidebar
+| *   874e3aa Merge branch 'sidebar' into federico
+| |\  
+| | * 5d3372f [feat] aggiunte select alla sidebar
+| | * 4325077 first sidebar
+| * | 9bc9fe7 [feat] added footer component
+| |/  
+| * b83f436 [style] stile titoli pagine
+| *   0aa9bd0 [fix] merging problems resolved
+| |\  
+| | * c99a581 [fix]modificati i link dei bottoni nella homepage
+| | * ee62335 [feat] nuova pagina about
+| | * 3e761c7 [fix] link navbar mobile
+| * | bd30ce3 [feat] added borders to navbar links
+| |/  
+| * 2fdba93 aggiunti tutti i mesi dell'anno ai grafici
+| * fad2c44 [fix] grafici ora sono responsive
+| * 9b267ad [feat] aggiunte rotte al click dei bottoni nella homepage
+| * cdb8560 [Feat] aggiunte rotte pagine stats, previsioni. [Fix] errata corrige main.ts
+| * f446184 added example charts
+| *   b735b45 resolve merging problems
+| |\  
+| * | ac09c0c [style] homepage
+| * | df67cbe [feat] starting home
+| | | * d8c84f7 added fonts to fix
+| | |/  
+| | * f6b134e navbar bugfix
+| |/  
+| * 297aabf [fix] logo update
+| * 13d4ae4 aggiunto file di prova
+| * 9eaa578 update navbar
+|/  
+* feecce6 first commit

@@ -86,23 +86,6 @@ export const monthlyApi = async (
     data.map((el: any) => {
       mappedData.data.push(el.observation);
 
-      // if (data.length <= 12) {
-      //   const monthDate = new Date(el.date);
-      //   const monthString =
-      //     monthDate
-      //       .toLocaleString("it-IT", {
-      //         month: "short",
-      //       })
-      //       .charAt(0)
-      //       .toUpperCase() +
-      //     monthDate
-      //       .toLocaleString("it-IT", {
-      //         month: "short",
-      //       })
-      //       .slice(1);
-      //   mappedData.labels.push(monthString);
-      // }
-
       const monthDate = new Date(el.date);
       const monthString = monthDate.toLocaleString("it-IT", {
         month: "numeric",
@@ -136,23 +119,6 @@ export const monthlyApiForecast = async (
   if (Array.isArray(data))
     data.map((el: any) => {
       mappedData.data.push(el.observation);
-
-      // if (data.length <= 12) {
-      //   const monthDate = new Date(el.date);
-      //   const monthString =
-      //     monthDate
-      //       .toLocaleString("it-IT", {
-      //         month: "short",
-      //       })
-      //       .charAt(0)
-      //       .toUpperCase() +
-      //     monthDate
-      //       .toLocaleString("it-IT", {
-      //         month: "short",
-      //       })
-      //       .slice(1);
-      //   mappedData.labels.push(monthString);
-      // }
 
       const monthDate = new Date(el.date);
       const monthString = monthDate.toLocaleString("it-IT", {

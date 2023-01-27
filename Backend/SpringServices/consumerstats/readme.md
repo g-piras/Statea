@@ -11,8 +11,8 @@ Its main goal is to read statistical records from a Kafka queue and store them i
 
 # How to package
 
-1) Execute the command ```./mvnw clean package``` 
-2) The .jar file will be in the ```target``` folder
+1) Execute the command `./mvnw clean package` 
+2) The .jar file will be in the `target` folder
 
 # Project Structure
 

@@ -21,7 +21,7 @@ Main DB entities. [^1]
 
 [^2]: <em>isAggregate</em> determines whether it is a District (false) or the whole Region (true) 
 
-[^3]: it is actually a view whose purpose is to normalize Istat data. Instead of relying on stored data, ```WORLD``` records are computed in order to move up the start date from ```2016-01-01``` to ```2008-01-01```
+[^3]: it is actually a view whose purpose is to normalize Istat data. Instead of relying on stored data, `WORLD` records are computed in order to move up the start date from `2016-01-01` to `2008-01-01`
 
 [^4]: <em>isAggregate</em> determines whether it is a Country (false) or a Group of countries (true) 
 

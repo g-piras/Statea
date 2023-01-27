@@ -12,24 +12,24 @@ Firstly:
 
 When the .jar file is in place:
 
-3) Execute ```docker compose build``` to build the Docker images
-4) Execute ```docker compose -p statea up -d``` to run Docker
+3) Execute `docker compose build` to build the Docker images
+4) Execute `docker compose -p statea up -d` to run Docker
 
 Only the first time:
 
-5) Go to ```localhost:9981```
-6) Log into phpMyAdmin with user ```root``` and password ```test```
+5) Go to `localhost:9981`
+6) Log into phpMyAdmin with user `root` and password `test`
 7) Import the [DB dump](../../../stateadb_dump.sql)
 
 Finally:
 
-8) Go to ```localhost:9930``` to access the website
+8) Go to `localhost:9930` to access the website
         
 Notes:
 
- - PhpMyAdmin: ```localhost:9981```
- - Webserver: ```0.0.0.0:9980```
- - Frontend: ```0.0.0.0:9930```
+ - PhpMyAdmin: `localhost:9981`
+ - Webserver: `0.0.0.0:9980`
+ - Frontend: `0.0.0.0:9930`
 
 # Contents
 

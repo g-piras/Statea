@@ -3,7 +3,6 @@ import Link from "next/link";
 import BarChart from "../components/BarChart";
 import { Footer } from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { labels, data } from "../components/BarChart";
 import { useEffect, useState } from "react";
 import { monthlyApi, monthlyApiForecast } from "../api";
 

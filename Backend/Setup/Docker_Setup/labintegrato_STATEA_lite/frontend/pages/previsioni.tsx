@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import BarChart from "../components/BarChart";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import { labels, data } from "../components/BarChart";
 import { Footer } from "../components/Footer";
 import Head from "next/head";
 import { annualApiForecast, monthlyApiForecast } from "../api";
@@ -13,7 +12,6 @@ const previsioni = () => {
   const [years, setYears] = useState<string[]>([]);
   const [nationality, setNationality] = useState<string>("WORLD");
   const [province, setProvince] = useState<string>("ITG2");
-  const [year, setYear] = useState<undefined | string>(undefined);
   const [firstSelectMonth, setFirstSelectMonth] = useState<undefined | string>(undefined);
   const [firstSelectYear, setFirstSelectYear] = useState<undefined | string>(undefined);
   const [secondSelectMonth, setSecondSelectMonth] = useState<undefined | string>(undefined);
@@ -35,7 +33,6 @@ const previsioni = () => {
   const handleSaveFilters = (
     nationality: string,
     province: string,
-    year?: string,
     firstSelectMonth?: string,
     firstSelectYear?: string,
     secondSelectMonth?: string,
@@ -45,20 +42,12 @@ const previsioni = () => {
   ) => {
     setNationality(nationality);
     setProvince(province);
-    setYear(year);
     setFirstSelectMonth(firstSelectMonth);
     setFirstSelectYear(firstSelectYear);
     setSecondSelectMonth(secondSelectMonth);
     setSecondSelectYear(secondSelectYear);
     setYearStartRange(yearStartRange);
     setYearEndRange(yearEndRange);
-
-    if (year) {
-      monthlyApiForecast(nationality, province, "AR", year + "-01-01", year + "-12-01").then((res) => {
-        setTouristsNumber(res.data);
-        setYears(res.labels);
-      });
-    }
 
     if (firstSelectMonth && firstSelectYear && secondSelectMonth && secondSelectYear) {
       let startDate = firstSelectYear + "-" + firstSelectMonth + "-01";

@@ -10,12 +10,12 @@ Main dependencies:
 
 This application exposes DB data through a REST API. [^1]
 
-You can find more details about the API on [swagger](https://app.swaggerhub.com/apis/emilio.gasbarro/touristats/v1). 
+You can find more details about the API on [swaggerhub](https://app.swaggerhub.com/apis/emilio.gasbarro/touristats/v1) or on the local [html file](./swagger_docs.html).
 
 # How to package
 
-1) Execute the command ```./mvnw clean package``` 
-2) The .jar file will be in the ```target``` folder
+1) Execute the command `./mvnw clean package` 
+2) The .jar file will be in the `target` folder
 
 # Project Structure
 

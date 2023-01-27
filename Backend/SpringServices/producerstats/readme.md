@@ -10,8 +10,8 @@ Its main goal is to fetch new data from the Istat API on a scheduled basis and s
 
 # How to package
 
-1) Execute the command ```./mvnw clean package``` 
-2) The .jar file will be in the ```target``` folder
+1) Execute the command `./mvnw clean package` 
+2) The .jar file will be in the `target` folder
 
 # Project Structure
 

@@ -8,7 +8,6 @@ const Sidebar = (props: {
   handleSaveFilters: (
     nazionality: string,
     province: string,
-    year?: string,
     firstSelectMonth?: string,
     firstSelectYear?: string,
     secondSelectMonth?: string,
@@ -18,7 +17,6 @@ const Sidebar = (props: {
   ) => void;
 }) => {
 
-  const [yearDisabled, setYearDisabled] = useState(true);
   const [periodDisabled, setPeriodDisabled] = useState(true);
   const [yearRangeDisabled, setYearRangeDisabled] = useState(false);
   const [selected, setSelected] = useState("first");
@@ -137,18 +135,10 @@ const Sidebar = (props: {
 
   const handleOnSubmit = (e: any) => {
     e.preventDefault();
-    if (yearDisabled === false) {
-      props.handleSaveFilters(
-        e.target.nationality.value,
-        e.target.province.value,
-        e.target.year.value
-      );
-    }
     if (periodDisabled === false) {
       props.handleSaveFilters(
         e.target.nationality.value,
         e.target.province.value,
-        undefined,
         e.target.firstSelectMonth.value,
         e.target.firstSelectYear.value,
         e.target.secondSelectMonth.value,
@@ -163,7 +153,6 @@ const Sidebar = (props: {
         undefined,
         undefined,
         undefined,
-        undefined,
         e.target.yearStartRange.value,
         e.target.yearEndRange.value
       );
@@ -174,13 +163,11 @@ const Sidebar = (props: {
     if (tab === "first") {
       setSelected("first");
       setYearRangeDisabled(false);
-      setYearDisabled(true);
       setPeriodDisabled(true);
     }
     if (tab === "second") {
       setSelected("second");
       setYearRangeDisabled(true);
-      setYearDisabled(true);
       setPeriodDisabled(false);
     }
   };
@@ -365,7 +352,7 @@ const Sidebar = (props: {
                 <option value="WORLD">Tutte le nazionalità</option>
                 <option value="WRL_X_ITA">Tutti - Italia esclusa -</option>
                 <option value="IT">Italia</option>
-                {yearDisabled && periodDisabled ? (
+                {periodDisabled && (
                   <>
                     <option value="AR">Argentina</option>
                     <option value="AT">Austria</option>
@@ -414,8 +401,6 @@ const Sidebar = (props: {
                     <option value="HU">Ungheria</option>
                     <option value="VE">Venezuela</option>
                   </>
-                ) : (
-                  ""
                 )}
               </select>
 
